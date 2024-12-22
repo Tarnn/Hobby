@@ -24,7 +24,7 @@ function App(props) {
             <Routes>
               {/* <Route path="/" element={<Home />} /> */}
               <Route path="/" element={<HomeMain />} />
-              <Route path="/about" element={<About />} />
+              {/* <Route path="/about" element={<About />} /> */}
               <Route path="/signup" element={<SignUp />} />
               <Route path="/signin" element={<SignInSide />} />
 

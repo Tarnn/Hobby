@@ -13,7 +13,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import Sitemark from "./Icons/SitemarkIcon";
 import ColorModeIconDropdown from "../theme/ColorModeIconDropdown";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   display: "flex",
@@ -32,6 +32,7 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
 export default function AppAppBar() {
   const [open, setOpen] = React.useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
@@ -55,22 +56,24 @@ export default function AppAppBar() {
           >
             <Sitemark />
             <Box sx={{ display: { xs: "none", md: "flex" } }}>
-              <Button
-                variant="text"
-                color="info"
-                size="small"
-                onClick={() => navigate("/")}
-              >
-                Home
-              </Button>
-              <Button
+              {location.pathname !== "/" && (
+                <Button
+                  variant="text"
+                  color="info"
+                  size="small"
+                  onClick={() => navigate("/")}
+                >
+                  Home
+                </Button>
+              )}
+              {/* <Button
                 variant="text"
                 color="info"
                 size="small"
                 onClick={() => navigate("/about")}
               >
                 About
-              </Button>
+              </Button> */}
             </Box>
           </Box>
           <Box

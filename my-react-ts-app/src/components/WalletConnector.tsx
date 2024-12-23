@@ -7,8 +7,18 @@ import {
   WalletModalProvider,
   WalletMultiButton,
 } from "@solana/wallet-adapter-react-ui";
-import { PhantomWalletAdapter } from "@solana/wallet-adapter-wallets";
+import {
+  CoinbaseWalletAdapter,
+  KeystoneWalletAdapter,
+  LedgerWalletAdapter,
+  PhantomWalletAdapter,
+  TrezorWalletAdapter,
+} from "@solana/wallet-adapter-wallets";
 import { clusterApiUrl } from "@solana/web3.js";
+// Default styles that can be overridden by your app
+import "@solana/wallet-adapter-react-ui/styles.css";
+import Button from "@mui/material/Button";
+// import MetaMaskIcon from "./Icons/MetaMaskIcon";
 
 const WalletConnector: React.FC = () => {
   const [ethereum, setEthereum] = useState<any>(null);
@@ -23,35 +33,38 @@ const WalletConnector: React.FC = () => {
     }
   }, []);
 
-  // Connect to MetaMask
-  const connectMetaMask = async () => {
-    if (ethereum) {
-      try {
-        const accounts = await ethereum.request({
-          method: "eth_requestAccounts",
-        });
-        console.log("Connected with MetaMask:", accounts[0]);
-      } catch (error) {
-        console.error("Error connecting to MetaMask:", error);
-      }
-    } else {
-      console.log("Please install MetaMask");
-    }
-  };
+  // // Connect to MetaMask
+  // const connectMetaMask = async () => {
+  //   if (ethereum) {
+  //     try {
+  //       const accounts = await ethereum.request({
+  //         method: "eth_requestAccounts",
+  //       });
+  //       console.log("accounts: ", accounts);
+  //     } catch (error) {
+  //       console.error("Error connecting to MetaMask:", error);
+  //     }
+  //   } else {
+  //     console.log("Please install MetaMask");
+  //   }
+  // };
 
   // Solana Connection Setup
   const endpoint = clusterApiUrl("devnet");
-  const wallets = [new PhantomWalletAdapter()];
+  const wallets = [
+    new PhantomWalletAdapter(),
+    new CoinbaseWalletAdapter(),
+    new TrezorWalletAdapter(),
+    new LedgerWalletAdapter(),
+    new KeystoneWalletAdapter(),
+  ];
 
   return (
     <div>
       <ConnectionProvider endpoint={endpoint}>
         <WalletProvider wallets={wallets} autoConnect>
           <WalletModalProvider>
-            <div>
-              <button onClick={connectMetaMask}>Connect MetaMask</button>
-              <WalletMultiButton />
-            </div>
+            <WalletMultiButton />
           </WalletModalProvider>
         </WalletProvider>
       </ConnectionProvider>

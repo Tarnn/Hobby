@@ -12,7 +12,6 @@ import AppTheme from "./theme/AppTheme";
 import CssBaseline from "@mui/material/CssBaseline";
 import HomeMain from "./pages/HomeMain";
 import PrivateRoute from "./routes/PrivateRoute";
-// import { AuthProvider } from "./context/AuthContext";
 
 function App(props) {
   return (
@@ -20,7 +19,6 @@ function App(props) {
       <CssBaseline enableColorScheme />
       <Provider store={store}>
         <BrowserRouter>
-        {/* <AuthProvider> */}
           <NavigationProvider>
             <Navbar />
             <Routes>
@@ -28,12 +26,14 @@ function App(props) {
               {/* <Route path="/about" element={<About />} /> */}
               <Route path="/signup" element={<SignUp />} />
               <Route path="/signin" element={<SignInSide />} />
-              <Route path="/profile" element={<PrivateRoute element={<Profile />} />} />
+              <Route
+                path="/profile"
+                element={<PrivateRoute element={<Profile />} />}
+              />
               {/* Catch-all route for handling 404 */}
               <Route path="*" element={<NotFound />} />
             </Routes>
           </NavigationProvider>
-          {/* </AuthProvider> */}
         </BrowserRouter>
       </Provider>
     </AppTheme>

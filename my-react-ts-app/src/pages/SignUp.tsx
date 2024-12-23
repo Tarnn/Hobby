@@ -13,17 +13,12 @@ import MuiCard from "@mui/material/Card";
 import { styled } from "@mui/material/styles";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
 import { useForm, Controller } from "react-hook-form";
-import {
-  GoogleIcon,
-  FacebookIcon,
-  SitemarkIcon,
-} from "../components/Icons/CustomIcons";
+import { GoogleIcon, FacebookIcon } from "../components/Icons/CustomIcons";
 import { signUpGoogle, signUpFacebook } from "../api/AuthService";
 import { SOCIAL_PLATFORMS } from "../constants";
-// import { useAuth } from "../context/AuthContext";
 import { useDispatch } from "react-redux";
 import { signUpUser } from "../state/features/auth/AuthSlice";
-import { AppDispatch } from "../state/store"; // Import the AppDispatch type
+import { AppDispatch } from "../state/store";
 
 const Card = styled(MuiCard)(({ theme }) => ({
   display: "flex",
@@ -155,7 +150,6 @@ export default function SignUp() {
     <>
       <SignUpContainer direction="column" justifyContent="space-between">
         <Card variant="outlined">
-          <SitemarkIcon />
           <Typography
             component="h1"
             variant="h4"
@@ -234,7 +228,10 @@ export default function SignUp() {
                     value={value}
                     onChange={(e) => {
                       onChange(e);
-                      if (e.target.value.length < 1) {
+                      if (
+                        !e.target.value ||
+                        !/\S+@\S+\.\S+/.test(e.target.value)
+                      ) {
                         setEmailError(true);
                         setEmailErrorMessage("Email is required.");
                       } else {
@@ -278,9 +275,11 @@ export default function SignUp() {
                     value={value}
                     onChange={(e) => {
                       onChange(e);
-                      if (e.target.value.length < 1) {
+                      if (!e.target.value || e.target.value.length < 6) {
                         setPasswordError(true);
-                        setPasswordErrorMessage("Password is required.");
+                        setPasswordErrorMessage(
+                          "Password must be at least 6 characters long."
+                        );
                       } else {
                         setPasswordError(false);
                         setPasswordErrorMessage("");

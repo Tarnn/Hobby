@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next";
 import i18n from "../helpers/i18n";
 import WalletConnector from "../components/WalletConnector";
 import { fetchUser, User } from "../api/SomeService";
-import { increment, decrement } from "../state/features/counter/counterSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../state/store";
 
@@ -36,13 +35,6 @@ const Home: React.FC<HomeProps> = () => {
       <WalletConnector />
       <button onClick={() => i18n.changeLanguage("en")}>EN</button>
       <button onClick={() => i18n.changeLanguage("es")}>ES</button>
-
-      {/* Redux State content */}
-      <div>
-        <h1>State Counter: {count}</h1>
-        <button onClick={() => dispatch(increment())}>Increment</button>
-        <button onClick={() => dispatch(decrement())}>Decrement</button>
-      </div>
 
       {/* Axios/Local Proxy Api */}
       <div>

@@ -8,6 +8,7 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import "./helpers";
 import { StyledEngineProvider } from "@mui/material/styles";
+// Default styles that can be overridden by your app
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

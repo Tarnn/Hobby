@@ -17,7 +17,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { AuthInitialState, logOutUser } from "../state/features/auth/AuthSlice";
 import { AppDispatch } from "../state/store";
-// import { useAuth } from "../context/AuthContext";
+import WalletConnector from "./WalletConnector";
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   display: "flex",
@@ -48,10 +48,8 @@ export default function AppAppBar() {
   };
 
   async function handleLogout(): Promise<void> {
-    console.log("Logging out...");
     const resultAction = await dispatch(logOutUser());
     if (logOutUser.fulfilled.match(resultAction)) {
-      dispatch({type: "EDIT", payload: null});
       console.log("Logged");
       navigate("/");
     }
@@ -135,6 +133,7 @@ export default function AppAppBar() {
               </Button>
             )}
             <ColorModeIconDropdown />
+            {isAuthenticated && <WalletConnector />}
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" }, gap: 1 }}>
             <ColorModeIconDropdown size="medium" />

@@ -17,6 +17,16 @@ app.use('/api', proxy('https://freetestapi.com', {
   }
 }));
 
+app.post('/auth/logout', (req, res) => {
+  const userData = req.body;
+  // Here you can handle the userData, for example, authenticate the user
+  // For now, we'll just return the received data as a response
+  res.json({
+    message: 'Logged Out Successfully',
+    data: userData
+  });
+});
+
 // Proxy requests to the external API
 app.post('/auth/signin', (req, res) => {
   const userData = req.body;

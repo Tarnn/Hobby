@@ -1,6 +1,5 @@
 import "./styling/App.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import Home from "./pages/Home";
 import About from "./pages/About";
 import SignUp from "./pages/SignUp";
 import SignInSide from "./pages/SignIn";
@@ -12,6 +11,8 @@ import { store } from "./state/store";
 import AppTheme from "./theme/AppTheme";
 import CssBaseline from "@mui/material/CssBaseline";
 import HomeMain from "./pages/HomeMain";
+import PrivateRoute from "./routes/PrivateRoute";
+import { AuthProvider } from "./context/AuthContext";
 
 function App(props) {
   return (
@@ -19,19 +20,20 @@ function App(props) {
       <CssBaseline enableColorScheme />
       <Provider store={store}>
         <BrowserRouter>
+        <AuthProvider>
           <NavigationProvider>
             <Navbar />
             <Routes>
-              {/* <Route path="/" element={<Home />} /> */}
               <Route path="/" element={<HomeMain />} />
               {/* <Route path="/about" element={<About />} /> */}
               <Route path="/signup" element={<SignUp />} />
               <Route path="/signin" element={<SignInSide />} />
-
+              <Route path="/protected" element={<PrivateRoute element={<About />} />} />
               {/* Catch-all route for handling 404 */}
               <Route path="*" element={<NotFound />} />
             </Routes>
           </NavigationProvider>
+          </AuthProvider>
         </BrowserRouter>
       </Provider>
     </AppTheme>

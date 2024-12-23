@@ -127,21 +127,36 @@ export default function AppAppBar() {
                     <CloseRoundedIcon />
                   </IconButton>
                 </Box>
-
-                <MenuItem>Features</MenuItem>
-                <MenuItem>Testimonials</MenuItem>
-                <MenuItem>Highlights</MenuItem>
-                <MenuItem>Pricing</MenuItem>
-                <MenuItem>FAQ</MenuItem>
-                <MenuItem>Blog</MenuItem>
+                {location.pathname !== "/" && (
+                  <MenuItem>
+                    <Button
+                      variant="text"
+                      color="info"
+                      size="small"
+                      onClick={() => navigate("/")}
+                    >
+                      Home
+                    </Button>
+                  </MenuItem>
+                )}
                 <Divider sx={{ my: 3 }} />
                 <MenuItem>
-                  <Button color="primary" variant="contained" fullWidth>
+                  <Button
+                    color="primary"
+                    variant="contained"
+                    fullWidth
+                    onClick={() => navigate("/signup")}
+                  >
                     Sign up
                   </Button>
                 </MenuItem>
                 <MenuItem>
-                  <Button color="primary" variant="outlined" fullWidth>
+                  <Button
+                    color="primary"
+                    variant="outlined"
+                    fullWidth
+                    onClick={() => navigate("/signin")}
+                  >
                     Sign in
                   </Button>
                 </MenuItem>

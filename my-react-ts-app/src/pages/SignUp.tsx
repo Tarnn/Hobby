@@ -11,7 +11,7 @@ import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import MuiCard from "@mui/material/Card";
 import { styled } from "@mui/material/styles";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 import { useForm, Controller } from "react-hook-form";
 import {
   GoogleIcon,
@@ -20,6 +20,9 @@ import {
 } from "../components/Icons/CustomIcons";
 import { signUpGoogle, signUpFacebook, signUp } from "../api/AuthService";
 import { SOCIAL_PLATFORMS } from "../constants";
+import { useAuth } from "../context/AuthContext";
+import { useDispatch } from "react-redux";
+import { signUpUser } from "../state/features/auth/AuthSlice";
 
 const Card = styled(MuiCard)(({ theme }) => ({
   display: "flex",
@@ -67,6 +70,9 @@ export default function SignUp(props: { disableCustomTheme?: boolean }) {
   const [nameError, setNameError] = React.useState(false);
   const [nameErrorMessage, setNameErrorMessage] = React.useState("");
   const { control, handleSubmit, getValues } = useForm();
+  const { login, logout } = useAuth();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const validateInputs = () => {
     const email = document.getElementById("email") as HTMLInputElement;
@@ -115,8 +121,15 @@ export default function SignUp(props: { disableCustomTheme?: boolean }) {
       password: data.password,
     });
 
-    const responseData = await signUp(data);
-    console.log(responseData);
+    const signupRequest = {
+      ...data,
+    };
+
+    console.log("signupRequest", signupRequest);
+    const resultAction = await dispatch(signUpUser(signupRequest));
+    if (signUpUser.fulfilled.match(resultAction)) {
+      navigate("/protected");
+    }
   };
 
   async function onSubmitSocial(social: string) {
@@ -125,14 +138,17 @@ export default function SignUp(props: { disableCustomTheme?: boolean }) {
       email: "Jon@email.com",
     };
 
-    if(social === SOCIAL_PLATFORMS.facebook) {
+    if (social === SOCIAL_PLATFORMS.facebook) {
       const data = await signUpFacebook(userData);
       console.log(data);
-    } else if(social === SOCIAL_PLATFORMS.google) {
-    const data = await signUpGoogle(userData);
-    console.log(data);
+    } else if (social === SOCIAL_PLATFORMS.google) {
+      const data = await signUpGoogle(userData);
+      console.log(data);
+      if (data) {
+        login();
+      }
+    }
   }
-}
 
   return (
     <>

@@ -1,6 +1,7 @@
 // src/store.ts
 import { configureStore } from '@reduxjs/toolkit';
 import counterReducer from './features/counter/counterSlice';
+import authReducer from './features/auth/AuthSlice';
 
 export interface RootState {
   counter: ReturnType<typeof counterReducer>;
@@ -9,6 +10,7 @@ export interface RootState {
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
+    auth: authReducer,
   },
 });
 

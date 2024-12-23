@@ -14,6 +14,9 @@ import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import Sitemark from "./Icons/SitemarkIcon";
 import ColorModeIconDropdown from "../theme/ColorModeIconDropdown";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { AuthInitialState } from "../state/features/auth/AuthSlice";
+// import { useAuth } from "../context/AuthContext";
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   display: "flex",
@@ -33,6 +36,9 @@ export default function AppAppBar() {
   const [open, setOpen] = React.useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const isAuthenticated = useSelector(
+    (state: { auth: AuthInitialState }) => state.auth.isAuthenticated
+  );
 
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
@@ -66,14 +72,6 @@ export default function AppAppBar() {
                   Home
                 </Button>
               )}
-              {/* <Button
-                variant="text"
-                color="info"
-                size="small"
-                onClick={() => navigate("/about")}
-              >
-                About
-              </Button> */}
             </Box>
           </Box>
           <Box
@@ -83,22 +81,36 @@ export default function AppAppBar() {
               alignItems: "center",
             }}
           >
-            <Button
-              color="primary"
-              variant="text"
-              size="small"
-              onClick={() => navigate("/signin")}
-            >
-              Sign in
-            </Button>
-            <Button
-              color="primary"
-              variant="contained"
-              size="small"
-              onClick={() => navigate("/signup")}
-            >
-              Sign up
-            </Button>
+            {isAuthenticated && (
+              <Button
+                color="primary"
+                variant="text"
+                size="small"
+                onClick={() => navigate("/profile")}
+              >
+                Profile
+              </Button>
+            )}
+            {!isAuthenticated && (
+              <Button
+                color="primary"
+                variant="text"
+                size="small"
+                onClick={() => navigate("/signin")}
+              >
+                Sign in
+              </Button>
+            )}
+            {!isAuthenticated && location.pathname !== "/signup" && (
+              <Button
+                color="primary"
+                variant="contained"
+                size="small"
+                onClick={() => navigate("/signup")}
+              >
+                Sign Up
+              </Button>
+            )}
             <ColorModeIconDropdown />
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" }, gap: 1 }}>
@@ -140,16 +152,19 @@ export default function AppAppBar() {
                   </MenuItem>
                 )}
                 <Divider sx={{ my: 3 }} />
-                <MenuItem>
-                  <Button
-                    color="primary"
-                    variant="contained"
-                    fullWidth
-                    onClick={() => navigate("/signup")}
-                  >
-                    Sign up
-                  </Button>
-                </MenuItem>
+
+                {!isAuthenticated && (
+                  <MenuItem>
+                    <Button
+                      color="primary"
+                      variant="contained"
+                      fullWidth
+                      onClick={() => navigate("/signup")}
+                    >
+                      Sign up
+                    </Button>
+                  </MenuItem>
+                )}
                 <MenuItem>
                   <Button
                     color="primary"

@@ -18,11 +18,12 @@ import {
   FacebookIcon,
   SitemarkIcon,
 } from "../components/Icons/CustomIcons";
-import { signUpGoogle, signUpFacebook, signUp } from "../api/AuthService";
+import { signUpGoogle, signUpFacebook } from "../api/AuthService";
 import { SOCIAL_PLATFORMS } from "../constants";
-import { useAuth } from "../context/AuthContext";
+// import { useAuth } from "../context/AuthContext";
 import { useDispatch } from "react-redux";
 import { signUpUser } from "../state/features/auth/AuthSlice";
+import { AppDispatch } from "../state/store"; // Import the AppDispatch type
 
 const Card = styled(MuiCard)(({ theme }) => ({
   display: "flex",
@@ -62,16 +63,17 @@ const SignUpContainer = styled(Stack)(({ theme }) => ({
   },
 }));
 
-export default function SignUp(props: { disableCustomTheme?: boolean }) {
+export default function SignUp() {
   const [emailError, setEmailError] = React.useState(false);
   const [emailErrorMessage, setEmailErrorMessage] = React.useState("");
   const [passwordError, setPasswordError] = React.useState(false);
   const [passwordErrorMessage, setPasswordErrorMessage] = React.useState("");
   const [nameError, setNameError] = React.useState(false);
   const [nameErrorMessage, setNameErrorMessage] = React.useState("");
-  const { control, handleSubmit, getValues } = useForm();
-  const { login, logout } = useAuth();
-  const dispatch = useDispatch();
+  const { control, handleSubmit } = useForm();
+  // const { login } = useAuth();
+
+  const dispatch: AppDispatch = useDispatch();
   const navigate = useNavigate();
 
   const validateInputs = () => {
@@ -128,7 +130,8 @@ export default function SignUp(props: { disableCustomTheme?: boolean }) {
     console.log("signupRequest", signupRequest);
     const resultAction = await dispatch(signUpUser(signupRequest));
     if (signUpUser.fulfilled.match(resultAction)) {
-      navigate("/protected");
+      dispatch({ type: 'LOGIN' });
+      navigate("/profile");
     }
   };
 
@@ -145,7 +148,8 @@ export default function SignUp(props: { disableCustomTheme?: boolean }) {
       const data = await signUpGoogle(userData);
       console.log(data);
       if (data) {
-        login();
+        dispatch({ type: 'LOGIN' });
+        navigate("/profile");
       }
     }
   }

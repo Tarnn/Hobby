@@ -14,8 +14,9 @@ import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import Sitemark from "./Icons/SitemarkIcon";
 import ColorModeIconDropdown from "../theme/ColorModeIconDropdown";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { AuthInitialState } from "../state/features/auth/AuthSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { AuthInitialState, logOutUser } from "../state/features/auth/AuthSlice";
+import { AppDispatch } from "../state/store";
 // import { useAuth } from "../context/AuthContext";
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
@@ -36,6 +37,8 @@ export default function AppAppBar() {
   const [open, setOpen] = React.useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const dispatch: AppDispatch = useDispatch();
+
   const isAuthenticated = useSelector(
     (state: { auth: AuthInitialState }) => state.auth.isAuthenticated
   );
@@ -43,6 +46,16 @@ export default function AppAppBar() {
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
   };
+
+  async function handleLogout(): Promise<void> {
+    console.log("Logging out...");
+    const resultAction = await dispatch(logOutUser());
+    if (logOutUser.fulfilled.match(resultAction)) {
+      dispatch({type: "EDIT", payload: null});
+      console.log("Logged");
+      navigate("/");
+    }
+  }
 
   return (
     <AppBar
@@ -89,6 +102,16 @@ export default function AppAppBar() {
                 onClick={() => navigate("/profile")}
               >
                 Profile
+              </Button>
+            )}
+            {isAuthenticated && (
+              <Button
+                color="primary"
+                variant="contained"
+                size="small"
+                onClick={() => handleLogout()}
+              >
+                Logout
               </Button>
             )}
             {!isAuthenticated && (

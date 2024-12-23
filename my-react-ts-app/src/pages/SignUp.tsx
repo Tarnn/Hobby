@@ -127,10 +127,8 @@ export default function SignUp() {
       ...data,
     };
 
-    console.log("signupRequest", signupRequest);
     const resultAction = await dispatch(signUpUser(signupRequest));
     if (signUpUser.fulfilled.match(resultAction)) {
-      dispatch({ type: 'LOGIN' });
       navigate("/profile");
     }
   };
@@ -148,7 +146,6 @@ export default function SignUp() {
       const data = await signUpGoogle(userData);
       console.log(data);
       if (data) {
-        dispatch({ type: 'LOGIN' });
         navigate("/profile");
       }
     }

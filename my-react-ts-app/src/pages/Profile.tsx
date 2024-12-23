@@ -4,7 +4,6 @@ import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid2";
 import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
 import ProfileForm from "../components/ProfileForm";
-import SitemarkIcon from "../components/Icons/SitemarkIcon";
 import EditIcon from '@mui/icons-material/Edit';
 import ClearIcon from '@mui/icons-material/Clear';
 

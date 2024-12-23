@@ -11,12 +11,15 @@ import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import MuiCard from "@mui/material/Card";
 import { styled } from "@mui/material/styles";
-import { useForm, Controller } from 'react-hook-form';
+import { Link as RouterLink } from "react-router-dom";
+import { useForm, Controller } from "react-hook-form";
 import {
   GoogleIcon,
   FacebookIcon,
   SitemarkIcon,
 } from "../components/Icons/CustomIcons";
+import { signUpGoogle, signUpFacebook, signUp } from "../api/AuthService";
+import { SOCIAL_PLATFORMS } from "../constants";
 
 const Card = styled(MuiCard)(({ theme }) => ({
   display: "flex",
@@ -25,7 +28,6 @@ const Card = styled(MuiCard)(({ theme }) => ({
   width: "100%",
   padding: theme.spacing(4),
   gap: theme.spacing(2),
-  margin: "auto",
   boxShadow:
     "hsla(220, 30%, 5%, 0.05) 0px 5px 15px 0px, hsla(220, 25%, 10%, 0.05) 0px 15px 35px -5px",
   [theme.breakpoints.up("sm")]: {
@@ -40,10 +42,7 @@ const Card = styled(MuiCard)(({ theme }) => ({
 const SignUpContainer = styled(Stack)(({ theme }) => ({
   height: "calc((1 - var(--template-frame-height, 0)) * 100dvh)",
   minHeight: "100%",
-  padding: theme.spacing(2),
-  [theme.breakpoints.up("sm")]: {
-    padding: theme.spacing(4),
-  },
+  paddingTop: "max(150px - var(--template-frame-height, 0px), 0px)",
   "&::before": {
     content: '""',
     display: "block",
@@ -67,8 +66,7 @@ export default function SignUp(props: { disableCustomTheme?: boolean }) {
   const [passwordErrorMessage, setPasswordErrorMessage] = React.useState("");
   const [nameError, setNameError] = React.useState(false);
   const [nameErrorMessage, setNameErrorMessage] = React.useState("");
-  const { control, handleSubmit } = useForm();
-
+  const { control, handleSubmit, getValues } = useForm();
 
   const validateInputs = () => {
     const email = document.getElementById("email") as HTMLInputElement;
@@ -107,7 +105,7 @@ export default function SignUp(props: { disableCustomTheme?: boolean }) {
     return isValid;
   };
 
-  const onSubmit = (data: any) => {
+  const onSubmit = async (data: any) => {
     if (nameError || emailError || passwordError) {
       return;
     }
@@ -116,7 +114,25 @@ export default function SignUp(props: { disableCustomTheme?: boolean }) {
       email: data.email,
       password: data.password,
     });
+
+    const responseData = await signUp(data);
+    console.log(responseData);
   };
+
+  async function onSubmitSocial(social: string) {
+    const userData = {
+      name: "Jon Snow",
+      email: "Jon@email.com",
+    };
+
+    if(social === SOCIAL_PLATFORMS.facebook) {
+      const data = await signUpFacebook(userData);
+      console.log(data);
+    } else if(social === SOCIAL_PLATFORMS.google) {
+    const data = await signUpGoogle(userData);
+    console.log(data);
+  }
+}
 
   return (
     <>
@@ -139,8 +155,11 @@ export default function SignUp(props: { disableCustomTheme?: boolean }) {
               name="name"
               control={control}
               defaultValue=""
-              rules={{ required: 'First name is required' }}
-              render={({ field: { onChange, value }, fieldState: { error } }) => (
+              rules={{ required: "Name is required" }}
+              render={({
+                field: { onChange, value },
+                fieldState: { error },
+              }) => (
                 <>
                   <FormLabel htmlFor="name">Full name</FormLabel>
                   <TextField
@@ -149,11 +168,20 @@ export default function SignUp(props: { disableCustomTheme?: boolean }) {
                     fullWidth
                     id="name"
                     placeholder="Jon Snow"
-                    error={!!error}
-                    helperText={nameErrorMessage}
-                    color={!!error ? "error" : "primary"}
+                    error
+                    helperText={error ? error.message : nameErrorMessage}
+                    color={error ? "error" : "primary"}
                     value={value}
-                    onChange={onChange}
+                    onChange={(e) => {
+                      onChange(e);
+                      if (e.target.value.length < 1) {
+                        setNameError(true);
+                        setNameErrorMessage("Name is required.");
+                      } else {
+                        setNameError(false);
+                        setNameErrorMessage("");
+                      }
+                    }}
                   />
                 </>
               )}
@@ -162,8 +190,17 @@ export default function SignUp(props: { disableCustomTheme?: boolean }) {
               name="email"
               control={control}
               defaultValue=""
-              rules={{ required: 'Email is required' }}
-              render={({ field: { onChange, value }, fieldState: { error } }) => (
+              rules={{
+                required: "Email is required",
+                pattern: {
+                  value: /\S+@\S+\.\S+/,
+                  message: "Please enter a valid email address",
+                },
+              }}
+              render={({
+                field: { onChange, value },
+                fieldState: { error },
+              }) => (
                 <>
                   <FormLabel htmlFor="email">Email</FormLabel>
                   <TextField
@@ -174,11 +211,20 @@ export default function SignUp(props: { disableCustomTheme?: boolean }) {
                     name="email"
                     autoComplete="email"
                     variant="outlined"
-                    error={!!error}
-                    helperText={emailErrorMessage}
-                    color={!!error ? "error" : "primary"}
+                    error
+                    helperText={error ? error.message : emailErrorMessage}
+                    color={error ? "error" : "primary"}
                     value={value}
-                    onChange={onChange}
+                    onChange={(e) => {
+                      onChange(e);
+                      if (e.target.value.length < 1) {
+                        setEmailError(true);
+                        setEmailErrorMessage("Email is required.");
+                      } else {
+                        setEmailError(false);
+                        setEmailErrorMessage("");
+                      }
+                    }}
                   />
                 </>
               )}
@@ -187,8 +233,17 @@ export default function SignUp(props: { disableCustomTheme?: boolean }) {
               name="password"
               control={control}
               defaultValue=""
-              rules={{ required: 'Password is required' }}
-              render={({ field: { onChange, value }, fieldState: { error } }) => (
+              rules={{
+                required: "Password is required",
+                minLength: {
+                  value: 6,
+                  message: "Password must be at least 6 characters long",
+                },
+              }}
+              render={({
+                field: { onChange, value },
+                fieldState: { error },
+              }) => (
                 <>
                   <FormLabel htmlFor="password">Password</FormLabel>
                   <TextField
@@ -200,11 +255,20 @@ export default function SignUp(props: { disableCustomTheme?: boolean }) {
                     id="password"
                     autoComplete="new-password"
                     variant="outlined"
-                    error={!!error}
-                    helperText={passwordErrorMessage}
-                    color={!!error ? "error" : "primary"}
+                    error
+                    helperText={error ? error.message : passwordErrorMessage}
+                    color={error ? "error" : "primary"}
                     value={value}
-                    onChange={onChange}
+                    onChange={(e) => {
+                      onChange(e);
+                      if (e.target.value.length < 1) {
+                        setPasswordError(true);
+                        setPasswordErrorMessage("Password is required.");
+                      } else {
+                        setPasswordError(false);
+                        setPasswordErrorMessage("");
+                      }
+                    }}
                   />
                 </>
               )}
@@ -229,7 +293,9 @@ export default function SignUp(props: { disableCustomTheme?: boolean }) {
             <Button
               fullWidth
               variant="outlined"
-              onClick={() => alert("Sign up with Google")}
+              onClick={() => {
+                onSubmitSocial(SOCIAL_PLATFORMS.google);
+              }}
               startIcon={<GoogleIcon />}
             >
               Sign up with Google
@@ -237,7 +303,9 @@ export default function SignUp(props: { disableCustomTheme?: boolean }) {
             <Button
               fullWidth
               variant="outlined"
-              onClick={() => alert("Sign up with Facebook")}
+              onClick={() => {
+                onSubmitSocial(SOCIAL_PLATFORMS.facebook);
+              }}
               startIcon={<FacebookIcon />}
             >
               Sign up with Facebook
@@ -245,7 +313,8 @@ export default function SignUp(props: { disableCustomTheme?: boolean }) {
             <Typography sx={{ textAlign: "center" }}>
               Already have an account?{" "}
               <Link
-                href="/material-ui/getting-started/templates/sign-in/"
+                component={RouterLink}
+                to="/signin"
                 variant="body2"
                 sx={{ alignSelf: "center" }}
               >

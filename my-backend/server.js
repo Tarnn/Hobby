@@ -17,6 +17,68 @@ app.use('/api', proxy('https://freetestapi.com', {
   }
 }));
 
+// Proxy requests to the external API
+app.post('/auth/signin', (req, res) => {
+  const userData = req.body;
+  // Here you can handle the userData, for example, authenticate the user
+  // For now, we'll just return the received data as a response
+  res.json({
+    message: 'User signed in successfully - Normal',
+    data: userData
+  });
+});
+
+app.post('/auth/signin/google', (req, res) => {
+  const userData = req.body;
+  // Here you can handle the userData, for example, authenticate the user
+  // For now, we'll just return the received data as a response
+  res.json({
+    message: 'User signed in successfully - Google',
+    data: userData
+  });
+});
+
+app.post('/auth/signin/facebook', (req, res) => {
+  const userData = req.body;
+  // Here you can handle the userData, for example, authenticate the user
+  // For now, we'll just return the received data as a response
+  res.json({
+    message: 'User signed in successfully - Facebook',
+    data: userData
+  });
+});
+
+// Proxy requests to the external API
+app.post('/auth/signup', (req, res) => {
+  const userData = req.body;
+  // Here you can handle the userData, for example, authenticate the user
+  // For now, we'll just return the received data as a response
+  res.json({
+    message: 'User signed in successfully - Normal',
+    data: userData
+  });
+});
+
+app.post('/auth/signup/google', (req, res) => {
+  const userData = req.body;
+  // Here you can handle the userData, for example, authenticate the user
+  // For now, we'll just return the received data as a response
+  res.json({
+    message: 'User signed in successfully - Google',
+    data: userData
+  });
+});
+
+app.post('/auth/signup/facebook', (req, res) => {
+  const userData = req.body;
+  // Here you can handle the userData, for example, authenticate the user
+  // For now, we'll just return the received data as a response
+  res.json({
+    message: 'User signed in successfully - Facebook',
+    data: userData
+  });
+});
+
 // Start the server
 const PORT = 3000;
 app.listen(PORT, () => {

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import i18n from "../helpers/i18n";
 import WalletConnector from "../components/WalletConnector";
-import { fetchUser, User } from "../api/someService";
+import { fetchUser, User } from "../api/SomeService";
 import { increment, decrement } from "../state/features/counter/counterSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../state/store";

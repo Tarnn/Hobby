@@ -12,7 +12,7 @@ import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../state/store";
 import { User } from "../models/User";
-import { fetchUser } from "../api/someService";
+import { fetchUser } from "../api/SomeService";
 
 // Define the props interface if needed
 interface HomeMain {

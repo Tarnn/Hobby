@@ -1,3 +1,4 @@
+import { useEffect, useMemo, useState } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
@@ -9,10 +10,23 @@ import Typography from "@mui/material/Typography";
 
 import { visuallyHidden } from "@mui/utils";
 import { styled } from "@mui/material/styles";
+import Typist from "react-typist-component";
+import Particles, { initParticlesEngine } from "@tsparticles/react";
+import {
+  type Container as ParticlesContainer,
+  type ISourceOptions,
+  MoveDirection,
+  OutMode,
+} from "@tsparticles/engine";
+// import { loadAll } from "@tsparticles/all"; // if you are going to use `loadAll`, install the "@tsparticles/all" package too.
+// import { loadFull } from "tsparticles"; // if you are going to use `loadFull`, install the "tsparticles" package too.
+import { loadSlim } from "@tsparticles/slim"; // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
+// import { loadBasic } from "@tsparticles/basic"; // if you are going to use `loadBasic`, install the "@tsparticles/basic" package too.
 
 const AWS_S3_HOBBY_CDN = import.meta.env.AWS_S3_HOBBY_CDN;
 
 console.log("AWS_S3_HOBBY_CDN: ", AWS_S3_HOBBY_CDN);
+
 const StyledBox = styled("div")(({ theme }) => ({
   alignSelf: "center",
   width: "100%",
@@ -43,6 +57,93 @@ const StyledBox = styled("div")(({ theme }) => ({
 }));
 
 export default function Hero() {
+  const [init, setInit] = useState(false);
+  const options: ISourceOptions = useMemo(
+    () => ({
+      fpsLimit: 120,
+      interactivity: {
+        events: {
+          onClick: {
+            enable: true,
+            mode: "push",
+          },
+          onHover: {
+            enable: true,
+            mode: "repulse",
+          },
+        },
+        modes: {
+          push: {
+            quantity: 4,
+          },
+          repulse: {
+            distance: 200,
+            duration: 0.4,
+          },
+        },
+      },
+      particles: {
+        color: {
+          value: "#ffffff",
+        },
+        links: {
+          color: "#ffffff",
+          distance: 150,
+          enable: true,
+          opacity: 0.5,
+          width: 1,
+        },
+        move: {
+          direction: MoveDirection.none,
+          enable: true,
+          outModes: {
+            default: OutMode.out,
+          },
+          random: false,
+          speed: 6,
+          straight: false,
+        },
+        number: {
+          density: {
+            enable: true,
+          },
+          value: 80,
+        },
+        opacity: {
+          value: 0.5,
+        },
+        shape: {
+          type: "circle",
+        },
+        size: {
+          value: { min: 1, max: 5 },
+        },
+      },
+      detectRetina: true,
+    }),
+    []
+  );
+  const particlesLoaded = async (
+    container?: ParticlesContainer
+  ): Promise<void> => {
+    console.log(container);
+  };
+
+  // this should be run only once per application lifetime
+  useEffect(() => {
+    initParticlesEngine(async (engine) => {
+      // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
+      // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
+      // starting from v2 you can add only the features you need reducing the bundle size
+      //await loadAll(engine);
+      //await loadFull(engine);
+      await loadSlim(engine);
+      //await loadBasic(engine);
+    }).then(() => {
+      setInit(true);
+    });
+  }, []);
+
   return (
     <Box
       id="hero"
@@ -51,25 +152,32 @@ export default function Hero() {
         height: "100vh",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
-        // backgroundImage:
-        //   'radial-gradient(ellipse 80% 50% at 50% -20%, hsl(210, 100%, 90%), transparent)',
-        // ...theme.applyStyles('dark', {
-        //   backgroundImage:
-        //     'radial-gradient(ellipse 80% 50% at 50% -20%, hsl(210, 100%, 16%), transparent)',
-        // }),
-        backgroundImage: {
-          xs: `url(${
-            AWS_S3_HOBBY_CDN || "https://d34xqaew6odfkx.cloudfront.net/"
-          }image3_mobile_2.jpg)`,
-          sm: `url(${
-            AWS_S3_HOBBY_CDN || "https://d34xqaew6odfkx.cloudfront.net/"
-          }image3_tablet_2.jpg)`,
-          md: `url(${
-            AWS_S3_HOBBY_CDN || "https://d34xqaew6odfkx.cloudfront.net/"
-          }Image3.jpg)`,
-        },
+        backgroundImage:
+          "radial-gradient(ellipse 80% 50% at 50% -20%, hsl(210, 100%, 90%), transparent)",
+        ...theme.applyStyles("dark", {
+          backgroundImage:
+            "radial-gradient(ellipse 80% 50% at 50% -20%, hsl(210, 100%, 16%), transparent)",
+        }),
+        // backgroundImage: {
+        //   xs: `url(${
+        //     AWS_S3_HOBBY_CDN || "https://d34xqaew6odfkx.cloudfront.net/"
+        //   }image3_mobile_2.jpg)`,
+        //   sm: `url(${
+        //     AWS_S3_HOBBY_CDN || "https://d34xqaew6odfkx.cloudfront.net/"
+        //   }image3_tablet_2.jpg)`,
+        //   md: `url(${
+        //     AWS_S3_HOBBY_CDN || "https://d34xqaew6odfkx.cloudfront.net/"
+        //   }Image3.jpg)`,
+        // },
       })}
     >
+      {init && (
+        <Particles
+          id="tsparticles"
+          particlesLoaded={particlesLoaded}
+          options={options}
+        />
+      )}
       <Container
         sx={{
           display: "flex",
@@ -93,7 +201,7 @@ export default function Hero() {
               fontSize: "clamp(3rem, 10vw, 3.5rem)",
             }}
           >
-            Our&nbsp;latest&nbsp;
+            TARANJIT KANG
             <Typography
               component="span"
               variant="h1"
@@ -105,7 +213,14 @@ export default function Hero() {
                 }),
               })}
             >
-              products
+              <Typist
+                typingDelay={100}
+                cursor={<span className="cursor">|</span>}
+              >
+                Software Engineer
+                <Typist.Backspace count={0} />
+                <Typist.Delay ms={1500} />
+              </Typist>
             </Typography>
           </Typography>
           <Typography

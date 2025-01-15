@@ -40,7 +40,7 @@ const StyledBox = styled("div")(({ theme }) => ({
   boxShadow: "0 0 12px 8px hsla(220, 25%, 80%, 0.2)",
   backgroundImage: `url(${
     AWS_S3_HOBBY_CDN || "https://d34xqaew6odfkx.cloudfront.net/"
-  }Image1.jpg)`,
+  }light.jpg)`,
   backgroundSize: "cover",
   [theme.breakpoints.up("sm")]: {
     marginTop: theme.spacing(10),
@@ -50,7 +50,7 @@ const StyledBox = styled("div")(({ theme }) => ({
     boxShadow: "0 0 24px 12px hsla(210, 100%, 25%, 0.2)",
     backgroundImage: `url(${
       AWS_S3_HOBBY_CDN || "https://d34xqaew6odfkx.cloudfront.net/"
-    }Image5.jpg)`,
+    }dark.jpg)`,
     outlineColor: "hsla(220, 20%, 42%, 0.1)",
     borderColor: theme.palette.grey[700],
   }),
@@ -84,36 +84,36 @@ export default function Hero() {
       },
       particles: {
         color: {
-          value: "#ffffff",
+          value: "#7ccde6",
         },
         links: {
-          color: "#ffffff",
-          distance: 150,
+          color: "#027af2",
+          distance: 75,
           enable: true,
-          opacity: 0.5,
+          opacity: 0.75,
           width: 1,
         },
         move: {
           direction: MoveDirection.none,
           enable: true,
           outModes: {
-            default: OutMode.out,
+            default: OutMode.bounce,
           },
-          random: false,
-          speed: 6,
+          random: true,
+          speed: 3,
           straight: false,
         },
         number: {
           density: {
             enable: true,
           },
-          value: 80,
+          value: 40,
         },
         opacity: {
-          value: 0.5,
+          value: 0.3,
         },
         shape: {
-          type: "circle",
+          type: "polygon",
         },
         size: {
           value: { min: 1, max: 5 },
@@ -158,17 +158,29 @@ export default function Hero() {
           backgroundImage:
             "radial-gradient(ellipse 80% 50% at 50% -20%, hsl(210, 100%, 16%), transparent)",
         }),
-        // backgroundImage: {
-        //   xs: `url(${
+        // backgroundImage: `url(${
+        //   AWS_S3_HOBBY_CDN || "https://d34xqaew6odfkx.cloudfront.net/"
+        // }light-lg.jpg)`,
+
+        // ...theme.applyStyles("dark", {
+        //   backgroundImage: `url(${
         //     AWS_S3_HOBBY_CDN || "https://d34xqaew6odfkx.cloudfront.net/"
-        //   }image3_mobile_2.jpg)`,
-        //   sm: `url(${
-        //     AWS_S3_HOBBY_CDN || "https://d34xqaew6odfkx.cloudfront.net/"
-        //   }image3_tablet_2.jpg)`,
-        //   md: `url(${
-        //     AWS_S3_HOBBY_CDN || "https://d34xqaew6odfkx.cloudfront.net/"
-        //   }Image3.jpg)`,
-        // },
+        //   }dark.jpg)`,
+        //   backgroundImage: {
+        //     xs: `url(${
+        //       AWS_S3_HOBBY_CDN || "https://d34xqaew6odfkx.cloudfront.net/"
+        //     }light-sm.jpg)`,
+        //     sm: `url(${
+        //       AWS_S3_HOBBY_CDN || "https://d34xqaew6odfkx.cloudfront.net/"
+        //     }dar-sm.jpg)`,
+        //     md: `url(${
+        //       AWS_S3_HOBBY_CDN || "https://d34xqaew6odfkx.cloudfront.net/"
+        //     }light-md.jpg)`,
+        //     lg: `url(${
+        //       AWS_S3_HOBBY_CDN || "https://d34xqaew6odfkx.cloudfront.net/"
+        //     }light-lg.jpg)`,
+        //   },
+        // }),
       })}
     >
       {init && (

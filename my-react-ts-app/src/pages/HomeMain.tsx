@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Hero from "../components/Hero";
+import Footer from "../components/Footer";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { User } from "../models/User";
@@ -40,9 +41,9 @@ const HomeMain: React.FC<HomeMain> = () => {
         <Pricing />
         <Divider />
         <FAQ />
-        <Divider />
-        <Footer /> */}
+        <Divider />*/}
       </div>
+      <Footer />
     </>
   );
 };

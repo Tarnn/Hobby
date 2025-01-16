@@ -122,7 +122,7 @@ export default function AppAppBar() {
                 Sign in
               </Button>
             )}
-            {!isAuthenticated && location.pathname !== "/signup" && (
+            {/* {!isAuthenticated && location.pathname !== "/signup" && (
               <Button
                 color="primary"
                 variant="contained"
@@ -131,7 +131,7 @@ export default function AppAppBar() {
               >
                 Sign Up
               </Button>
-            )}
+            )} */}
             <ColorModeIconDropdown />
             {isAuthenticated && <WalletConnector />}
           </Box>

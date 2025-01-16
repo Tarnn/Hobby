@@ -7,7 +7,7 @@
     "start:frontend": "npm --prefix ./my-react-ts-app run dev",
     "build": "cd ./my-react-ts-app && npm run build",
     "start": "cd ./my-react-ts-app && npm run start",
-    "install": "cd ./my-react-ts-app && npm install"
+    "install": "cd ./my-react-ts-app && yarn install"
   },
   "keywords": [],
   "author": "",

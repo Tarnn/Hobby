@@ -7,8 +7,6 @@ import Typography from "@mui/material/Typography";
 import FacebookIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import TwitterIcon from "@mui/icons-material/X";
-import SVGFromURL from "./icons/SVGFromURL";
-const AWS_S3_HOBBY_CDN = import.meta.env.AWS_S3_HOBBY_CDN;
 
 function Copyright() {
   return (
@@ -35,37 +33,6 @@ export default function Footer() {
         textAlign: { sm: "center", md: "left" },
       }}
     >
-      {/* Intuit */}
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "row",
-          gap: 2,
-          height: "100px",
-          width: "100%",
-        }}
-      >
-        <SVGFromURL
-          url={`${
-            AWS_S3_HOBBY_CDN || "https://hobby-tkang.s3.us-east-2.amazonaws.com"
-          }/intuit.svg`}
-        />
-        <SVGFromURL
-          url={`${
-            AWS_S3_HOBBY_CDN || "https://hobby-tkang.s3.us-east-2.amazonaws.com"
-          }/ncr.svg`}
-        />
-        <SVGFromURL
-          url={`${
-            AWS_S3_HOBBY_CDN || "https://hobby-tkang.s3.us-east-2.amazonaws.com"
-          }/rbc.svg`}
-        />
-        <SVGFromURL
-          url={`${
-            AWS_S3_HOBBY_CDN || "https://hobby-tkang.s3.us-east-2.amazonaws.com"
-          }/rogers-u.svg`}
-        />
-      </Box>
       <Box>
         <Copyright />
       </Box>

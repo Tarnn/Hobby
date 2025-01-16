@@ -2,7 +2,11 @@ import React, { useEffect, useState } from "react";
 import Hero from "../components/Hero";
 import Footer from "../components/Footer";
 import Divider from "@mui/material/Divider";
+import LogoCollection from "../components/LogoCollection";
+import Testimonials from "../components/Testimonials";
+import Features from "../components/Features";
 import Bio from "../components/Bio";
+import SkillCollection from "../components/Skills";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { User } from "../models/User";
@@ -33,18 +37,16 @@ const HomeMain: React.FC<HomeMain> = () => {
       <Hero />
       <div>
         {isAuthenticated && <h1>{t("welcome")}</h1>}
-        {/* <LogoCollection />
-        <Features />
-        <Divider />
-        <Testimonials />
-        <Divider />
-        <Divider />
-        <Pricing />
-        <Divider />
-        <FAQ />
-        <Divider />*/}
         <Divider />
         <Bio />
+        <Divider />
+        <SkillCollection />
+        <Divider />
+        <Features />
+        <Divider />
+        <LogoCollection />
+        <Divider />
+        <Testimonials />
         <Divider />
       </div>
       <Footer />

@@ -8,32 +8,32 @@ import Typography from '@mui/material/Typography';
 
 import { styled } from '@mui/material/styles';
 
-import DevicesRoundedIcon from '@mui/icons-material/DevicesRounded';
-import EdgesensorHighRoundedIcon from '@mui/icons-material/EdgesensorHighRounded';
-import ViewQuiltRoundedIcon from '@mui/icons-material/ViewQuiltRounded';
-
+// import DevicesRoundedIcon from '@mui/icons-material/DevicesRounded';
+// import EdgesensorHighRoundedIcon from '@mui/icons-material/EdgesensorHighRounded';
+// import SettingsSuggestIcon from '@mui/icons-material/SettingsSuggest';
+import AutoGraphIcon from '@mui/icons-material/AutoGraph';
 const AWS_S3_HOBBY_CDN = import.meta.env.AWS_S3_HOBBY_CDN;
 
 const items = [
   {
-    icon: <ViewQuiltRoundedIcon />,
-    title: 'Dashboard',
+    icon: <AutoGraphIcon />,
+    title: 'Intuit',
     description:
       'This item could provide a snapshot of the most important metrics or data points related to the product.',
     imageLight: `url("${AWS_S3_HOBBY_CDN || 'https://mui.com'}/static/images/templates/templates-images/dash-light.png")`,
     imageDark: `url("${AWS_S3_HOBBY_CDN || 'https://mui.com'}/static/images/templates/templates-images/dash-dark.png")`,
   },
   {
-    icon: <EdgesensorHighRoundedIcon />,
-    title: 'Mobile integration',
+    icon: <AutoGraphIcon />,
+    title: 'Royal Bank of Canada',
     description:
       'This item could provide information about the mobile app version of the product.',
     imageLight: `url("${AWS_S3_HOBBY_CDN || 'https://mui.com'}/static/images/templates/templates-images/mobile-light.png")`,
     imageDark: `url("${AWS_S3_HOBBY_CDN || 'https://mui.com'}/static/images/templates/templates-images/mobile-dark.png")`,
   },
   {
-    icon: <DevicesRoundedIcon />,
-    title: 'Available on all platforms',
+    icon: <AutoGraphIcon />,
+    title: 'Rogers (Shopping Channel)',
     description:
       'This item could let users know the product is available on all platforms, such as web, mobile, and desktop.',
     imageLight: `url("${AWS_S3_HOBBY_CDN || 'https://mui.com'}/static/images/templates/templates-images/devices-light.png")`,
@@ -154,7 +154,7 @@ export default function Features() {
           gutterBottom
           sx={{ color: 'text.primary' }}
         >
-          Product features
+          Completed Projects
         </Typography>
         <Typography
           variant="body1"

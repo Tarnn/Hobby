@@ -148,6 +148,9 @@ export default function Hero() {
     <Box
       id="hero"
       sx={(theme) => ({
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
         width: "100%",
         height: "100vh",
         backgroundRepeat: "no-repeat",

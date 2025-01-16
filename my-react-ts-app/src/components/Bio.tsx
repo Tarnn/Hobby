@@ -10,13 +10,12 @@ export default function Bio() {
       id="biography"
       sx={(theme) => ({
         width: "100%",
-        // height: "50vh",
         pb: 7,
         background:
           "linear-gradient(to bottom, rgba(77, 166, 255, 0.1), 90%, rgba(77, 166, 255, 0.5) 100%)",
         ...theme.applyStyles("dark", {
           background:
-            "linear-gradient(to bottom right, rgba(0, 0, 0, 0.5), 90%, rgba(77, 166, 255, 0.5) 100%)",
+            "linear-gradient(to bottom left, rgba(0, 0, 0, 0.5), 90%, rgba(77, 166, 255, 0.5) 100%)",
         }),
       })}
     >

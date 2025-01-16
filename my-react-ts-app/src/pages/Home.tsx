@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import i18n from "../helpers/i18n";
-import WalletConnector from "../components/WalletConnector";
+// import WalletConnector from "../components/WalletConnector";
 import { fetchUser, User } from "../api/SomeService";
 // import { useSelector, useDispatch } from "react-redux";
 // import { RootState } from "../state/store";
@@ -32,7 +32,7 @@ const Home: React.FC<HomeProps> = () => {
       <h1>{t("welcome")}</h1>
 
       {/* Navigation */}
-      <WalletConnector />
+      {/* <WalletConnector /> */}
       <button onClick={() => i18n.changeLanguage("en")}>EN</button>
       <button onClick={() => i18n.changeLanguage("es")}>ES</button>
 

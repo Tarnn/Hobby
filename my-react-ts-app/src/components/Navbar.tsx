@@ -112,7 +112,7 @@ export default function AppAppBar() {
                 Logout
               </Button>
             )}
-            {!isAuthenticated && (
+            {/* {!isAuthenticated && (
               <Button
                 color="primary"
                 variant="text"
@@ -121,7 +121,7 @@ export default function AppAppBar() {
               >
                 Sign in
               </Button>
-            )}
+            )} */}
             {/* {!isAuthenticated && location.pathname !== "/signup" && (
               <Button
                 color="primary"
@@ -137,10 +137,10 @@ export default function AppAppBar() {
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" }, gap: 1 }}>
             <ColorModeIconDropdown size="medium" />
-            <IconButton aria-label="Menu button" onClick={toggleDrawer(true)}>
+            {/* <IconButton aria-label="Menu button" onClick={toggleDrawer(true)}>
               <MenuIcon />
-            </IconButton>
-            <Drawer
+            </IconButton> */}
+            {/* <Drawer
               anchor="top"
               open={open}
               onClose={toggleDrawer(false)}
@@ -149,8 +149,8 @@ export default function AppAppBar() {
                   top: "var(--template-frame-height, 0px)",
                 },
               }}
-            >
-              <Box sx={{ p: 2, backgroundColor: "background.default" }}>
+            > */}
+              {/* <Box sx={{ p: 2, backgroundColor: "background.default" }}>
                 <Box
                   sx={{
                     display: "flex",
@@ -197,8 +197,8 @@ export default function AppAppBar() {
                     Sign in
                   </Button>
                 </MenuItem>
-              </Box>
-            </Drawer>
+              </Box> */}
+            {/* </Drawer> */}
           </Box>
         </StyledToolbar>
       </Container>

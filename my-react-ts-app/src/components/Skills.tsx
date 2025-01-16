@@ -87,7 +87,7 @@ export default function SkillCollection() {
       >
         Worked with great technologies
       </Typography>
-      <Carousel responsive={responsive} autoPlay={true} autoPlaySpeed={250}>
+      <Carousel responsive={responsive} autoPlay={true} autoPlaySpeed={3000} infinite={true} removeArrowOnDeviceType={["tablet", "mobile"]} transitionDuration={500}>
         {logos.map((logo, index) => (
           <div key={index}>
             <img src={logo} alt={`Company${index + 1}`} style={logoStyle} />

@@ -3,8 +3,8 @@ import { useTranslation } from "react-i18next";
 import i18n from "../helpers/i18n";
 import WalletConnector from "../components/WalletConnector";
 import { fetchUser, User } from "../api/SomeService";
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../state/store";
+// import { useSelector, useDispatch } from "react-redux";
+// import { RootState } from "../state/store";
 
 // Define the props interface if needed
 interface HomeProps {
@@ -15,8 +15,8 @@ const Home: React.FC<HomeProps> = () => {
   const { t } = useTranslation();
   const [user, setUser] = useState<User | null>(null);
 
-  const count = useSelector((state: RootState) => state.counter.value);
-  const dispatch = useDispatch();
+  // const count = useSelector((state: RootState) => state.counter.value);
+  // const dispatch = useDispatch();
 
   useEffect(() => {
     const loadUser = async () => {

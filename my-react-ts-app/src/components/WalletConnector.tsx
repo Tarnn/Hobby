@@ -17,11 +17,11 @@ import {
 import { clusterApiUrl } from "@solana/web3.js";
 // Default styles that can be overridden by your app
 import "@solana/wallet-adapter-react-ui/styles.css";
-import Button from "@mui/material/Button";
+// import Button from "@mui/material/Button";
 // import MetaMaskIcon from "./Icons/MetaMaskIcon";
 
 const WalletConnector: React.FC = () => {
-  const [ethereum, setEthereum] = useState<any>(null);
+  const [setEthereum] = useState<any>(null);
 
   // Detect MetaMask
   useEffect(() => {

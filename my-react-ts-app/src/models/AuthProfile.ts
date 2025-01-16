@@ -1,4 +1,4 @@
-interface AuthProfile {
-    name: string;
-    email: string;
-  }
+// interface AuthProfile {
+//     name: string;
+//     email: string;
+//   }

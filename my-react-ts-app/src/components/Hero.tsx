@@ -9,7 +9,7 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 
 import { visuallyHidden } from "@mui/utils";
-import { styled } from "@mui/material/styles";
+// import { styled } from "@mui/material/styles";
 import Typist from "react-typist-component";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import {
@@ -23,7 +23,7 @@ import {
 import { loadSlim } from "@tsparticles/slim"; // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
 // import { loadBasic } from "@tsparticles/basic"; // if you are going to use `loadBasic`, install the "@tsparticles/basic" package too.
 
-const AWS_S3_HOBBY_CDN = import.meta.env.AWS_S3_HOBBY_CDN;
+// const AWS_S3_HOBBY_CDN = import.meta.env.AWS_S3_HOBBY_CDN;
 
 export default function Hero() {
   const [init, setInit] = useState(false);

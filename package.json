@@ -5,8 +5,9 @@
   "scripts": {
     "start:backend": "node my-backend/server.js",
     "start:frontend": "npm --prefix ./my-react-ts-app run dev",
-    "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
-    "install": "concurrently \"npm install --prefix ./my-react-ts-app\" \"npm install --prefix ./my-backend\""
+    "build": "cd ./my-react-ts-app && npm run build",
+    "start": "cd ./my-react-ts-app && npm run start",
+    "install": "cd ./my-react-ts-app && npm install"
   },
   "keywords": [],
   "author": "",

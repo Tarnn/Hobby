@@ -118,87 +118,98 @@ export default function Testimonials() {
   const logos = theme.palette.mode === "light" ? darkLogos : whiteLogos;
 
   return (
-    <Container
-      id="testimonials"
+    <Box
       sx={{
-        pt: { xs: 4, sm: 12 },
-        pb: { xs: 8, sm: 16 },
-        position: "relative",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: { xs: 3, sm: 6 },
+        background:
+          "linear-gradient(to bottom right, rgba(77, 166, 255, 0.1), 90%, rgba(77, 166, 255, 0.5) 100%)",
+        ...theme.applyStyles("dark", {
+          background:
+            "linear-gradient(to bottom left, rgba(0, 0, 0, 0.5), 90%, rgba(77, 166, 255, 0.5) 100%)",
+        }),
       }}
     >
-      <Box
+      <Container
+        id="testimonials"
         sx={{
-          width: { sm: "100%", md: "60%" },
-          textAlign: { sm: "left", md: "center" },
+          pt: { xs: 4, sm: 12 },
+          pb: { xs: 8, sm: 16 },
+          position: "relative",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: { xs: 3, sm: 6 },
         }}
       >
-        <Typography
-          component="h2"
-          variant="h4"
-          gutterBottom
-          sx={{ color: "text.primary" }}
+        <Box
+          sx={{
+            width: { sm: "100%", md: "60%" },
+            textAlign: { sm: "left", md: "center" },
+          }}
         >
-          Testimonials
-        </Typography>
-        <Typography variant="body1" sx={{ color: "text.secondary" }}>
-          Here's some reccomendations and feedback I recieved from my previous
-          coworkers at various companies throughout my career and from all sorts
-          of roles:
-        </Typography>
-      </Box>
-      <Grid container spacing={2}>
-        {userTestimonials.map((testimonial, index) => (
-          <Grid
-            size={{ xs: 12, sm: 6, md: 4 }}
-            key={index}
-            sx={{ display: "flex" }}
+          <Typography
+            component="h2"
+            variant="h4"
+            gutterBottom
+            sx={{ color: "text.primary" }}
           >
-            <Card
-              variant="outlined"
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                flexGrow: 1,
-              }}
+            Testimonials
+          </Typography>
+          <Typography variant="body1" sx={{ color: "text.secondary" }}>
+            Here's some reccomendations and feedback I recieved from my previous
+            coworkers at various companies throughout my career and from all
+            sorts of roles:
+          </Typography>
+        </Box>
+        <Grid container spacing={2}>
+          {userTestimonials.map((testimonial, index) => (
+            <Grid
+              size={{ xs: 12, sm: 6, md: 4 }}
+              key={index}
+              sx={{ display: "flex" }}
             >
-              <CardContent>
-                <Typography
-                  variant="body1"
-                  gutterBottom
-                  sx={{ color: "text.secondary" }}
-                >
-                  {testimonial.testimonial}
-                </Typography>
-              </CardContent>
-              <a href={testimonial.linkedin} target="_blank">
-                <Box
-                  sx={{
-                    display: "flex",
-                    flexDirection: "row",
-                    justifyContent: "space-between",
-                  }}
-                >
-                  <CardHeader
-                    avatar={testimonial.avatar}
-                    title={testimonial.name}
-                    subheader={testimonial.occupation}
-                  />
-                  <img
-                    src={logos[index]}
-                    alt={`Logo ${index + 1}`}
-                    style={logoStyle}
-                  />
-                </Box>
-              </a>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
-    </Container>
+              <Card
+                variant="outlined"
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                  flexGrow: 1,
+                }}
+              >
+                <CardContent>
+                  <Typography
+                    variant="body1"
+                    gutterBottom
+                    sx={{ color: "text.secondary" }}
+                  >
+                    {testimonial.testimonial}
+                  </Typography>
+                </CardContent>
+                <a href={testimonial.linkedin} target="_blank">
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "row",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <CardHeader
+                      avatar={testimonial.avatar}
+                      title={testimonial.name}
+                      subheader={testimonial.occupation}
+                    />
+                    <img
+                      src={logos[index]}
+                      alt={`Logo ${index + 1}`}
+                      style={logoStyle}
+                    />
+                  </Box>
+                </a>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+    </Box>
   );
 }

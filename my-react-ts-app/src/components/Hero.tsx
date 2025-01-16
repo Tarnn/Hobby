@@ -25,6 +25,27 @@ import { loadSlim } from "@tsparticles/slim"; // if you are going to use `loadSl
 
 // const AWS_S3_HOBBY_CDN = import.meta.env.AWS_S3_HOBBY_CDN;
 
+const COVER_LETTER_URL = "https://hobby-tkang.s3.us-east-2.amazonaws.com/TK_2025_CoverLetter.docx";
+const RESUME_URL = "https://hobby-tkang.s3.us-east-2.amazonaws.com/TaranjitK_2025.docx";
+
+const handleDownload = async (TYPE: string) => {
+  const LINK_DOWNLOAD = TYPE === COVER_LETTER_URL ? "TaranjitKang_CoverLetter" : "TaranjitKang_Resume";
+  try {
+    const response = await fetch(TYPE);
+    const blob = await response.blob();
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = LINK_DOWNLOAD;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    window.URL.revokeObjectURL(url);
+  } catch (error) {
+    console.error('Download failed:', error);
+  }
+};
+
 export default function Hero() {
   const [init, setInit] = useState(false);
   const options: ISourceOptions = useMemo(
@@ -211,43 +232,25 @@ export default function Hero() {
             useFlexGap
             sx={{ pt: 2, width: { xs: "100%", sm: "350px" } }}
           >
-            <InputLabel htmlFor="email-hero" sx={visuallyHidden}>
-              Email
-            </InputLabel>
-            <TextField
-              id="email-hero"
-              hiddenLabel
+            <Button
+              variant="contained"
+              color="secondary"
               size="small"
-              variant="outlined"
-              aria-label="Enter your email address"
-              placeholder="Your email address"
-              fullWidth
-              slotProps={{
-                htmlInput: {
-                  autoComplete: "off",
-                  "aria-label": "Enter your email address",
-                },
-              }}
-            />
+              sx={{ minWidth: "fit-content" }}
+              onClick={() => handleDownload(RESUME_URL)}
+            >
+              Download Resume
+            </Button>
             <Button
               variant="contained"
               color="primary"
               size="small"
               sx={{ minWidth: "fit-content" }}
+              onClick={() => handleDownload(COVER_LETTER_URL)}
             >
-              Contact Me
+              Download Cover Letter
             </Button>
           </Stack>
-          <Typography
-            variant="caption"
-            color="text.secondary"
-            sx={{ textAlign: "center" }}
-          >
-            Send me your email, and i'll get back to you &nbsp;
-            <Link href="#" color="primary">
-              as soon as possible.
-            </Link>
-          </Typography>
         </Stack>
       </Container>
     </Box>

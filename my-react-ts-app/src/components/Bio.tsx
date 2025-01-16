@@ -30,11 +30,10 @@ export default function Bio() {
       >
         <Box
           sx={{
-            width: { xs: "100%", md: "80%" },
-            textAlign: { xs: "left", sm: "center" },
+            width: { xs: "100%", md: "80%" }
           }}
         >
-          <Typography component="h2" variant="h2" sx={{ mb: 7, mt: 7 }}>
+          <Typography component="h2" variant="h2" sx={{ mb: 7, mt: 7, textAlign: "center" }}>
             Biography
           </Typography>
           <Box

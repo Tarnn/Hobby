@@ -79,7 +79,7 @@ const userTestimonials = [
     avatar: (
       <Avatar
         alt="Birinder Jagdev"
-        src="https://hobby-tkang.s3.us-east-2.amazonaws.com/hasan.jpeg"
+        src="https://hobby-tkang.s3.us-east-2.amazonaws.com/birinder.jpeg"
       />
     ),
     linkedin: "https://www.linkedin.com/in/birinder-jagdev-ab98077b/",

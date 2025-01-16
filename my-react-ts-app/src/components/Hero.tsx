@@ -193,7 +193,7 @@ export default function Hero() {
           </Typography>
           <Typography
             sx={{
-              textAlign: "center",
+              textAlign: "justify",
               color: "text.secondary",
               width: { sm: "100%", md: "90%" },
               fontSize: "1rem",

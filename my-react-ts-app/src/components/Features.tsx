@@ -41,7 +41,7 @@ const items = [
   },
   {
     icon: <AutoGraphIcon />,
-    title: "Rogers (Shopping Channel)",
+    title: "Rogers - TSC",
     description:
       "Worked on Rogers owned The Shopping Channel E-commerce website, developed on a monolithic project  with C# and Angular as the front-end. Contributed to many key components such as Product Search, Product Detials, Product Items pages.",
     imageLight: `url("${
@@ -100,11 +100,12 @@ export function MobileLayout({
         gap: 2,
       }}
     >
-      <Box sx={{ display: "flex", gap: 2, overflow: "auto" }}>
+      <Box sx={{ display: "flex", gap: 1, overflow: "auto" }}>
         {items.map(({ title }, index) => (
           <Chip
-            size="medium"
+            size="small"
             key={index}
+            variant="outlined"
             label={title}
             onClick={() => handleItemClick(index)}
             selected={selectedItemIndex === index}

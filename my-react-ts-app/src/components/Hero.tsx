@@ -180,7 +180,8 @@ export default function Hero() {
               display: "flex",
               alignItems: "center",
               fontSize: {
-                xs: "clamp(2rem, 5vw, 2.5rem)",
+                xs: "clamp(2rem, 3vw, 2rem)",
+                sm: "clamp(3rem, 5vw, 3rem)",
                 md: "clamp(3rem, 10vw, 3.5rem)",
               },
             }}
@@ -195,7 +196,8 @@ export default function Hero() {
               display: "flex",
               alignItems: "center",
               fontSize: {
-                xs: "clamp(2rem, 5vw, 2.5rem)",
+                xs: "clamp(1.5rem, 3vw, 1.5rem)",
+                sm: "clamp(2rem, 5vw, 2.5rem)",
                 md: "clamp(3rem, 10vw, 3.5rem)",
               },
               ...theme.applyStyles("dark", {

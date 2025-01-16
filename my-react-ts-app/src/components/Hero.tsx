@@ -158,29 +158,6 @@ export default function Hero() {
           backgroundImage:
             "radial-gradient(ellipse 80% 50% at 50% -20%, hsl(210, 100%, 16%), transparent)",
         }),
-        // backgroundImage: `url(${
-        //   AWS_S3_HOBBY_CDN || "https://d34xqaew6odfkx.cloudfront.net/"
-        // }light-lg.jpg)`,
-
-        // ...theme.applyStyles("dark", {
-        //   backgroundImage: `url(${
-        //     AWS_S3_HOBBY_CDN || "https://d34xqaew6odfkx.cloudfront.net/"
-        //   }dark.jpg)`,
-        //   backgroundImage: {
-        //     xs: `url(${
-        //       AWS_S3_HOBBY_CDN || "https://d34xqaew6odfkx.cloudfront.net/"
-        //     }light-sm.jpg)`,
-        //     sm: `url(${
-        //       AWS_S3_HOBBY_CDN || "https://d34xqaew6odfkx.cloudfront.net/"
-        //     }dar-sm.jpg)`,
-        //     md: `url(${
-        //       AWS_S3_HOBBY_CDN || "https://d34xqaew6odfkx.cloudfront.net/"
-        //     }light-md.jpg)`,
-        //     lg: `url(${
-        //       AWS_S3_HOBBY_CDN || "https://d34xqaew6odfkx.cloudfront.net/"
-        //     }light-lg.jpg)`,
-        //   },
-        // }),
       })}
     >
       {init && (
@@ -208,43 +185,53 @@ export default function Hero() {
             variant="h1"
             sx={{
               display: "flex",
-              flexDirection: { xs: "column", sm: "row" },
               alignItems: "center",
-              fontSize: "clamp(3rem, 10vw, 3.5rem)",
+              fontSize: {
+                xs: "clamp(2rem, 5vw, 2.5rem)",
+                md: "clamp(3rem, 10vw, 3.5rem)",
+              },
             }}
           >
             TARANJIT KANG
-            <Typography
-              component="span"
-              variant="h1"
-              sx={(theme) => ({
-                fontSize: "inherit",
-                color: "primary.main",
-                ...theme.applyStyles("dark", {
-                  color: "primary.light",
-                }),
-              })}
+          </Typography>
+          <Typography
+            component="span"
+            variant="h1"
+            sx={(theme) => ({
+              color: "primary.main",
+              display: "flex",
+              alignItems: "center",
+              fontSize: {
+                xs: "clamp(2rem, 5vw, 2.5rem)",
+                md: "clamp(3rem, 10vw, 3.5rem)",
+              },
+              ...theme.applyStyles("dark", {
+                color: "primary.light",
+              }),
+            })}
+          >
+            <Typist
+              typingDelay={100}
+              cursor={<span className="cursor">|</span>}
             >
-              <Typist
-                typingDelay={100}
-                cursor={<span className="cursor">|</span>}
-              >
-                Software Engineer
-                <Typist.Backspace count={0} />
-                <Typist.Delay ms={1500} />
-              </Typist>
-            </Typography>
+              Software Engineer
+              <Typist.Backspace count={0} />
+              <Typist.Delay ms={1500} />
+            </Typist>
           </Typography>
           <Typography
             sx={{
               textAlign: "center",
               color: "text.secondary",
-              width: { sm: "100%", md: "80%" },
+              width: { sm: "100%", md: "90%" },
+              fontSize: "1rem",
             }}
           >
-            Explore our cutting-edge dashboard, delivering high-quality
-            solutions tailored to your needs. Elevate your experience with
-            top-tier features and services.
+            From building my own computers, to coding software and architecting
+            enterprise solutions, I've been a full-stack developer with a
+            passion for innovation. With expertise in Java, Spring Boot, React,
+            and cloud technologies, I've driven digital transformation at
+            companies like Intuit and Royal Bank of Canada.
           </Typography>
           <Stack
             direction={{ xs: "column", sm: "row" }}
@@ -276,7 +263,7 @@ export default function Hero() {
               size="small"
               sx={{ minWidth: "fit-content" }}
             >
-              Start now
+              Contact Me
             </Button>
           </Stack>
           <Typography
@@ -284,11 +271,10 @@ export default function Hero() {
             color="text.secondary"
             sx={{ textAlign: "center" }}
           >
-            By clicking &quot;Start now&quot; you agree to our&nbsp;
+            Send me your email, and i'll get back to you &nbsp;
             <Link href="#" color="primary">
-              Terms & Conditions
+              as soon as possible.
             </Link>
-            .
           </Typography>
         </Stack>
         {/* <StyledBox id="image" /> */}

@@ -26,6 +26,19 @@
   }
 }
 
+.bio-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  text-align: left;
+  gap: 10px;
+  .bio-text {
+    font-size: 1rem;
+  }
+}
+
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);

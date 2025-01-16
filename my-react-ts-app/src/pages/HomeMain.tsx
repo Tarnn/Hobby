@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Hero from "../components/Hero";
 import Footer from "../components/Footer";
+import Divider from "@mui/material/Divider";
+import Bio from "../components/Bio";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { User } from "../models/User";
@@ -36,12 +38,14 @@ const HomeMain: React.FC<HomeMain> = () => {
         <Divider />
         <Testimonials />
         <Divider />
-        <Highlights />
         <Divider />
         <Pricing />
         <Divider />
         <FAQ />
         <Divider />*/}
+        <Divider />
+        <Bio />
+        <Divider />
       </div>
       <Footer />
     </>

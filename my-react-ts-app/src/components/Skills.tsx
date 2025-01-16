@@ -21,7 +21,7 @@ const responsive = {
   }
 };
 
-const whiteLogos = [
+const darkLogos = [
   "https://hobby-tkang.s3.us-east-2.amazonaws.com/Java.svg",
   "https://hobby-tkang.s3.us-east-2.amazonaws.com/Javascript.svg",
   "https://hobby-tkang.s3.us-east-2.amazonaws.com/Typescript.svg",
@@ -43,7 +43,7 @@ const whiteLogos = [
   "https://hobby-tkang.s3.us-east-2.amazonaws.com/Wordpress.svg",
 ];
 
-const darkLogos = [
+const whiteLogos = [
   "https://hobby-tkang.s3.us-east-2.amazonaws.com/Java.svg",
   "https://hobby-tkang.s3.us-east-2.amazonaws.com/Javascript.svg",
   "https://hobby-tkang.s3.us-east-2.amazonaws.com/Typescript.svg",
@@ -58,11 +58,11 @@ const darkLogos = [
   "https://hobby-tkang.s3.us-east-2.amazonaws.com/Kubernetes.svg",
   "https://hobby-tkang.s3.us-east-2.amazonaws.com/Vagrant.svg",
   "https://hobby-tkang.s3.us-east-2.amazonaws.com/GraphQL.svg",
-  "https://hobby-tkang.s3.us-east-2.amazonaws.com/Splunk.svg",
+  "https://hobby-tkang.s3.us-east-2.amazonaws.com/splunk-dark.svg",
   "https://hobby-tkang.s3.us-east-2.amazonaws.com/Slack.svg",
   "https://hobby-tkang.s3.us-east-2.amazonaws.com/Jira.svg",
-  "https://hobby-tkang.s3.us-east-2.amazonaws.com/Github.svg",
-  "https://hobby-tkang.s3.us-east-2.amazonaws.com/Wordpress.svg",
+  "https://hobby-tkang.s3.us-east-2.amazonaws.com/github-dark.svg",
+  "https://hobby-tkang.s3.us-east-2.amazonaws.com/wordpress-dark.svg"
 ];
 
 const logoStyle = {
@@ -87,7 +87,7 @@ export default function SkillCollection() {
       >
         Worked with great technologies
       </Typography>
-      <Carousel responsive={responsive}>
+      <Carousel responsive={responsive} autoPlay={true} autoPlaySpeed={250}>
         {logos.map((logo, index) => (
           <div key={index}>
             <img src={logo} alt={`Company${index + 1}`} style={logoStyle} />

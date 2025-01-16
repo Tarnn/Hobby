@@ -34,7 +34,7 @@ export default function Bio() {
             textAlign: { xs: "left", sm: "center" },
           }}
         >
-          <Typography component="h1" variant="h1" sx={{ mb: 7, mt: 7 }}>
+          <Typography component="h2" variant="h2" sx={{ mb: 7, mt: 7 }}>
             Biography
           </Typography>
           <Box

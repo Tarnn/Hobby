@@ -13,13 +13,24 @@ import {
   OutMode,
 } from "@tsparticles/engine";
 import { loadSlim } from "@tsparticles/slim"; // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
-import ScrollAnimation from "react-animate-on-scroll";
 import Fade from "@mui/material/Fade"; // Add this import at the top
 
 const COVER_LETTER_URL =
   "https://hobby-tkang.s3.us-east-2.amazonaws.com/TK_2025_CoverLetter.docx";
 const RESUME_URL =
   "https://hobby-tkang.s3.us-east-2.amazonaws.com/TaranjitK_2025.docx";
+
+// Add after imports
+const cursorStyles = {
+  "@keyframes blink": {
+    "0%": { opacity: 1 },
+    "50%": { opacity: 0 },
+    "100%": { opacity: 1 },
+  },
+  "& .cursor": {
+    animation: "blink 1s infinite",
+  },
+};
 
 const handleDownload = async (TYPE: string) => {
   const LINK_DOWNLOAD =
@@ -198,17 +209,17 @@ export default function Hero() {
                 sm: "clamp(2rem, 5vw, 2.5rem)",
                 md: "clamp(3rem, 10vw, 3.5rem)",
               },
+              ...cursorStyles,  // Add this line
               ...theme.applyStyles("dark", {
                 color: "primary.light",
               }),
             })}
           >
             <Typist
-              typingDelay={100}
+              typingDelay={200}
               cursor={<span className="cursor">|</span>}
             >
               Software Engineer
-              <Typist.Backspace count={0} />
               <Typist.Delay ms={1500} />
             </Typist>
           </Typography>

@@ -2,8 +2,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import { useTheme } from "@mui/system";
-// import SVGFromURL from "./icons/SVGFromURL";
-// const AWS_S3_HOBBY_CDN = import.meta.env.AWS_S3_HOBBY_CDN;
+import ScrollAnimation from "react-animate-on-scroll";
 
 const whiteLogos = [
   "https://hobby-tkang.s3.us-east-2.amazonaws.com/intuit.svg",
@@ -32,26 +31,29 @@ export default function LogoCollection() {
 
   return (
     <Box id="logoCollection" sx={{ py: 4 }}>
-      <Typography
-        component="h1"
-        variant="h2"
-        align="center"
-        textAlign="center"
-        sx={{ mb: 7, mt: 7 }}
-      >
-        Worked with great companies
-      </Typography>
-      <Grid container sx={{ justifyContent: "center", mt: 0.5, opacity: 0.9 }}>
-        {logos.map((logo, index) => (
-          <Grid item key={index}>
-            <img
-              src={logo}
-              alt={`Company${index + 1}`}
-              style={logoStyle}
-            />
-          </Grid>
-        ))}
-      </Grid>
+      <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
+        <Typography
+          component="h1"
+          variant="h2"
+          align="center"
+          textAlign="center"
+          sx={{ mb: 7, mt: 7 }}
+        >
+          Worked with great companies
+        </Typography>
+        <Grid
+          container
+          sx={{ justifyContent: "center", mt: 0.5, opacity: 0.9 }}
+        >
+          {logos.map((logo, index) => (
+            <Grid item key={index}>
+              <ScrollAnimation animateIn="zoomIn" animateOnce={true}>
+                <img src={logo} alt={`Company${index + 1}`} style={logoStyle} />
+              </ScrollAnimation>
+            </Grid>
+          ))}
+        </Grid>
+      </ScrollAnimation>
     </Box>
   );
 }

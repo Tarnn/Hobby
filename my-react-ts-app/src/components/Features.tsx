@@ -5,12 +5,8 @@ import Card from "@mui/material/Card";
 import MuiChip from "@mui/material/Chip";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
-
 import { styled } from "@mui/material/styles";
-
-// import DevicesRoundedIcon from '@mui/icons-material/DevicesRounded';
-// import EdgesensorHighRoundedIcon from '@mui/icons-material/EdgesensorHighRounded';
-// import SettingsSuggestIcon from '@mui/icons-material/SettingsSuggest';
+import ScrollAnimation from "react-animate-on-scroll";
 import AutoGraphIcon from "@mui/icons-material/AutoGraph";
 const AWS_S3_HOBBY_CDN = import.meta.env.AWS_S3_HOBBY_CDN;
 
@@ -173,145 +169,154 @@ export default function Features() {
         }),
       })}
     >
-      <Container
-        sx={{
-          position: "relative",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: { xs: 3, sm: 6 },
-        }}
-      >
-        <Box sx={{ width: { sm: "100%", md: "60%" }, alignSelf: "flex-start" }}>
-          <Typography
-            component="h2"
-            variant="h2"
-            gutterBottom
-            sx={{ color: "text.primary" }}
-          >
-            Completed Projects
-          </Typography>
-          <Typography
-            variant="body1"
-            sx={{ color: "text.secondary", fontSize: "1rem", mb: { xs: 2, sm: 4 } }}
-          >
-            Here's a brief list of projects I've worked on. Ranging from the
-            most recent to the oldest. The technologies used are amongst the
-            most popular and cutting edge. Ranging from Backend to Frontend:
-            Java, Spring Boot, React, Typescript, Python, AWS, Docker,
-            Kubernetes, Jenkins, and more.
-          </Typography>
-        </Box>
-        <Box
+      <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
+        <Container
           sx={{
+            position: "relative",
             display: "flex",
-            flexDirection: { xs: "column", md: "row-reverse" },
-            gap: 2,
+            flexDirection: "column",
+            alignItems: "center",
+            gap: { xs: 3, sm: 6 },
           }}
         >
-          <div>
-            <Box
+          <Box
+            sx={{ width: { sm: "100%", md: "60%" }, alignSelf: "flex-start" }}
+          >
+            <Typography
+              component="h2"
+              variant="h2"
+              gutterBottom
+              sx={{ color: "text.primary" }}
+            >
+              Completed Projects
+            </Typography>
+            <Typography
+              variant="body1"
               sx={{
-                display: { xs: "none", sm: "flex" },
-                flexDirection: "column",
-                gap: 2,
-                height: "100%",
+                color: "text.secondary",
+                fontSize: "1rem",
+                mb: { xs: 2, sm: 4 },
               }}
             >
-              {items.map(({ icon, title, description }, index) => (
-                <Box
-                  key={index}
-                  component={Button}
-                  onClick={() => handleItemClick(index)}
-                  sx={[
-                    (theme) => ({
-                      p: 2,
-                      height: "100%",
-                      width: "100%",
-                      "&:hover": {
-                        backgroundColor: theme.palette.action.hover,
-                      },
-                    }),
-                    selectedItemIndex === index && {
-                      backgroundColor: "action.selected",
-                    },
-                  ]}
-                >
+              Here's a brief list of projects I've worked on. Ranging from the
+              most recent to the oldest. The technologies used are amongst the
+              most popular and cutting edge. Ranging from Backend to Frontend:
+              Java, Spring Boot, React, Typescript, Python, AWS, Docker,
+              Kubernetes, Jenkins, and more.
+            </Typography>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: { xs: "column", md: "row-reverse" },
+              gap: 2,
+            }}
+          >
+            <div>
+              <Box
+                sx={{
+                  display: { xs: "none", sm: "flex" },
+                  flexDirection: "column",
+                  gap: 2,
+                  height: "100%",
+                }}
+              >
+                {items.map(({ icon, title, description }, index) => (
                   <Box
+                    key={index}
+                    component={Button}
+                    onClick={() => handleItemClick(index)}
                     sx={[
-                      {
+                      (theme) => ({
+                        p: 2,
+                        height: "100%",
                         width: "100%",
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "left",
-                        gap: 1,
-                        textAlign: "left",
-                        textTransform: "none",
-                        color: "text.secondary",
-                      },
+                        "&:hover": {
+                          backgroundColor: theme.palette.action.hover,
+                        },
+                      }),
                       selectedItemIndex === index && {
-                        color: "text.primary",
+                        backgroundColor: "action.selected",
                       },
                     ]}
                   >
-                    {icon}
+                    <Box
+                      sx={[
+                        {
+                          width: "100%",
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "left",
+                          gap: 1,
+                          textAlign: "left",
+                          textTransform: "none",
+                          color: "text.secondary",
+                        },
+                        selectedItemIndex === index && {
+                          color: "text.primary",
+                        },
+                      ]}
+                    >
+                      {icon}
 
-                    <Typography variant="h6">{title}</Typography>
-                    <Typography variant="body2">{description}</Typography>
+                      <Typography variant="h6">{title}</Typography>
+                      <Typography variant="body2">{description}</Typography>
+                    </Box>
                   </Box>
-                </Box>
-              ))}
-            </Box>
-            <MobileLayout
-              selectedItemIndex={selectedItemIndex}
-              handleItemClick={handleItemClick}
-              selectedFeature={selectedFeature}
-            />
-          </div>
-          <Box
-            sx={{
-              display: { xs: "none", sm: "flex" },
-              width: { xs: "100%", md: "70%" },
-              height: "var(--items-image-height)",
-            }}
-          >
-            <Card
-              variant="outlined"
+                ))}
+              </Box>
+              <MobileLayout
+                selectedItemIndex={selectedItemIndex}
+                handleItemClick={handleItemClick}
+                selectedFeature={selectedFeature}
+              />
+            </div>
+            <Box
               sx={{
-                height: "100%",
-                width: "100%",
                 display: { xs: "none", sm: "flex" },
-                pointerEvents: "none",
-                backgroundColor: "transparent",
+                width: { xs: "100%", md: "70%" },
+                height: "var(--items-image-height)",
               }}
             >
-              <Box
-                sx={(theme) => ({
-                  m: "auto",
-                  width: 500,
-                  height: 450,
-                  backgroundSize: "contain",
-                  backgroundPosition: "center",
-                  backgroundRepeat: "no-repeat",
-                  backgroundImage: "var(--items-imageLight)",
-                  ...theme.applyStyles("dark", {
-                    backgroundImage: "var(--items-imageDark)",
-                  }),
-                })}
-                style={
-                  items[selectedItemIndex]
-                    ? ({
-                        "--items-imageLight":
-                          items[selectedItemIndex].imageLight,
-                        "--items-imageDark": items[selectedItemIndex].imageDark,
-                      } as any)
-                    : {}
-                }
-              />
-            </Card>
+              <Card
+                variant="outlined"
+                sx={{
+                  height: "100%",
+                  width: "100%",
+                  display: { xs: "none", sm: "flex" },
+                  pointerEvents: "none",
+                  backgroundColor: "transparent",
+                }}
+              >
+                <Box
+                  sx={(theme) => ({
+                    m: "auto",
+                    width: 500,
+                    height: 450,
+                    backgroundSize: "contain",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                    backgroundImage: "var(--items-imageLight)",
+                    ...theme.applyStyles("dark", {
+                      backgroundImage: "var(--items-imageDark)",
+                    }),
+                  })}
+                  style={
+                    items[selectedItemIndex]
+                      ? ({
+                          "--items-imageLight":
+                            items[selectedItemIndex].imageLight,
+                          "--items-imageDark":
+                            items[selectedItemIndex].imageDark,
+                        } as any)
+                      : {}
+                  }
+                />
+              </Card>
+            </Box>
           </Box>
-        </Box>
-      </Container>
+        </Container>
+      </ScrollAnimation>
     </Box>
   );
 }

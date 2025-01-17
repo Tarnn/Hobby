@@ -1,24 +1,23 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { useTheme } from "@mui/system";
-// import SVGFromURL from "./icons/SVGFromURL";
-// const AWS_S3_HOBBY_CDN = import.meta.env.AWS_S3_HOBBY_CDN;
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import ScrollAnimation from "react-animate-on-scroll";
 
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
-    items: 9
+    items: 9,
   },
   tablet: {
     breakpoint: { max: 1024, min: 720 },
-    items: 5
+    items: 5,
   },
   mobile: {
     breakpoint: { max: 720, min: 0 },
-    items: 3
-  }
+    items: 3,
+  },
 };
 
 const whiteLogos = [
@@ -78,22 +77,24 @@ export default function SkillCollection() {
 
   return (
     <Box id="skillCollection" sx={{ py: 4, mb: 7 }}>
-      <Typography
-        component="h1"
-        variant="h2"
-        align="center"
-        textAlign="center"
-        sx={{ mb: 7, mt: 7 }}
-      >
-        Worked with great technologies
-      </Typography>
-      <Carousel responsive={responsive}>
-        {logos.map((logo, index) => (
-          <div key={index}>
-            <img src={logo} alt={`Company${index + 1}`} style={logoStyle} />
-          </div>
-        ))}
-      </Carousel>
+      <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
+        <Typography
+          component="h1"
+          variant="h2"
+          align="center"
+          textAlign="center"
+          sx={{ mb: 7, mt: 7 }}
+        >
+          Worked with great technologies
+        </Typography>
+        <Carousel responsive={responsive}>
+          {logos.map((logo, index) => (
+            <div key={index}>
+              <img src={logo} alt={`Company${index + 1}`} style={logoStyle} />
+            </div>
+          ))}
+        </Carousel>
+      </ScrollAnimation>
     </Box>
   );
 }

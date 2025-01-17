@@ -1,4 +1,5 @@
 import "./styling/App.scss";
+import "animate.css/animate.compat.css"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Profile from "./pages/Profile";
 import SignUp from "./pages/SignUp";

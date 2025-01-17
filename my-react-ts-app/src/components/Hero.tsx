@@ -2,14 +2,8 @@ import { useEffect, useMemo, useState } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
-import InputLabel from "@mui/material/InputLabel";
-import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
-import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
-
-import { visuallyHidden } from "@mui/utils";
-// import { styled } from "@mui/material/styles";
 import Typist from "react-typist-component";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import {
@@ -18,23 +12,25 @@ import {
   MoveDirection,
   OutMode,
 } from "@tsparticles/engine";
-// import { loadAll } from "@tsparticles/all"; // if you are going to use `loadAll`, install the "@tsparticles/all" package too.
-// import { loadFull } from "tsparticles"; // if you are going to use `loadFull`, install the "tsparticles" package too.
 import { loadSlim } from "@tsparticles/slim"; // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
-// import { loadBasic } from "@tsparticles/basic"; // if you are going to use `loadBasic`, install the "@tsparticles/basic" package too.
+import ScrollAnimation from "react-animate-on-scroll";
+import Fade from "@mui/material/Fade"; // Add this import at the top
 
-// const AWS_S3_HOBBY_CDN = import.meta.env.AWS_S3_HOBBY_CDN;
-
-const COVER_LETTER_URL = "https://hobby-tkang.s3.us-east-2.amazonaws.com/TK_2025_CoverLetter.docx";
-const RESUME_URL = "https://hobby-tkang.s3.us-east-2.amazonaws.com/TaranjitK_2025.docx";
+const COVER_LETTER_URL =
+  "https://hobby-tkang.s3.us-east-2.amazonaws.com/TK_2025_CoverLetter.docx";
+const RESUME_URL =
+  "https://hobby-tkang.s3.us-east-2.amazonaws.com/TaranjitK_2025.docx";
 
 const handleDownload = async (TYPE: string) => {
-  const LINK_DOWNLOAD = TYPE === COVER_LETTER_URL ? "TaranjitKang_CoverLetter" : "TaranjitKang_Resume";
+  const LINK_DOWNLOAD =
+    TYPE === COVER_LETTER_URL
+      ? "TaranjitKang_CoverLetter"
+      : "TaranjitKang_Resume";
   try {
     const response = await fetch(TYPE);
     const blob = await response.blob();
     const url = window.URL.createObjectURL(blob);
-    const link = document.createElement('a');
+    const link = document.createElement("a");
     link.href = url;
     link.download = LINK_DOWNLOAD;
     document.body.appendChild(link);
@@ -42,12 +38,13 @@ const handleDownload = async (TYPE: string) => {
     document.body.removeChild(link);
     window.URL.revokeObjectURL(url);
   } catch (error) {
-    console.error('Download failed:', error);
+    console.error("Download failed:", error);
   }
 };
 
 export default function Hero() {
   const [init, setInit] = useState(false);
+  const [showDescription, setShowDescription] = useState(false); // Add this state
   const options: ISourceOptions = useMemo(
     () => ({
       fpsLimit: 120,
@@ -119,19 +116,20 @@ export default function Hero() {
     console.log(container);
   };
 
-  // this should be run only once per application lifetime
   useEffect(() => {
     initParticlesEngine(async (engine) => {
-      // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
-      // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
-      // starting from v2 you can add only the features you need reducing the bundle size
-      //await loadAll(engine);
-      //await loadFull(engine);
       await loadSlim(engine);
-      //await loadBasic(engine);
     }).then(() => {
       setInit(true);
     });
+  }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowDescription(true);
+    }, 1000);
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -214,45 +212,49 @@ export default function Hero() {
               <Typist.Delay ms={1500} />
             </Typist>
           </Typography>
-          <Typography
-            sx={{
-              textAlign: "justify",
-              color: "text.secondary",
-              width: { sm: "100%", md: "90%" },
-              fontSize: "1rem",
-            }}
-          >
-            From building my own computers, to coding software and architecting
-            enterprise solutions, I've been a full-stack developer with a
-            passion for innovation. With expertise in Java, Spring Boot, React,
-            and cloud technologies, I've driven digital transformation at
-            companies like Intuit and Royal Bank of Canada.
-          </Typography>
-          <Stack
-            direction={{ xs: "column", sm: "row" }}
-            spacing={1}
-            useFlexGap
-            sx={{ pt: 2, width: { xs: "100%", sm: "350px" } }}
-          >
-            <Button
-              variant="contained"
-              color="secondary"
-              size="small"
-              sx={{ minWidth: "fit-content" }}
-              onClick={() => handleDownload(RESUME_URL)}
+          <Fade in={showDescription} timeout={1500}>
+            <Typography
+              sx={{
+                textAlign: "justify",
+                color: "text.secondary",
+                width: { sm: "100%", md: "90%" },
+                fontSize: "1rem",
+              }}
             >
-              Download Resume
-            </Button>
-            <Button
-              variant="contained"
-              color="primary"
-              size="small"
-              sx={{ minWidth: "fit-content" }}
-              onClick={() => handleDownload(COVER_LETTER_URL)}
+              From building my own computers, to coding software and
+              architecting enterprise solutions, I've been a full-stack
+              developer with a passion for innovation. With expertise in Java,
+              Spring Boot, React, and cloud technologies, I've driven digital
+              transformation at companies like Intuit and Royal Bank of Canada.
+            </Typography>
+          </Fade>
+          <Fade in={showDescription} timeout={3000}>
+            <Stack
+              direction={{ xs: "column", sm: "row" }}
+              spacing={1}
+              useFlexGap
+              sx={{ pt: 2, width: { xs: "100%", sm: "350px" } }}
             >
-              Download Cover Letter
-            </Button>
-          </Stack>
+              <Button
+                variant="contained"
+                color="secondary"
+                size="small"
+                sx={{ minWidth: "fit-content" }}
+                onClick={() => handleDownload(RESUME_URL)}
+              >
+                Download Resume
+              </Button>
+              <Button
+                variant="contained"
+                color="primary"
+                size="small"
+                sx={{ minWidth: "fit-content" }}
+                onClick={() => handleDownload(COVER_LETTER_URL)}
+              >
+                Download Cover Letter
+              </Button>
+            </Stack>
+          </Fade>
         </Stack>
       </Container>
     </Box>

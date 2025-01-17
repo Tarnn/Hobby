@@ -34,7 +34,7 @@ const userTestimonials = [
     ),
     linkedin: "https://www.linkedin.com/in/atillasoylu/",
     name: "Atilla Soylu",
-    occupation: "DevOps/Platform Integration and Support Manager",
+    occupation: "DevOps/Platform Integration Support Manager",
     testimonial:
       "Taranjit has a great ability to observe and apply his knowledge to the challenges he faces. He has excelled in a very short time period to grasp a great knowledge in development and technologies that is in the market.",
   },

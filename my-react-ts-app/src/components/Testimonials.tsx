@@ -152,13 +152,16 @@ export default function Testimonials() {
           >
             <Typography
               component="h2"
-              variant="h4"
+              variant="h2"
               gutterBottom
               sx={{ color: "text.primary" }}
             >
               {t("testimonials.title")}
             </Typography>
-            <Typography variant="body1" sx={{ color: "text.secondary" }}>
+            <Typography
+              variant="body1"
+              sx={{ fontSize: "1rem", color: "text.secondary" }}
+            >
               {t("testimonials.text")}
             </Typography>
           </Box>

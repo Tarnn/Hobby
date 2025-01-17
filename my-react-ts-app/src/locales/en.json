@@ -1,5 +1,48 @@
 {
-  "welcome": "Welcome to our app",
-  "about": "About Us",
-  "contact": "Contact Us"
+  "hero": {
+    "role": "Software Engineer",
+    "text": "From building my own computers, to coding software and architecting enterprise solutions, I've been a full-stack developer with a passion for innovation. With expertise in Java, Spring Boot, React, and cloud technologies, I've driven digital transformation at companies like Intuit and Royal Bank of Canada.",
+    "download": "Download Resume",
+    "coverLetter": "Download Cover Letter"
+  },
+  "bio": {
+    "title": "Biography",
+    "text1": "Taranjit Kang (Tarn) - Canadian citizen born in Ontario, Canada, now residing in the USA with an American green card. I've been a full-stack developer my entire career, leveraging a deep passion for technology that began during childhood.",
+    "text2": "Growing up, I was a computer nerd, I had my first IBM PC when I was 8, later on in life I would begin building my own PCs for gaming and experimenting with code long before formal education.",
+    "text3": "My professional journey includes extensive experience with Java, Spring Boot, React, and various front-end and back-end technologies, working for notable fintech related companies like Intuit and Royal Bank of Canada.",
+    "text4": "I'm committed to continuous learning and growth in the ever-evolving tech landscape."
+  },
+  "skills": {
+    "title": "Worked with great technologies"
+  },
+  "features": {
+    "title": "Completed Projects",
+    "text": "Here's a brief list of projects I've worked on. Ranging from the most recent to the oldest. The technologies used are amongst the most popular and cutting edge. Ranging from Backend to Frontend: Java, Spring Boot, React, Typescript, Python, AWS, Docker, Kubernetes, Jenkins, and more.",
+    "item1": {
+      "company": "Intuit",
+      "description": "Developed and enhanced features for TurboTax and Quickbooks, popular tax preparation software. Full Stack development with Java and React to create features for the homepage, pre-auth andpost-auth experience. Contributed to the TurboTax Homepage that is currently used by millions of users."
+    },
+    "item2": {
+      "company": "Royal Bank of Canada",
+      "description": "Worked on RBC Mobile Banking App, developed Java Microservices for the Virtual Visa Debit feature, and contributed to enhancements of various pages such as Transactions."
+    },
+    "item3": {
+      "company": "Rogers - TSC",
+      "description": "Worked on Rogers owned The Shopping Channel E-commerce website, developed on a monolithic project  with C# and Angular as the front-end. Contributed to many key components such as Product Search, Product Detials, Product Items pages."
+    }
+  },
+  "companies": {
+    "title": "Worked with great companies"
+  },
+  "testimonials": {
+    "title": "Testimonials",
+    "text": "Here's some reccomendations and feedback I recieved from my previous coworkers at various companies throughout my career and from all sorts of roles."
+  },
+  "footer": {
+    "copy": "Copyright © Tarnnn 2025"
+  },
+  "mode": {
+    "light": "Light",
+    "dark": "Dark"
+  }
 }

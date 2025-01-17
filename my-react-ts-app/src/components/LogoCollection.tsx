@@ -3,6 +3,7 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import { useTheme } from "@mui/system";
 import ScrollAnimation from "react-animate-on-scroll";
+import { useTranslation } from "react-i18next";
 
 const whiteLogos = [
   "https://hobby-tkang.s3.us-east-2.amazonaws.com/intuit.svg",
@@ -27,6 +28,7 @@ const logoStyle = {
 
 export default function LogoCollection() {
   const theme = useTheme();
+  const { t } = useTranslation();
   const logos = theme.palette.mode === "light" ? darkLogos : whiteLogos;
 
   return (
@@ -39,7 +41,7 @@ export default function LogoCollection() {
           textAlign="center"
           sx={{ mb: 7, mt: 7 }}
         >
-          Worked with great companies
+          {t("companies.title")}
         </Typography>
         <Grid
           container

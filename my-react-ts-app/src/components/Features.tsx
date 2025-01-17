@@ -9,46 +9,9 @@ import { styled } from "@mui/material/styles";
 import ScrollAnimation from "react-animate-on-scroll";
 import AutoGraphIcon from "@mui/icons-material/AutoGraph";
 const AWS_S3_HOBBY_CDN = import.meta.env.AWS_S3_HOBBY_CDN;
+import { useTranslation } from "react-i18next";
 
-const items = [
-  {
-    icon: <AutoGraphIcon />,
-    title: "Intuit",
-    description:
-      "Developed and enhanced features for TurboTax and Quickbooks, popular tax preparation software. Full Stack development with Java and React to create features for the homepage, pre-auth andpost-auth experience. Contributed to the TurboTax Homepage that is currently used by millions of users.",
-    imageLight: `url("${
-      AWS_S3_HOBBY_CDN || "https://hobby-tkang.s3.us-east-2.amazonaws.com/"
-    }Turbotax_homepage.png")`,
-    imageDark: `url("${
-      AWS_S3_HOBBY_CDN || "https://hobby-tkang.s3.us-east-2.amazonaws.com/"
-    }Turbotax_homepage.png")`,
-  },
-  {
-    icon: <AutoGraphIcon />,
-    title: "Royal Bank of Canada",
-    description:
-      "Worked on RBC Mobile Banking App, developed Java Microservices for the Virtual Visa Debit feature, and contributed to enhancements of various pages such as Transactions.",
-    imageLight: `url("${
-      AWS_S3_HOBBY_CDN || "https://hobby-tkang.s3.us-east-2.amazonaws.com/"
-    }RBC_Mobile_home.png")`,
-    imageDark: `url("${
-      AWS_S3_HOBBY_CDN || "https://hobby-tkang.s3.us-east-2.amazonaws.com/"
-    }RBC_Mobile_home.png")`,
-  },
-  {
-    icon: <AutoGraphIcon />,
-    title: "Rogers - TSC",
-    description:
-      "Worked on Rogers owned The Shopping Channel E-commerce website, developed on a monolithic project  with C# and Angular as the front-end. Contributed to many key components such as Product Search, Product Detials, Product Items pages.",
-    imageLight: `url("${
-      AWS_S3_HOBBY_CDN || "https://hobby-tkang.s3.us-east-2.amazonaws.com/"
-    }Rogers_TSC_home.png")`,
-    imageDark: `url("${
-      AWS_S3_HOBBY_CDN || "https://hobby-tkang.s3.us-east-2.amazonaws.com/"
-    }Rogers_TSC_home.png")`,
-  },
-];
-
+let items: any[] = [];
 interface ChipProps {
   selected?: boolean;
 }
@@ -148,10 +111,47 @@ export function MobileLayout({
 
 export default function Features() {
   const [selectedItemIndex, setSelectedItemIndex] = React.useState(0);
+  const { t } = useTranslation();
 
   const handleItemClick = (index: number) => {
     setSelectedItemIndex(index);
   };
+
+  items = [
+    {
+      icon: <AutoGraphIcon />,
+      title: "Intuit",
+      description: t("features.item1.description"),
+      imageLight: `url("${
+        AWS_S3_HOBBY_CDN || "https://hobby-tkang.s3.us-east-2.amazonaws.com/"
+      }Turbotax_homepage.png")`,
+      imageDark: `url("${
+        AWS_S3_HOBBY_CDN || "https://hobby-tkang.s3.us-east-2.amazonaws.com/"
+      }Turbotax_homepage.png")`,
+    },
+    {
+      icon: <AutoGraphIcon />,
+      title: "Royal Bank of Canada",
+      description: t("features.item2.description"),
+      imageLight: `url("${
+        AWS_S3_HOBBY_CDN || "https://hobby-tkang.s3.us-east-2.amazonaws.com/"
+      }RBC_Mobile_home.png")`,
+      imageDark: `url("${
+        AWS_S3_HOBBY_CDN || "https://hobby-tkang.s3.us-east-2.amazonaws.com/"
+      }RBC_Mobile_home.png")`,
+    },
+    {
+      icon: <AutoGraphIcon />,
+      title: "Rogers - TSC",
+      description: t("features.item3.description"),
+      imageLight: `url("${
+        AWS_S3_HOBBY_CDN || "https://hobby-tkang.s3.us-east-2.amazonaws.com/"
+      }Rogers_TSC_home.png")`,
+      imageDark: `url("${
+        AWS_S3_HOBBY_CDN || "https://hobby-tkang.s3.us-east-2.amazonaws.com/"
+      }Rogers_TSC_home.png")`,
+    },
+  ];
 
   const selectedFeature = items[selectedItemIndex];
 
@@ -189,7 +189,7 @@ export default function Features() {
               gutterBottom
               sx={{ color: "text.primary" }}
             >
-              Completed Projects
+              {t("features.title")}
             </Typography>
             <Typography
               variant="body1"
@@ -199,11 +199,7 @@ export default function Features() {
                 mb: { xs: 2, sm: 4 },
               }}
             >
-              Here's a brief list of projects I've worked on. Ranging from the
-              most recent to the oldest. The technologies used are amongst the
-              most popular and cutting edge. Ranging from Backend to Frontend:
-              Java, Spring Boot, React, Typescript, Python, AWS, Docker,
-              Kubernetes, Jenkins, and more.
+              {t("features.text")}
             </Typography>
           </Box>
           <Box

@@ -8,6 +8,7 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid2";
 import { useTheme } from "@mui/system";
 import ScrollAnimation from "react-animate-on-scroll";
+import { useTranslation } from "react-i18next";
 
 const userTestimonials = [
   {
@@ -116,6 +117,7 @@ const logoStyle = {
 
 export default function Testimonials() {
   const theme = useTheme();
+  const { t } = useTranslation();
   const logos = theme.palette.mode === "light" ? darkLogos : whiteLogos;
 
   return (
@@ -154,12 +156,10 @@ export default function Testimonials() {
               gutterBottom
               sx={{ color: "text.primary" }}
             >
-              Testimonials
+              {t("testimonials.title")}
             </Typography>
             <Typography variant="body1" sx={{ color: "text.secondary" }}>
-              Here's some reccomendations and feedback I recieved from my
-              previous coworkers at various companies throughout my career and
-              from all sorts of roles:
+              {t("testimonials.text")}
             </Typography>
           </Box>
           <Grid container spacing={2}>
@@ -187,7 +187,11 @@ export default function Testimonials() {
                       {testimonial.testimonial}
                     </Typography>
                   </CardContent>
-                  <ScrollAnimation animateIn="zoomIn" animatePreScroll={true} animateOnce={true}>
+                  <ScrollAnimation
+                    animateIn="zoomIn"
+                    animatePreScroll={true}
+                    animateOnce={true}
+                  >
                     <a href={testimonial.linkedin} target="_blank">
                       <Box
                         sx={{

@@ -1,5 +1,48 @@
 {
-  "welcome": "Bienvenido a nuestra aplicación",
-  "about": "Sobre nosotros",
-  "contact": "Contáctanos"
+  "hero": {
+    "role": "Ingeniero de software",
+    "text": "Desde la construcción de mis propias computadoras hasta la codificación de software y la arquitectura de soluciones empresariales, he sido un desarrollador completo con pasión por la innovación. ",
+    "download": "Descargar Currículum",
+    "coverLetter": "Descargar carta de presentación"
+  },
+  "bio": {
+    "title": "Biografía",
+    "text1": "Taranjit Kang (Tarn): ciudadano canadiense nacido en Ontario, Canadá, que ahora reside en los EE. UU. con una tarjeta verde estadounidense. ",
+    "text2": "Cuando era niño, era un nerd de las computadoras, tuve mi primera PC IBM cuando tenía 8 años, más adelante en la vida comenzaría a construir mis propias PC para jugar y experimentar con código mucho antes de la educación formal.",
+    "text3": "Mi trayectoria profesional incluye una amplia experiencia con Java, Spring Boot, React y varias tecnologías front-end y back-end, trabajando para destacadas empresas relacionadas con fintech como Intuit y Royal Bank of Canada.",
+    "text4": "Estoy comprometido con el aprendizaje y el crecimiento continuos en el panorama tecnológico en constante evolución."
+  },
+  "skills": {
+    "title": "Trabajó con grandes tecnologías."
+  },
+  "features": {
+    "title": "Proyectos completados",
+    "text": "Aquí hay una breve lista de proyectos en los que he trabajado. ",
+    "item1": {
+      "company": "Intuir",
+      "description": "Funciones desarrolladas y mejoradas para TurboTax y Quickbooks, software popular de preparación de impuestos. "
+    },
+    "item2": {
+      "company": "Banco Real de Canadá",
+      "description": "Trabajó en la aplicación de banca móvil RBC, desarrolló microservicios Java para la función de débito de Visa virtual y contribuyó a las mejoras de varias páginas, como Transacciones."
+    },
+    "item3": {
+      "company": "Rogers - TSC",
+      "description": "Trabajé en el sitio web de comercio electrónico The Shopping Channel, propiedad de Rogers, desarrollado en un proyecto monolítico con C# y Angular como interfaz. "
+    }
+  },
+  "companies": {
+    "title": "Trabajó con grandes empresas."
+  },
+  "testimonials": {
+    "title": "Testimonios",
+    "text": "Aquí hay algunas recomendaciones y comentarios que recibí de mis compañeros de trabajo anteriores en varias empresas a lo largo de mi carrera y de todo tipo de funciones."
+  },
+  "footer": {
+    "copy": "Copyright © Tarnnn 2025"
+  },
+  "mode": {
+    "light": "Ligero",
+    "dark": "Oscuro"
+  }
 }

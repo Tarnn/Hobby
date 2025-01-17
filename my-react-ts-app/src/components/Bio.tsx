@@ -3,10 +3,12 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Avatar from "@mui/material/Avatar";
 import ScrollAnimation from "react-animate-on-scroll";
+import { useTranslation } from "react-i18next";
 
 const AWS_S3_HOBBY_CDN = import.meta.env.AWS_S3_HOBBY_CDN;
 
 export default function Bio() {
+  const { t } = useTranslation();
   return (
     <Box
       id="biography"
@@ -41,7 +43,7 @@ export default function Bio() {
               variant="h2"
               sx={{ mb: 7, mt: 7, textAlign: "center" }}
             >
-              Biography
+              {t("bio.title")}
             </Typography>
             <Box
               sx={{
@@ -74,29 +76,10 @@ export default function Bio() {
                       }),
                     })}
                   >
-                    <span className="bio-text">
-                      Taranjit Kang - Canadian citizen born in Ontario, Canada,
-                      now residing in the USA with an American green card. I've
-                      been a full-stack developer my entire career, leveraging a
-                      deep passion for technology that began during childhood.
-                    </span>
-
-                    <span className="bio-text">
-                      Growing up, I was a computer nerd, I had my first IBM PC
-                      when I was 8, later on in life I would begin building my
-                      own PCs for gaming and experimenting with code long before
-                      formal education.
-                    </span>
-                    <span className="bio-text">
-                      My professional journey includes extensive experience with
-                      Java, Spring Boot, React, and various front-end and
-                      back-end technologies, working for notable fintech related
-                      companies like Intuit and Royal Bank of Canada.
-                    </span>
-                    <span className="bio-text">
-                      I'm committed to continuous learning and growth in the
-                      ever-evolving tech landscape.
-                    </span>
+                    <span className="bio-text"> {t("bio.text1")}</span>
+                    <span className="bio-text">{t("bio.text2")}</span>
+                    <span className="bio-text">{t("bio.text3")}</span>
+                    <span className="bio-text">{t("bio.text4")}</span>
                   </Typography>
                 </ScrollAnimation>
               </Box>

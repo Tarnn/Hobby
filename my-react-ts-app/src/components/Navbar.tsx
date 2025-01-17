@@ -1,4 +1,3 @@
-// import * as React from "react";
 import { styled, alpha } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import AppBar from "@mui/material/AppBar";
@@ -7,10 +6,12 @@ import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Sitemark from "./Icons/SitemarkIcon";
 import ColorModeIconDropdown from "../theme/ColorModeIconDropdown";
+import LanguageModeIconDropdown from "./LanguageModeIconDropdown";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { AuthInitialState, logOutUser } from "../state/features/auth/AuthSlice";
 import { AppDispatch } from "../state/store";
+// import LanguageModeSelect from "./LanguageModeSelect";
 // import WalletConnector from "./WalletConnector";
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
@@ -28,7 +29,6 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
 }));
 
 export default function AppAppBar() {
-  // const [setOpen] = React.useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const dispatch: AppDispatch = useDispatch();
@@ -36,10 +36,6 @@ export default function AppAppBar() {
   const isAuthenticated = useSelector(
     (state: { auth: AuthInitialState }) => state.auth.isAuthenticated
   );
-
-  // const toggleDrawer = (newOpen: boolean) => () => {
-  //   setOpen(newOpen);
-  // };
 
   async function handleLogout(): Promise<void> {
     const resultAction = await dispatch(logOutUser());
@@ -126,10 +122,12 @@ export default function AppAppBar() {
                 Sign Up
               </Button>
             )} */}
+            <LanguageModeIconDropdown />
             <ColorModeIconDropdown />
             {/* {isAuthenticated && <WalletConnector />} */}
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" }, gap: 1 }}>
+            <LanguageModeIconDropdown size="medium" />
             <ColorModeIconDropdown size="medium" />
             {/* <IconButton aria-label="Menu button" onClick={toggleDrawer(true)}>
               <MenuIcon />
@@ -144,7 +142,7 @@ export default function AppAppBar() {
                 },
               }}
             > */}
-              {/* <Box sx={{ p: 2, backgroundColor: "background.default" }}>
+            {/* <Box sx={{ p: 2, backgroundColor: "background.default" }}>
                 <Box
                   sx={{
                     display: "flex",

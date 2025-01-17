@@ -4,6 +4,7 @@ import { useTheme } from "@mui/system";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import ScrollAnimation from "react-animate-on-scroll";
+import { useTranslation } from "react-i18next";
 
 const responsive = {
   desktop: {
@@ -61,7 +62,7 @@ const whiteLogos = [
   "https://hobby-tkang.s3.us-east-2.amazonaws.com/Slack.svg",
   "https://hobby-tkang.s3.us-east-2.amazonaws.com/Jira.svg",
   "https://hobby-tkang.s3.us-east-2.amazonaws.com/github-dark.svg",
-  "https://hobby-tkang.s3.us-east-2.amazonaws.com/wordpress-dark.svg"
+  "https://hobby-tkang.s3.us-east-2.amazonaws.com/wordpress-dark.svg",
 ];
 
 const logoStyle = {
@@ -72,6 +73,7 @@ const logoStyle = {
 };
 
 export default function SkillCollection() {
+  const { t } = useTranslation();
   const theme = useTheme();
   const logos = theme.palette.mode === "light" ? darkLogos : whiteLogos;
 
@@ -85,7 +87,7 @@ export default function SkillCollection() {
           textAlign="center"
           sx={{ mb: 7, mt: 7 }}
         >
-          Worked with great technologies
+          {t("skills.title")}
         </Typography>
         <Carousel responsive={responsive}>
           {logos.map((logo, index) => (

@@ -14,6 +14,7 @@ import {
 } from "@tsparticles/engine";
 import { loadSlim } from "@tsparticles/slim"; // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
 import Fade from "@mui/material/Fade"; // Add this import at the top
+import { useTranslation } from "react-i18next";
 
 const COVER_LETTER_URL =
   "https://hobby-tkang.s3.us-east-2.amazonaws.com/TK_2025_CoverLetter.docx";
@@ -55,7 +56,8 @@ const handleDownload = async (TYPE: string) => {
 
 export default function Hero() {
   const [init, setInit] = useState(false);
-  const [showDescription, setShowDescription] = useState(false); // Add this state
+  const [showDescription, setShowDescription] = useState(false);
+  const { t } = useTranslation();
   const options: ISourceOptions = useMemo(
     () => ({
       fpsLimit: 120,
@@ -209,7 +211,7 @@ export default function Hero() {
                 sm: "clamp(2rem, 5vw, 2.5rem)",
                 md: "clamp(3rem, 10vw, 3.5rem)",
               },
-              ...cursorStyles,  // Add this line
+              ...cursorStyles, // Add this line
               ...theme.applyStyles("dark", {
                 color: "primary.light",
               }),
@@ -219,7 +221,7 @@ export default function Hero() {
               typingDelay={200}
               cursor={<span className="cursor">|</span>}
             >
-              Software Engineer
+              {t("hero.role")}
               <Typist.Delay ms={1500} />
             </Typist>
           </Typography>
@@ -232,11 +234,7 @@ export default function Hero() {
                 fontSize: "1rem",
               }}
             >
-              From building my own computers, to coding software and
-              architecting enterprise solutions, I've been a full-stack
-              developer with a passion for innovation. With expertise in Java,
-              Spring Boot, React, and cloud technologies, I've driven digital
-              transformation at companies like Intuit and Royal Bank of Canada.
+              {t("hero.text")}
             </Typography>
           </Fade>
           <Fade in={showDescription} timeout={3000}>
@@ -253,7 +251,7 @@ export default function Hero() {
                 sx={{ minWidth: "fit-content" }}
                 onClick={() => handleDownload(RESUME_URL)}
               >
-                Download Resume
+                {t("hero.download")}
               </Button>
               <Button
                 variant="contained"
@@ -262,7 +260,7 @@ export default function Hero() {
                 sx={{ minWidth: "fit-content" }}
                 onClick={() => handleDownload(COVER_LETTER_URL)}
               >
-                Download Cover Letter
+                {t("hero.coverLetter")}
               </Button>
             </Stack>
           </Fade>

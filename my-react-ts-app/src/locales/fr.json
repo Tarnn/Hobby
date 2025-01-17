@@ -1,0 +1,48 @@
+{
+  "hero": {
+    "role": "Software Engineer",
+    "text": "De la conception de mes propres ordinateurs au codage de logiciels et à l'architecture de solutions d'entreprise, je suis un développeur full-stack passionné par l'innovation. Grâce à mon expertise en Java, Spring Boot, React et les technologies cloud, j'ai piloté la transformation numérique d'entreprises comme Intuit et la Banque Royale du Canada.",
+    "download": "Télécharger le CV",
+    "coverLetter": "Télécharger la lettre de motivation"
+  },
+  "bio": {
+    "title": "Biographie",
+    "text1": "Taranjit Kang (Tarn) - Citoyen canadien né en Ontario, Canada, résidant désormais aux États-Unis avec une carte verte américaine. J'ai été développeur full-stack toute ma carrière, tirant parti d'une profonde passion pour la technologie qui a commencé pendant l'enfance.",
+    "text2": "En grandissant, j'étais un passionné d'informatique, j'ai eu mon premier PC IBM à l'âge de 8 ans, plus tard dans ma vie, j'ai commencé à construire mes propres PC pour jouer et expérimenter avec du code bien avant l'éducation formelle.",
+    "text3": "Mon parcours professionnel comprend une vaste expérience avec Java, Spring Boot, React et diverses technologies front-end et back-end, travaillant pour des sociétés notables liées à la fintech comme Intuit et la Banque Royale du Canada.",
+    "text4": "Je m'engage à un apprentissage et une croissance continus dans un paysage technologique en constante évolution."
+  },
+  "features": {
+    "item1": {
+      "company": "Intuit",
+      "description": "Développé et amélioré des fonctionnalités pour TurboTax et Quickbooks, logiciels populaires de préparation des déclarations de revenus. Développement Full Stack avec Java et React pour créer des fonctionnalités pour la page d'accueil, l'expérience pré-authentification et post-authentification. Contribution à la page d'accueil de TurboTax qui est actuellement utilisée par des millions d'utilisateurs."
+    },
+    "item2": {
+      "company": "Banque Royale du Canada",
+      "description": "Travaillé dans l'application de banque mobile de RBC, développé des microservices en Java pour la fonction de carte de débit virtuelle Visa et contribué aux meilleures pages de transactions."
+    },
+    "item3": {
+      "company": "Rogers-TSC",
+      "description": "J'ai travaillé sur le site de commerce électronique The Shopping Channel, propriété de Rogers, développé sur un projet monolithique avec C# et Angular comme interface. J'ai contribué à de nombreux composants clés tels que la recherche de produits, les détails des produits et les pages d'articles de produits."
+    },
+    "text": "Vous avez ici une brève liste de projets sur lesquels il travaille. Depuis le plus récent jusqu’au plus ancien. Les technologies utilisées sont parmi les plus populaires et les plus avant-gardistes. Depuis le backend jusqu'au frontend : Java, Spring Boot, React, Typescript, Python, AWS, Docker, Kubernetes, Jenkins et bien d'autres.",
+    "title": "Projets terminés"
+  },
+  "skills": {
+    "title": "Travail avec de grandes technologies"
+  },
+  "footer": {
+    "copy": "Droits d'auteur © Tarnnn 2025"
+  },
+  "companies": {
+    "title": "J'ai travaillé avec de grandes entreprises"
+  },
+  "testimonials": {
+    "text": "Voici quelques recommandations et commentaires que j’ai reçus de mes anciens collègues dans diverses entreprises tout au long de ma carrière et dans toutes sortes de rôles.",
+    "title": "Témoignages"
+  },
+  "mode": {
+    "light": "Lumière",
+    "dark": "Sombre"
+  }
+}

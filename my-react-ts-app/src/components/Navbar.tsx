@@ -61,7 +61,9 @@ export default function AppAppBar() {
           <Box
             sx={{ flexGrow: 1, display: "flex", alignItems: "center", px: 0 }}
           >
-            <Sitemark />
+            <Sitemark
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            />
             <Box sx={{ display: { xs: "none", md: "flex" } }}>
               {location.pathname !== "/" && (
                 <Button

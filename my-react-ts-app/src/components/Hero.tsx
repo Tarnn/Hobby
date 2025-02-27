@@ -17,9 +17,9 @@ import Fade from "@mui/material/Fade"; // Add this import at the top
 import { useTranslation } from "react-i18next";
 
 const COVER_LETTER_URL =
-  "https://hobby-tkang.s3.us-east-2.amazonaws.com/TK_2025_CoverLetter.docx";
+  "https://hobby-tkang.s3.us-east-2.amazonaws.com/Taranjit-Kang-Full Stack Software Developer CL.pdf";
 const RESUME_URL =
-  "https://hobby-tkang.s3.us-east-2.amazonaws.com/TaranjitKang_Resume_2025.pdf";
+  "https://hobby-tkang.s3.us-east-2.amazonaws.com/Taranjit-Kang-FSD-2025.pdf";
 
 // Add after imports
 const cursorStyles = {

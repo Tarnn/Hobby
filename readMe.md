@@ -23,48 +23,6 @@ This is a personal portfolio website showcasing my professional experience and t
 - **CSS Modules**: Scoped styling solution
 - **Vercel**: Hosting and deployment platform
 
-## 🛠️ Technical Expertise
-
-### Programming Languages
-- **Backend**: Java, Python, Kotlin
-- **Frontend**: JavaScript, TypeScript
-- **Database**: SQL, GraphQL
-
-### Frameworks & Technologies
-- **Backend Frameworks**: 
-  - Spring Boot
-  - Microservices Architecture
-  - JUnit, Mockito
-  - AWS Services (SQS, STS, SNS)
-  
-- **Frontend Frameworks**: 
-  - React with Redux
-  - Angular with NgRx
-  - WordPress (Gutenberg)
-  
-- **DevOps & Tools**:
-  - Docker & Kubernetes
-  - Jenkins CI/CD
-  - Git & GitHub
-  - Splunk
-  - Jira & Confluence
-
-## 👨‍💻 Professional Experience
-
-Senior Software Developer with expertise across multiple domains:
-
-### Recent Highlights
-- **Intuit (2021-2024)**: Led development of tax filing systems and QuickBooks features
-- **Royal Bank of Canada (2020-2021)**: Developed critical microservices architecture
-- **NCR (2019-2020)**: Enhanced customer/teller applications for US Bank
-- **Rogers (2018-2019)**: Built eCommerce solutions with modern tech stack
-
-### Industry Experience
-- Banking & Finance
-- E-commerce
-- Tax & Accounting
-- Enterprise Software
-
 ## 🏗️ Project Structure
 
 ```
@@ -93,6 +51,50 @@ npm install
 ```bash
 npm start
 ```
+
+## 🛠️ Technical Expertise
+
+### Programming Languages
+- **Backend**: Java, Python, Node, Kotlin
+- **Frontend**: JavaScript, TypeScript
+- **Database**: SQL, GraphQL
+
+### Frameworks & Technologies
+- **Backend Frameworks**: 
+  - Spring Boot
+  - Microservices Architecture
+  - JUnit, Mockito
+  - AWS Services (SQS, STS, SNS)
+  - NodeJS / ExpressJS
+  - Flask, FastAPI
+  
+- **Frontend Frameworks**: 
+  - React with Redux
+  - Angular with NgRx
+  - WordPress (Gutenberg)
+  
+- **DevOps & Tools**:
+  - Docker & Kubernetes
+  - Jenkins CI/CD
+  - Git & GitHub
+  - Splunk
+  - Jira & Confluence
+
+## 👨‍💻 Professional Experience
+
+Senior Software Developer with expertise across multiple domains:
+
+### Recent Highlights
+- **Intuit (2021-2024)**: Led development of tax filing systems and QuickBooks features
+- **Royal Bank of Canada (2020-2021)**: Developed critical microservices architecture
+- **NCR (2019-2020)**: Enhanced customer/teller applications for US Bank
+- **Rogers (2018-2019)**: Built eCommerce solutions with modern tech stack
+
+### Industry Experience
+- Banking & Finance
+- E-commerce
+- Tax & Accounting
+- Enterprise Software
 
 ## 📫 Contact
 

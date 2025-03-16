@@ -9,6 +9,12 @@ import HomeMain from "./pages/HomeMain";
 import ScrollToTop from './components/ScrollToTop';
 import ScrollManager from './components/ScrollManager';
 import { useEffect } from 'react';
+import { Box } from "@mui/material";
+import { Analytics } from "@vercel/analytics/react";
+import Bio from "./components/Bio";
+import Features from "./components/Features";
+import Testimonials from "./components/Testimonials";
+import Contact from "./components/Contact";
 
 function App(props) {
   useEffect(() => {
@@ -31,6 +37,7 @@ function App(props) {
         </NavigationProvider>
         <ScrollToTop />
       </BrowserRouter>
+      <Analytics />
     </AppTheme>
   );
 }

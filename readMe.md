@@ -75,4 +75,4 @@ Feel free to reach out for collaborations or questions!
 
 ---
 
-⭐️ From [Your Name] - A passionate full-stack developer
+⭐️ From Taranjit Kang - A passionate full-stack developer

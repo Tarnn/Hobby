@@ -29,6 +29,10 @@
     "item3": {
       "company": "Rogers - TSC",
       "description": "Worked on Rogers owned The Shopping Channel E-commerce website, developed on a monolithic project  with C# and Angular as the front-end. Contributed to many key components such as Product Search, Product Details, Product Items pages."
+    },
+    "item4": {
+      "company": "NCR",
+      "description": "At National Cash Register, I enhanced the NCR Teller Application for US Bank, integrating Java Spring Boot microservices with a YAML-based SDK and deploying via Docker/Kubernetes. I led CI/CD with Jenkins, wrote Cucumber E2E tests, and managed releases using BitBucket and Jira."
     }
   },
   "companies": {

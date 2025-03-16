@@ -5,6 +5,9 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import ScrollAnimation from "react-animate-on-scroll";
 import { useTranslation } from "react-i18next";
+import AnimateInView from './animations/AnimateInView';
+import { motion } from 'framer-motion';
+import { staggerContainer, scaleIn } from './animations/variants';
 
 const responsive = {
   desktop: {
@@ -78,8 +81,15 @@ export default function SkillCollection() {
   const logos = theme.palette.mode === "light" ? darkLogos : whiteLogos;
 
   return (
-    <Box id="skillCollection" sx={{ py: 4, mb: 7 }}>
-      <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
+    <Box 
+      component={motion.div}
+      variants={staggerContainer}
+      initial="initial"
+      animate="animate"
+      id="skillCollection" 
+      sx={{ py: 4, mb: 7 }}
+    >
+      <AnimateInView scale rotate>
         <Typography
           component="h1"
           variant="h2"
@@ -89,14 +99,32 @@ export default function SkillCollection() {
         >
           {t("skills.title")}
         </Typography>
+      </AnimateInView>
+      
+      <AnimateInView delay={0.2} direction="up">
         <Carousel responsive={responsive}>
           {logos.map((logo, index) => (
-            <div key={index}>
-              <img src={logo} alt={`Company${index + 1}`} style={logoStyle} />
-            </div>
+            <motion.div
+              key={index}
+              variants={scaleIn}
+              whileHover={{ 
+                scale: 1.2, 
+                rotate: [0, -10, 10, 0],
+                transition: {
+                  duration: 0.5,
+                  rotate: {
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                    duration: 1
+                  }
+                }
+              }}
+            >
+              <img src={logo} alt={`Skill ${index + 1}`} style={logoStyle} />
+            </motion.div>
           ))}
         </Carousel>
-      </ScrollAnimation>
+      </AnimateInView>
     </Box>
   );
 }

@@ -15,6 +15,9 @@ import {
 import { loadSlim } from "@tsparticles/slim"; // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
 import Fade from "@mui/material/Fade"; // Add this import at the top
 import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
+import AnimateInView from "./animations/AnimateInView";
+import { staggerContainer, fadeInUp } from "./animations/variants";
 
 const COVER_LETTER_URL =
   "https://hobby-tkang.s3.us-east-2.amazonaws.com/Taranjit-Kang-Full Stack Software Developer CL.pdf";
@@ -125,9 +128,7 @@ export default function Hero() {
   );
   const particlesLoaded = async (
     container?: ParticlesContainer
-  ): Promise<void> => {
-    console.log(container);
-  };
+  ): Promise<void> => {};
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
@@ -181,89 +182,120 @@ export default function Hero() {
         }}
       >
         <Stack
+          component={motion.div}
+          variants={staggerContainer}
+          initial="initial"
+          animate="animate"
           spacing={2}
           useFlexGap
           sx={{ alignItems: "center", width: { xs: "100%", sm: "70%" } }}
         >
-          <Typography
-            variant="h1"
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              fontSize: {
-                xs: "clamp(2rem, 3vw, 2rem)",
-                sm: "clamp(3rem, 5vw, 3rem)",
-                md: "clamp(3rem, 10vw, 3.5rem)",
-              },
-            }}
+          <motion.div
+            variants={fadeInUp}
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
           >
-            TARANJIT KANG
-          </Typography>
-          <Typography
-            component="span"
-            variant="h1"
-            sx={(theme) => ({
-              color: "primary.main",
-              display: "flex",
-              alignItems: "center",
-              fontSize: {
-                xs: "clamp(1.5rem, 3vw, 1.5rem)",
-                sm: "clamp(2rem, 5vw, 2.5rem)",
-                md: "clamp(3rem, 10vw, 3.5rem)",
-              },
-              ...cursorStyles, // Add this line
-              ...theme.applyStyles("dark", {
-                color: "primary.light",
-              }),
-            })}
-          >
-            <Typist
-              typingDelay={200}
-              cursor={<span className="cursor">|</span>}
-            >
-              {t("hero.role")}
-              <Typist.Delay ms={1500} />
-            </Typist>
-          </Typography>
-          <Fade in={showDescription} timeout={1500}>
             <Typography
+              variant="h1"
               sx={{
-                textAlign: "justify",
-                color: "text.secondary",
-                width: { sm: "100%", md: "90%" },
-                fontSize: "1rem",
+                display: "flex",
+                alignItems: "center",
+                fontSize: {
+                  xs: "clamp(2rem, 3vw, 2rem)",
+                  sm: "clamp(3rem, 5vw, 3rem)",
+                  md: "clamp(3rem, 10vw, 3.5rem)",
+                },
               }}
             >
-              {t("hero.text")}
+              TARANJIT KANG
             </Typography>
-          </Fade>
-          <Fade in={showDescription} timeout={3000}>
-            <Stack
-              direction={{ xs: "column", sm: "row" }}
-              spacing={1}
-              useFlexGap
-              sx={{ pt: 2, width: { xs: "100%", sm: "350px" } }}
+          </motion.div>
+
+          <motion.div
+            variants={fadeInUp}
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
+          >
+            <Typography
+              component="span"
+              variant="h1"
+              sx={(theme) => ({
+                color: "primary.main",
+                display: "flex",
+                alignItems: "center",
+                fontSize: {
+                  xs: "clamp(1.5rem, 3vw, 1.5rem)",
+                  sm: "clamp(2rem, 5vw, 2.5rem)",
+                  md: "clamp(3rem, 10vw, 3.5rem)",
+                },
+                ...cursorStyles, // Add this line
+                ...theme.applyStyles("dark", {
+                  color: "primary.light",
+                }),
+              })}
             >
-              <Button
-                variant="contained"
-                color="secondary"
-                size="small"
-                sx={{ minWidth: "fit-content" }}
-                onClick={() => handleDownload(RESUME_URL)}
+              <Typist
+                typingDelay={200}
+                cursor={<span className="cursor">|</span>}
               >
-                {t("hero.download")}
-              </Button>
-              <Button
-                variant="contained"
-                color="primary"
-                size="small"
-                sx={{ minWidth: "fit-content" }}
-                onClick={() => handleDownload(COVER_LETTER_URL)}
+                {t("hero.role")}
+                <Typist.Delay ms={1500} />
+              </Typist>
+            </Typography>
+          </motion.div>
+
+          <motion.div
+            variants={fadeInUp}
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.3 }}
+          >
+            <Fade in={showDescription} timeout={1500}>
+              <Typography
+                sx={{
+                  textAlign: "justify",
+                  color: "text.secondary",
+                  width: { sm: "100%", md: "90%" },
+                  fontSize: "1rem",
+                }}
               >
-                {t("hero.coverLetter")}
-              </Button>
-            </Stack>
-          </Fade>
+                {t("hero.text")}
+              </Typography>
+            </Fade>
+          </motion.div>
+
+          <motion.div
+            variants={fadeInUp}
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
+          >
+            <Fade in={showDescription} timeout={3000}>
+              <Stack
+                direction={{ xs: "column", sm: "row" }}
+                spacing={1}
+                useFlexGap
+                sx={{ pt: 2, width: { xs: "100%", sm: "350px" } }}
+              >
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  size="small"
+                  sx={{ minWidth: "fit-content" }}
+                  onClick={() => handleDownload(RESUME_URL)}
+                >
+                  {t("hero.download")}
+                </Button>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  size="small"
+                  sx={{ minWidth: "fit-content" }}
+                  onClick={() => handleDownload(COVER_LETTER_URL)}
+                >
+                  {t("hero.coverLetter")}
+                </Button>
+              </Stack>
+            </Fade>
+          </motion.div>
         </Stack>
       </Container>
     </Box>

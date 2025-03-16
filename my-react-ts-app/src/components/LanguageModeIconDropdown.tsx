@@ -17,7 +17,6 @@ export default function LanguageModeIconDropdown(props: IconButtonOwnProps) {
     setAnchorEl(null);
   };
   const handleLang = (language: "en" | "es" | "fr" | "hind" | "punj") => () => {
-    console.log("language", language);
     setLang(language);
     i18n.changeLanguage(language);
     handleClose();
@@ -56,6 +55,7 @@ export default function LanguageModeIconDropdown(props: IconButtonOwnProps) {
         aria-controls={open ? "color-scheme-menu" : undefined}
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
+        sx={{ transform: "none !important" }}
         {...props}
       >
         {icon}
@@ -72,11 +72,19 @@ export default function LanguageModeIconDropdown(props: IconButtonOwnProps) {
             elevation: 0,
             sx: {
               my: "4px",
+              transform: "none !important",
+              transition: "none !important",
             },
           },
         }}
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+        sx={{
+          "& .MuiMenu-paper": {
+            transform: "none !important",
+            transition: "none !important",
+          },
+        }}
       >
         <MenuItem selected={lang === "en"} onClick={handleLang("en")}>
           English

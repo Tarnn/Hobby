@@ -4,6 +4,9 @@ import Grid from "@mui/material/Grid";
 import { useTheme } from "@mui/system";
 import ScrollAnimation from "react-animate-on-scroll";
 import { useTranslation } from "react-i18next";
+import AnimateInView from './animations/AnimateInView';
+import { motion } from 'framer-motion';
+import { staggerContainer, slideInFromLeft } from './animations/variants';
 
 const whiteLogos = [
   "https://hobby-tkang.s3.us-east-2.amazonaws.com/intuit.svg",
@@ -32,8 +35,15 @@ export default function LogoCollection() {
   const logos = theme.palette.mode === "light" ? darkLogos : whiteLogos;
 
   return (
-    <Box id="logoCollection" sx={{ py: 4 }}>
-      <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
+    <Box 
+      component={motion.div}
+      variants={staggerContainer}
+      initial="initial"
+      animate="animate"
+      id="logoCollection" 
+      sx={{ py: 4 }}
+    >
+      <AnimateInView scale rotate>
         <Typography
           component="h1"
           variant="h2"
@@ -43,19 +53,26 @@ export default function LogoCollection() {
         >
           {t("companies.title")}
         </Typography>
-        <Grid
-          container
-          sx={{ justifyContent: "center", mt: 0.5, opacity: 0.9 }}
-        >
+      </AnimateInView>
+
+      <AnimateInView delay={0.2} direction="up">
+        <Grid container sx={{ justifyContent: "center", mt: 0.5, opacity: 0.9 }}>
           {logos.map((logo, index) => (
             <Grid item key={index}>
-              <ScrollAnimation animateIn="zoomIn" animateOnce={true}>
+              <motion.div
+                variants={slideInFromLeft}
+                whileHover={{ 
+                  scale: 1.2,
+                  filter: "brightness(1.2)",
+                  transition: { duration: 0.3 }
+                }}
+              >
                 <img src={logo} alt={`Company${index + 1}`} style={logoStyle} />
-              </ScrollAnimation>
+              </motion.div>
             </Grid>
           ))}
         </Grid>
-      </ScrollAnimation>
+      </AnimateInView>
     </Box>
   );
 }

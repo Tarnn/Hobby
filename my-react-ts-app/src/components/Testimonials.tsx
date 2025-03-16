@@ -147,7 +147,7 @@ export default function Testimonials() {
           <Box
             sx={{
               width: { sm: "100%", md: "60%" },
-              textAlign: { sm: "left", md: "center" },
+              textAlign: { xs: "center", sm: "left", md: "center" }
             }}
           >
             <Typography

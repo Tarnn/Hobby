@@ -8,11 +8,6 @@ import Sitemark from "./Icons/SitemarkIcon";
 import ColorModeIconDropdown from "../theme/ColorModeIconDropdown";
 import LanguageModeIconDropdown from "./LanguageModeIconDropdown";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { AuthInitialState, logOutUser } from "../state/features/auth/AuthSlice";
-import { AppDispatch } from "../state/store";
-// import LanguageModeSelect from "./LanguageModeSelect";
-// import WalletConnector from "./WalletConnector";
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   display: "flex",
@@ -26,24 +21,13 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   backgroundColor: alpha(theme.palette.background.default, 0.4),
   boxShadow: theme.shadows[1],
   padding: "8px 12px",
+  transform: "none !important",
+  willChange: "transform",
 }));
 
 export default function AppAppBar() {
   const navigate = useNavigate();
   const location = useLocation();
-  const dispatch: AppDispatch = useDispatch();
-
-  const isAuthenticated = useSelector(
-    (state: { auth: AuthInitialState }) => state.auth.isAuthenticated
-  );
-
-  async function handleLogout(): Promise<void> {
-    const resultAction = await dispatch(logOutUser());
-    if (logOutUser.fulfilled.match(resultAction)) {
-      console.log("Logged");
-      navigate("/");
-    }
-  }
 
   return (
     <AppBar
@@ -54,9 +38,11 @@ export default function AppAppBar() {
         bgcolor: "transparent",
         backgroundImage: "none",
         mt: "calc(var(--template-frame-height, 0px) + 28px)",
+        transform: "none !important",
+        willChange: "transform",
       }}
     >
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" sx={{ transform: "none !important" }}>
         <StyledToolbar variant="dense" disableGutters>
           <Box
             sx={{ flexGrow: 1, display: "flex", alignItems: "center", px: 0 }}
@@ -77,122 +63,29 @@ export default function AppAppBar() {
               )}
             </Box>
           </Box>
+          {/* Desktop view dropdowns */}
           <Box
             sx={{
               display: { xs: "none", md: "flex" },
               gap: 1,
               alignItems: "center",
+              transform: "none !important",
             }}
           >
-            {isAuthenticated && (
-              <Button
-                color="primary"
-                variant="text"
-                size="small"
-                onClick={() => navigate("/profile")}
-              >
-                Profile
-              </Button>
-            )}
-            {isAuthenticated && (
-              <Button
-                color="primary"
-                variant="contained"
-                size="small"
-                onClick={() => handleLogout()}
-              >
-                Logout
-              </Button>
-            )}
-            {/* {!isAuthenticated && (
-              <Button
-                color="primary"
-                variant="text"
-                size="small"
-                onClick={() => navigate("/signin")}
-              >
-                Sign in
-              </Button>
-            )} */}
-            {/* {!isAuthenticated && location.pathname !== "/signup" && (
-              <Button
-                color="primary"
-                variant="contained"
-                size="small"
-                onClick={() => navigate("/signup")}
-              >
-                Sign Up
-              </Button>
-            )} */}
             <LanguageModeIconDropdown />
             <ColorModeIconDropdown />
-            {/* {isAuthenticated && <WalletConnector />} */}
           </Box>
-          <Box sx={{ display: { xs: "flex", md: "none" }, gap: 1 }}>
+          {/* Mobile view dropdowns */}
+          <Box
+            sx={{
+              display: { xs: "flex", md: "none" },
+              gap: 1,
+              alignItems: "center",
+              transform: "none !important",
+            }}
+          >
             <LanguageModeIconDropdown size="medium" />
             <ColorModeIconDropdown size="medium" />
-            {/* <IconButton aria-label="Menu button" onClick={toggleDrawer(true)}>
-              <MenuIcon />
-            </IconButton> */}
-            {/* <Drawer
-              anchor="top"
-              open={open}
-              onClose={toggleDrawer(false)}
-              PaperProps={{
-                sx: {
-                  top: "var(--template-frame-height, 0px)",
-                },
-              }}
-            > */}
-            {/* <Box sx={{ p: 2, backgroundColor: "background.default" }}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "flex-end",
-                  }}
-                >
-                  <IconButton onClick={toggleDrawer(false)}>
-                    <CloseRoundedIcon />
-                  </IconButton>
-                </Box>
-                {location.pathname !== "/" && (
-                  <MenuItem>
-                    <Button
-                      variant="text"
-                      color="info"
-                      size="small"
-                      onClick={() => navigate("/")}
-                    >
-                      Home
-                    </Button>
-                  </MenuItem>
-                )}
-                <Divider sx={{ my: 3 }} />
-
-                {!isAuthenticated && (
-                  <MenuItem>
-                    <Button
-                      color="primary"
-                      variant="contained"
-                      fullWidth
-                      onClick={() => navigate("/signup")}
-                    >
-                      Sign up
-                    </Button>
-                  </MenuItem>
-                )}
-                <MenuItem>
-                  <Button
-                    color="primary"
-                    variant="outlined"
-                    fullWidth
-                    onClick={() => navigate("/signin")}
-                  >
-                    Sign in
-                  </Button>
-                </MenuItem>
-              </Box> */}
-            {/* </Drawer> */}
           </Box>
         </StyledToolbar>
       </Container>

@@ -13,20 +13,24 @@
     "text4": "Je m'engage à un apprentissage et une croissance continus dans un paysage technologique en constante évolution."
   },
   "features": {
+    "title": "Projets Complétés",
+    "text": "Voici une brève liste des projets sur lesquels j'ai travaillé. Du plus récent au plus ancien. Les technologies utilisées sont parmi les plus populaires et les plus avancées. Du Backend au Frontend : Java, Spring Boot, React, Typescript, Python, AWS, Docker, Kubernetes, Jenkins, et plus encore.",
     "item1": {
       "company": "Intuit",
-      "description": "Développé et amélioré des fonctionnalités pour TurboTax et Quickbooks, logiciels populaires de préparation des déclarations de revenus. Développement Full Stack avec Java et React pour créer des fonctionnalités pour la page d'accueil, l'expérience pré-authentification et post-authentification. Contribution à la page d'accueil de TurboTax qui est actuellement utilisée par des millions d'utilisateurs."
+      "description": "J'ai développé et amélioré des fonctionnalités pour TurboTax et Quickbooks, logiciels populaires de préparation d'impôts. Développement Full Stack avec Java et React pour créer des fonctionnalités pour la page d'accueil, l'expérience pré-auth et post-auth. J'ai contribué à la page d'accueil de TurboTax actuellement utilisée par des millions d'utilisateurs."
     },
     "item2": {
-      "company": "Banque Royale du Canada",
-      "description": "Travaillé dans l'application de banque mobile de RBC, développé des microservices en Java pour la fonction de carte de débit virtuelle Visa et contribué aux meilleures pages de transactions."
+      "company": "Royal Bank of Canada",
+      "description": "J'ai travaillé sur l'application mobile RBC Banking, développé des microservices Java pour la fonction Virtual Visa Debit et contribué aux améliorations de diverses pages comme Transactions."
     },
     "item3": {
-      "company": "Rogers-TSC",
-      "description": "J'ai travaillé sur le site de commerce électronique The Shopping Channel, propriété de Rogers, développé sur un projet monolithique avec C# et Angular comme interface. J'ai contribué à de nombreux composants clés tels que la recherche de produits, les détails des produits et les pages d'articles de produits."
+      "company": "Rogers - TSC",
+      "description": "J'ai travaillé sur le site e-commerce The Shopping Channel appartenant à Rogers, développé sur un projet monolithique avec C# et Angular comme frontend. J'ai contribué à de nombreux composants clés tels que la Recherche de Produits, les Détails des Produits, les Pages d'Articles."
     },
-    "text": "Vous avez ici une brève liste de projets sur lesquels il travaille. Depuis le plus récent jusqu’au plus ancien. Les technologies utilisées sont parmi les plus populaires et les plus avant-gardistes. Depuis le backend jusqu'au frontend : Java, Spring Boot, React, Typescript, Python, AWS, Docker, Kubernetes, Jenkins et bien d'autres.",
-    "title": "Projets terminés"
+    "item4": {
+      "company": "NCR",
+      "description": "Chez National Cash Register, j'ai amélioré l'application NCR Teller pour US Bank, en intégrant des microservices Java Spring Boot avec un SDK basé sur YAML et en déployant via Docker/Kubernetes. J'ai dirigé CI/CD avec Jenkins, écrit des tests E2E Cucumber et géré les versions avec BitBucket et Jira."
+    }
   },
   "skills": {
     "title": "Travail avec de grandes technologies"
@@ -38,7 +42,7 @@
     "title": "J'ai travaillé avec de grandes entreprises"
   },
   "testimonials": {
-    "text": "Voici quelques recommandations et commentaires que j’ai reçus de mes anciens collègues dans diverses entreprises tout au long de ma carrière et dans toutes sortes de rôles.",
+    "text": "Voici quelques recommandations et commentaires que j'ai reçus de mes anciens collègues dans diverses entreprises tout au long de ma carrière et dans toutes sortes de rôles.",
     "title": "Témoignages"
   },
   "mode": {

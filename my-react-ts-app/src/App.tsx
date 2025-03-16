@@ -1,42 +1,36 @@
 import "./styling/App.scss";
 import "animate.css/animate.compat.css"
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Profile from "./pages/Profile";
-import SignUp from "./pages/SignUp";
-import SignInSide from "./pages/SignIn";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { NavigationProvider } from "./context/NavigationContext";
 import Navbar from "./components/Navbar";
-import NotFound from "./pages/NotFound";
-import { Provider } from "react-redux";
-import { store } from "./state/store";
 import AppTheme from "./theme/AppTheme";
 import CssBaseline from "@mui/material/CssBaseline";
 import HomeMain from "./pages/HomeMain";
-import PrivateRoute from "./routes/PrivateRoute";
+import ScrollToTop from './components/ScrollToTop';
+import ScrollManager from './components/ScrollManager';
+import { useEffect } from 'react';
 
 function App(props) {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <AppTheme {...props}>
       <CssBaseline enableColorScheme />
-      <Provider store={store}>
-        <BrowserRouter>
-          <NavigationProvider>
-            <Navbar />
-            <Routes>
-              <Route path="/" element={<HomeMain />} />
-              {/* <Route path="/about" element={<About />} /> */}
-              <Route path="/signup" element={<SignUp />} />
-              <Route path="/signin" element={<SignInSide />} />
-              <Route
-                path="/profile"
-                element={<PrivateRoute element={<Profile />} />}
-              />
-              {/* Catch-all route for handling 404 */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </NavigationProvider>
-        </BrowserRouter>
-      </Provider>
+      <BrowserRouter>
+        <ScrollManager />
+        <NavigationProvider>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<HomeMain />} />
+            {/* <Route path="/about" element={<About />} /> */}
+            {/* Redirect all unknown routes to home */}
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </NavigationProvider>
+        <ScrollToTop />
+      </BrowserRouter>
     </AppTheme>
   );
 }

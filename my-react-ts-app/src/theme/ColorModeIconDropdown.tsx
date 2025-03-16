@@ -55,6 +55,7 @@ export default function ColorModeIconDropdown(props: IconButtonOwnProps) {
         aria-controls={open ? "color-scheme-menu" : undefined}
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
+        sx={{ transform: "none !important" }}
         {...props}
       >
         {icon}
@@ -71,11 +72,19 @@ export default function ColorModeIconDropdown(props: IconButtonOwnProps) {
             elevation: 0,
             sx: {
               my: "4px",
+              transform: "none !important",
+              transition: "none !important",
             },
           },
         }}
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+        sx={{
+          "& .MuiMenu-paper": {
+            transform: "none !important",
+            transition: "none !important",
+          },
+        }}
       >
         <MenuItem selected={mode === "light"} onClick={handleMode("light")}>
           {t("mode.light")}

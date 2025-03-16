@@ -1,13 +1,13 @@
 {
   "hero": {
     "role": "Ingeniero de software",
-    "text": "Desde la construcción de mis propias computadoras hasta la codificación de software y la arquitectura de soluciones empresariales, he sido un desarrollador completo con pasión por la innovación. ",
+    "text": "Desde la construcción de mis propias computadoras hasta la codificación de software y la arquitectura de soluciones empresariales, he sido un desarrollador completo con pasión por la innovación. Con experiencia en Java, Spring Boot, React y tecnologías en la nube, he impulsado la transformación digital en empresas como Intuit y Royal Bank of Canada.",
     "download": "Descargar Currículum",
     "coverLetter": "Descargar carta de presentación"
   },
   "bio": {
     "title": "Biografía",
-    "text1": "Taranjit Kang (Tarn): ciudadano canadiense nacido en Ontario, Canadá, que ahora reside en los EE. UU. con una tarjeta verde estadounidense. ",
+    "text1": "Taranjit Kang (Tarn): ciudadano canadiense nacido en Ontario, Canadá, que ahora reside en los EE. UU. con una tarjeta verde estadounidense. He sido desarrollador full-stack durante toda mi carrera, aprovechando una profunda pasión por la tecnología que comenzó durante la infancia.",
     "text2": "Cuando era niño, era un nerd de las computadoras, tuve mi primera PC IBM cuando tenía 8 años, más adelante en la vida comenzaría a construir mis propias PC para jugar y experimentar con código mucho antes de la educación formal.",
     "text3": "Mi trayectoria profesional incluye una amplia experiencia con Java, Spring Boot, React y varias tecnologías front-end y back-end, trabajando para destacadas empresas relacionadas con fintech como Intuit y Royal Bank of Canada.",
     "text4": "Estoy comprometido con el aprendizaje y el crecimiento continuos en el panorama tecnológico en constante evolución."
@@ -16,19 +16,23 @@
     "title": "Trabajó con grandes tecnologías."
   },
   "features": {
-    "title": "Proyectos completados",
-    "text": "Aquí hay una breve lista de proyectos en los que he trabajado. ",
+    "title": "Proyectos Completados",
+    "text": "Aquí hay una breve lista de proyectos en los que he trabajado. Desde el más reciente hasta el más antiguo. Las tecnologías utilizadas se encuentran entre las más populares y de vanguardia. Desde Backend hasta Frontend: Java, Spring Boot, React, Typescript, Python, AWS, Docker, Kubernetes, Jenkins y más.",
     "item1": {
-      "company": "Intuir",
-      "description": "Funciones desarrolladas y mejoradas para TurboTax y Quickbooks, software popular de preparación de impuestos. "
+      "company": "Intuit",
+      "description": "Desarrollé y mejoré funciones para TurboTax y Quickbooks, software popular de preparación de impuestos. Desarrollo Full Stack con Java y React para crear funciones para la página de inicio, experiencia pre-auth y post-auth. Contribuí a la página de inicio de TurboTax que actualmente utilizan millones de usuarios."
     },
     "item2": {
-      "company": "Banco Real de Canadá",
-      "description": "Trabajó en la aplicación de banca móvil RBC, desarrolló microservicios Java para la función de débito de Visa virtual y contribuyó a las mejoras de varias páginas, como Transacciones."
+      "company": "Royal Bank of Canada",
+      "description": "Trabajé en la aplicación móvil de RBC Banking, desarrollé microservicios Java para la función Virtual Visa Debit y contribuí a mejoras de varias páginas como Transacciones."
     },
     "item3": {
       "company": "Rogers - TSC",
-      "description": "Trabajé en el sitio web de comercio electrónico The Shopping Channel, propiedad de Rogers, desarrollado en un proyecto monolítico con C# y Angular como interfaz. "
+      "description": "Trabajé en el sitio web de comercio electrónico The Shopping Channel propiedad de Rogers, desarrollado en un proyecto monolítico con C# y Angular como frontend. Contribuí a muchos componentes clave como Búsqueda de Productos, Detalles de Productos, Páginas de Artículos."
+    },
+    "item4": {
+      "company": "NCR",
+      "description": "En National Cash Register, mejoré la aplicación NCR Teller para US Bank, integrando microservicios Java Spring Boot con un SDK basado en YAML y implementando a través de Docker/Kubernetes. Dirigí CI/CD con Jenkins, escribí pruebas E2E Cucumber y gestioné lanzamientos usando BitBucket y Jira."
     }
   },
   "companies": {

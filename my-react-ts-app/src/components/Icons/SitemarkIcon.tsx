@@ -1,19 +1,36 @@
 import SvgIcon from "@mui/material/SvgIcon";
 import { Box } from "@mui/material";
+import { useEffect, useState } from "react";
 
 interface SitemarkProps {
   onClick?: () => void | Promise<void>;
 }
 
 export default function Sitemark({ onClick }: SitemarkProps) {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      setIsScrolled(scrollPosition > 100);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <Box 
       component="a" 
       onClick={onClick}
       sx={{ 
         display: 'inline-flex',
-        cursor: 'pointer'
-        // ... other styles
+        cursor: 'pointer',
+        transition: 'all 0.3s ease',
+        transform: isScrolled ? 'scale(1.15)' : 'scale(1)',
+        '&:hover': {
+          transform: isScrolled ? 'scale(1.2)' : 'scale(1.05)',
+        },
       }}
     >
       <SvgIcon sx={{ height: 21, width: 100, mr: 2 }}>
@@ -36,7 +53,6 @@ export default function Sitemark({ onClick }: SitemarkProps) {
             fill="#4876EF"
             d="m10.327 7.286.704-6.583-4.295.07.634 4.577-.74.422-3.66-2.816L.786 6.617l6.055 2.676 3.485-2.007Z"
           />
-
           <text
             x="20"
             y="15"

@@ -2,39 +2,21 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
-import MuiChip from "@mui/material/Chip";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
-import { styled } from "@mui/material/styles";
 import ScrollAnimation from "react-animate-on-scroll";
 import AutoGraphIcon from "@mui/icons-material/AutoGraph";
-const AWS_S3_HOBBY_CDN = import.meta.env.AWS_S3_HOBBY_CDN;
 import { useTranslation } from "react-i18next";
+import { useTheme } from "@mui/material/styles";
+import { motion } from "framer-motion";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { FreeMode } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/free-mode';
+
+const AWS_S3_HOBBY_CDN = import.meta.env.VITE_AWS_S3_HOBBY_CDN;
 
 let items: any[] = [];
-interface ChipProps {
-  selected?: boolean;
-}
-
-const Chip = styled(MuiChip)<ChipProps>(({ theme }) => ({
-  variants: [
-    {
-      props: ({ selected }) => selected,
-      style: {
-        background:
-          "linear-gradient(to bottom right, hsl(210, 98%, 48%), hsl(210, 98%, 35%))",
-        color: "hsl(0, 0%, 100%)",
-        borderColor: theme.palette.primary.light,
-        "& .MuiChip-label": {
-          color: "hsl(0, 0%, 100%)",
-        },
-        ...theme.applyStyles("dark", {
-          borderColor: theme.palette.primary.dark,
-        }),
-      },
-    },
-  ],
-}));
 
 interface MobileLayoutProps {
   selectedItemIndex: number;
@@ -47,6 +29,8 @@ export function MobileLayout({
   handleItemClick,
   selectedFeature,
 }: MobileLayoutProps) {
+  const theme = useTheme();
+  
   if (!items[selectedItemIndex]) {
     return null;
   }
@@ -59,20 +43,102 @@ export function MobileLayout({
         gap: 2,
       }}
     >
-      <Box sx={{ display: "flex", gap: 1, overflow: "auto" }}>
-        {items.map(({ title }, index) => (
-          <Chip
-            size="small"
-            key={index}
-            variant="outlined"
-            label={title}
-            onClick={() => handleItemClick(index)}
-            selected={selectedItemIndex === index}
-          />
-        ))}
+      <Box
+        sx={{
+          mx: -2,
+          px: 2,
+          width: '100vw',
+          position: 'relative',
+          left: '50%',
+          transform: 'translateX(-50%)',
+        }}
+      >
+        <Swiper
+          modules={[FreeMode]}
+          slidesPerView="auto"
+          spaceBetween={4}
+          freeMode={{
+            enabled: true,
+            momentum: true,
+            momentumRatio: 0.8,
+          }}
+          style={{
+            width: '100%',
+            padding: '0 12px',
+          }}
+        >
+          {items.map(({ title }, index) => (
+            <SwiperSlide
+              key={index}
+              style={{
+                width: 'auto',
+              }}
+            >
+              <Box
+                component={motion.div}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => handleItemClick(index)}
+                sx={{
+                  position: 'relative',
+                  cursor: 'pointer',
+                  textAlign: 'center',
+                  py: 1.5,
+                  px: 2,
+                  borderRadius: '8px',
+                  backgroundColor: theme.palette.background.paper,
+                  boxShadow: selectedItemIndex === index ? theme.shadows[4] : theme.shadows[1],
+                  border: `1px solid ${selectedItemIndex === index ? theme.palette.primary.main : 'transparent'}`,
+                  transition: 'all 0.3s ease',
+                }}
+              >
+                <Typography
+                  variant="subtitle2"
+                  sx={{
+                    fontWeight: selectedItemIndex === index ? 600 : 400,
+                    color: selectedItemIndex === index 
+                      ? 'primary.main'
+                      : 'text.secondary',
+                    fontSize: '0.75rem',
+                    whiteSpace: 'nowrap',
+                    transition: 'all 0.3s ease',
+                  }}
+                >
+                  {title}
+                </Typography>
+                {selectedItemIndex === index && (
+                  <motion.div
+                    layoutId="activeFeatureTab"
+                    style={{
+                      position: 'absolute',
+                      bottom: '6px',
+                      left: '50%',
+                      width: '20px',
+                      height: '2px',
+                      backgroundColor: theme.palette.primary.main,
+                      borderRadius: '1px',
+                    }}
+                    initial={{ x: '-50%' }}
+                    animate={{ x: '-50%' }}
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  />
+                )}
+              </Box>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </Box>
-      <Card variant="outlined" sx={{ backgroundColor: "transparent" }}>
+
+      <Card 
+        variant="outlined" 
+        sx={{ 
+          backgroundColor: "transparent",
+          borderRadius: '12px',
+          overflow: 'hidden',
+          boxShadow: theme.shadows[2]
+        }}
+      >
         <Box
+          data-testid="feature-image"
           sx={(theme) => ({
             mb: 2,
             backgroundSize: "contain",
@@ -80,6 +146,7 @@ export function MobileLayout({
             backgroundPosition: "center",
             minHeight: 400,
             backgroundImage: "var(--items-imageLight)",
+            transition: 'all 0.3s ease',
             ...theme.applyStyles("dark", {
               backgroundImage: "var(--items-imageDark)",
             }),
@@ -93,14 +160,32 @@ export function MobileLayout({
               : {}
           }
         />
-        <Box sx={{ px: 2, pb: 2 }}>
+        <Box 
+          sx={{ 
+            px: 3, 
+            pb: 3,
+            pt: 1,
+            borderTop: `1px solid ${theme.palette.divider}` 
+          }}
+        >
           <Typography
             gutterBottom
-            sx={{ color: "text.primary", fontWeight: "medium" }}
+            variant="h6"
+            sx={{ 
+              color: "primary.main", 
+              fontWeight: 600,
+              mb: 1
+            }}
           >
             {selectedFeature.title}
           </Typography>
-          <Typography variant="body2" sx={{ color: "text.secondary", mb: 1.5 }}>
+          <Typography 
+            variant="body2" 
+            sx={{ 
+              color: "text.secondary",
+              lineHeight: 1.6
+            }}
+          >
             {selectedFeature.description}
           </Typography>
         </Box>
@@ -111,7 +196,7 @@ export function MobileLayout({
 
 export default function Features() {
   const [selectedItemIndex, setSelectedItemIndex] = React.useState(0);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const handleItemClick = (index: number) => {
     setSelectedItemIndex(index);
@@ -123,10 +208,10 @@ export default function Features() {
       title: "Intuit",
       description: t("features.item1.description"),
       imageLight: `url("${
-        AWS_S3_HOBBY_CDN || "https://hobby-tkang.s3.us-east-2.amazonaws.com/"
+        AWS_S3_HOBBY_CDN ?? "https://hobby-tkang.s3.us-east-2.amazonaws.com/"
       }Turbotax_homepage.png")`,
       imageDark: `url("${
-        AWS_S3_HOBBY_CDN || "https://hobby-tkang.s3.us-east-2.amazonaws.com/"
+        AWS_S3_HOBBY_CDN ?? "https://hobby-tkang.s3.us-east-2.amazonaws.com/"
       }Turbotax_homepage.png")`,
     },
     {
@@ -134,22 +219,33 @@ export default function Features() {
       title: "Royal Bank of Canada",
       description: t("features.item2.description"),
       imageLight: `url("${
-        AWS_S3_HOBBY_CDN || "https://hobby-tkang.s3.us-east-2.amazonaws.com/"
+        AWS_S3_HOBBY_CDN ?? "https://hobby-tkang.s3.us-east-2.amazonaws.com/"
       }RBC_Mobile_home.png")`,
       imageDark: `url("${
-        AWS_S3_HOBBY_CDN || "https://hobby-tkang.s3.us-east-2.amazonaws.com/"
+        AWS_S3_HOBBY_CDN ?? "https://hobby-tkang.s3.us-east-2.amazonaws.com/"
       }RBC_Mobile_home.png")`,
     },
     {
       icon: <AutoGraphIcon />,
-      title: "Rogers - TSC",
+      title: "Rogers",
       description: t("features.item3.description"),
       imageLight: `url("${
-        AWS_S3_HOBBY_CDN || "https://hobby-tkang.s3.us-east-2.amazonaws.com/"
+        AWS_S3_HOBBY_CDN ?? "https://hobby-tkang.s3.us-east-2.amazonaws.com/"
       }Rogers_TSC_home.png")`,
       imageDark: `url("${
-        AWS_S3_HOBBY_CDN || "https://hobby-tkang.s3.us-east-2.amazonaws.com/"
+        AWS_S3_HOBBY_CDN ?? "https://hobby-tkang.s3.us-east-2.amazonaws.com/"
       }Rogers_TSC_home.png")`,
+    },
+    {
+      icon: <AutoGraphIcon />,
+      title: "NCR",
+      description: t("features.item4.description"),
+      imageLight: `url("${
+        AWS_S3_HOBBY_CDN ?? "https://hobby-tkang.s3.us-east-2.amazonaws.com/"
+      }tellerApp.jpg")`,
+      imageDark: `url("${
+        AWS_S3_HOBBY_CDN ?? "https://hobby-tkang.s3.us-east-2.amazonaws.com/"
+      }tellerApp.jpg")`,
     },
   ];
 
@@ -181,7 +277,11 @@ export default function Features() {
           }}
         >
           <Box
-            sx={{ width: { sm: "100%", md: "60%" }, alignSelf: "flex-start" }}
+            sx={{ 
+              width: { sm: "100%", md: "60%" }, 
+              alignSelf: { xs: "center", sm: "flex-start" },
+              textAlign: { xs: "center", sm: "left" }
+            }}
           >
             <Typography
               component="h2"
@@ -286,6 +386,7 @@ export default function Features() {
                 }}
               >
                 <Box
+                  data-testid="image-container"
                   sx={(theme) => ({
                     m: "auto",
                     width: 500,

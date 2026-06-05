@@ -1,0 +1,99 @@
+{
+  "nav": {
+    "about": "About",
+    "skills": "Skills",
+    "experience": "Experience",
+    "projects": "Projects",
+    "testimonials": "Testimonials",
+    "contact": "Contact",
+    "resume": "Resume"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "name": "Taranjit Kang",
+    "roles": [
+      "Full Stack Engineer",
+      "Senior Software Developer",
+      "Java & React Specialist",
+      "Cloud & Microservices Architect"
+    ],
+    "tagline": "From building my own computers to architecting enterprise systems — a full-stack engineer with a passion for innovation. I drive digital transformation with Java, Spring Boot, React, and the cloud at companies like Intuit and Royal Bank of Canada.",
+    "downloadResume": "Download Resume",
+    "downloadCoverLetter": "Cover Letter",
+    "scroll": "Scroll to explore",
+    "available": "Open to new opportunities"
+  },
+  "about": {
+    "eyebrow": "About me",
+    "title": "A developer, by passion and by trade",
+    "p1": "Taranjit Kang (Tarn) — a Canadian citizen born in Ontario, now residing in the USA on a green card. I've been a full-stack developer my entire career, fuelled by a deep passion for technology that began in childhood.",
+    "p2": "Growing up I was a computer nerd. I got my first IBM PC at age 8, and later started building my own machines for gaming and experimenting with code long before any formal education.",
+    "p3": "My professional journey spans Java, Spring Boot, React, and a wide range of front-end and back-end technologies — working for notable fintech companies like Intuit and Royal Bank of Canada.",
+    "p4": "I'm committed to continuous learning and growth in an ever-evolving tech landscape.",
+    "stats": {
+      "years": "Years experience",
+      "companies": "Companies shipped for",
+      "users": "Users reached"
+    }
+  },
+  "skills": {
+    "eyebrow": "Tech stack",
+    "title": "Technologies I build with",
+    "subtitle": "A decade of hands-on work across the full stack — from backend microservices to polished front-end experiences and the cloud infrastructure underneath."
+  },
+  "experience": {
+    "eyebrow": "Experience",
+    "title": "Where I've made an impact",
+    "subtitle": "A brief history of the teams and products I've helped ship, from the most recent to the earliest. The technologies span backend to frontend: Java, Spring Boot, React, TypeScript, Python, AWS, Docker, Kubernetes, Jenkins, and more.",
+    "present": "Present",
+    "items": {
+      "adobe": "As a Senior Backend Engineer on the Catalog Engineering team, I build reliable, scalable services on the Adobe Unified Platform that let business teams launch and manage commerce products. I ship production-ready Java, Spring Boot, and AWS systems following microservice best practices, with Ruby and React/Next.js across the stack, and observability via Splunk, New Relic, Grafana, and Kibana.",
+      "handshake": "As a Senior Engineer, I shipped A/B-tested consumer features behind LaunchDarkly toggles that drove over $20M in annual recurring revenue — roughly 10% of company ARR. Built with Ruby on Rails, React, and TypeScript, integrating Stripe for payments and Google Cloud / BigQuery for data-driven decisions.",
+      "intuit": "Developed and enhanced features for TurboTax and QuickBooks, popular tax-preparation software. Full-stack development in Java and React for the homepage and pre/post-auth experiences. Contributed to the TurboTax homepage now used by millions of users.",
+      "rbc": "Worked on the RBC Mobile Banking app, developing Java microservices for the Virtual Visa Debit feature and contributing to enhancements across pages such as Transactions.",
+      "ncr": "Enhanced the NCR Teller Application for US Bank, integrating Java Spring Boot microservices with a YAML-based SDK and deploying via Docker and Kubernetes. Led CI/CD with Jenkins, wrote Cucumber E2E tests, and managed releases with Bitbucket and Jira.",
+      "rogers": "Worked on Rogers-owned The Shopping Channel e-commerce website — a monolithic project with C# and an Angular front end. Contributed to key components including Product Search, Product Details, and Product Listing pages."
+    }
+  },
+  "projects": {
+    "eyebrow": "Selected work",
+    "title": "Things I've been building",
+    "subtitle": "Live products I've shipped plus open-source projects from my GitHub — side projects, tools, and things I build to keep learning.",
+    "viewRepo": "View repo",
+    "liveDemo": "Live",
+    "viewAll": "View all on GitHub"
+  },
+  "testimonials": {
+    "eyebrow": "Testimonials",
+    "title": "What colleagues say",
+    "subtitle": "Recommendations and feedback from coworkers across the companies and roles throughout my career."
+  },
+  "contact": {
+    "eyebrow": "Get in touch",
+    "title": "Let's build something great",
+    "subtitle": "Open to senior and staff full-stack roles, consulting, and interesting collaborations. The fastest way to reach me is email or LinkedIn.",
+    "emailButton": "Email me",
+    "linkedinButton": "Connect on LinkedIn",
+    "resumeButton": "View Resume",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "namePlaceholder": "Your name",
+      "emailPlaceholder": "you@example.com",
+      "messagePlaceholder": "Tell me about your project or role…",
+      "send": "Send message",
+      "sending": "Sending…",
+      "successTitle": "Message sent!",
+      "success": "Thanks for reaching out — I'll get back to you soon."
+    }
+  },
+  "footer": {
+    "tagline": "Full-stack engineer building reliable software, end to end.",
+    "rights": "All rights reserved.",
+    "builtWith": "Built with Next.js, Tailwind & Three.js"
+  },
+  "language": {
+    "label": "Language"
+  }
+}

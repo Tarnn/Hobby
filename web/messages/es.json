@@ -1,0 +1,99 @@
+{
+  "nav": {
+    "about": "Sobre mí",
+    "skills": "Habilidades",
+    "experience": "Experiencia",
+    "projects": "Proyectos",
+    "testimonials": "Testimonios",
+    "contact": "Contacto",
+    "resume": "Currículum"
+  },
+  "hero": {
+    "greeting": "Hola, soy",
+    "name": "Taranjit Kang",
+    "roles": [
+      "Ingeniero Full Stack",
+      "Desarrollador de Software Senior",
+      "Especialista en Java y React",
+      "Arquitecto de Nube y Microservicios"
+    ],
+    "tagline": "Desde armar mis propias computadoras hasta diseñar sistemas empresariales: un ingeniero full-stack apasionado por la innovación. Impulso la transformación digital con Java, Spring Boot, React y la nube en empresas como Intuit y Royal Bank of Canada.",
+    "downloadResume": "Descargar CV",
+    "downloadCoverLetter": "Carta de presentación",
+    "scroll": "Desplázate para explorar",
+    "available": "Abierto a nuevas oportunidades"
+  },
+  "about": {
+    "eyebrow": "Sobre mí",
+    "title": "Desarrollador por pasión y por oficio",
+    "p1": "Taranjit Kang (Tarn): ciudadano canadiense nacido en Ontario, ahora residente en EE. UU. con green card. He sido desarrollador full-stack toda mi carrera, impulsado por una profunda pasión por la tecnología que comenzó en la infancia.",
+    "p2": "De niño era un fanático de las computadoras. Tuve mi primera IBM PC a los 8 años y más tarde empecé a armar mis propias máquinas para jugar y experimentar con código mucho antes de cualquier formación formal.",
+    "p3": "Mi trayectoria profesional abarca Java, Spring Boot, React y una amplia gama de tecnologías de front-end y back-end, trabajando para empresas fintech reconocidas como Intuit y Royal Bank of Canada.",
+    "p4": "Me comprometo con el aprendizaje y el crecimiento continuos en un panorama tecnológico en constante evolución.",
+    "stats": {
+      "years": "Años de experiencia",
+      "companies": "Empresas atendidas",
+      "users": "Usuarios alcanzados"
+    }
+  },
+  "skills": {
+    "eyebrow": "Stack tecnológico",
+    "title": "Tecnologías con las que construyo",
+    "subtitle": "Una década de trabajo práctico en todo el stack: desde microservicios de backend hasta experiencias front-end cuidadas y la infraestructura en la nube que las sostiene."
+  },
+  "experience": {
+    "eyebrow": "Experiencia",
+    "title": "Donde he dejado huella",
+    "subtitle": "Una breve historia de los equipos y productos que he ayudado a lanzar, del más reciente al más antiguo. Las tecnologías abarcan del backend al frontend: Java, Spring Boot, React, TypeScript, Python, AWS, Docker, Kubernetes, Jenkins y más.",
+    "present": "Actualidad",
+    "items": {
+      "adobe": "Como Senior Backend Engineer en el equipo de Catalog Engineering, construyo servicios fiables y escalables sobre la Adobe Unified Platform que permiten a los equipos de negocio lanzar y gestionar productos de comercio. Desarrollo sistemas listos para producción con Java, Spring Boot y AWS siguiendo las mejores prácticas de microservicios, con Ruby y React/Next.js en todo el stack, y observabilidad con Splunk, New Relic, Grafana y Kibana.",
+      "handshake": "Como Senior Engineer, lancé funciones de consumo con pruebas A/B detrás de toggles de LaunchDarkly que generaron más de 20 M$ en ingresos recurrentes anuales, alrededor del 10 % del ARR de la empresa. Construido con Ruby on Rails, React y TypeScript, integrando Stripe para pagos y Google Cloud / BigQuery para decisiones basadas en datos.",
+      "intuit": "Desarrollé y mejoré funciones para TurboTax y QuickBooks, software popular de preparación de impuestos. Desarrollo full-stack en Java y React para la página de inicio y las experiencias pre y post autenticación. Contribuí a la página de inicio de TurboTax que hoy usan millones de usuarios.",
+      "rbc": "Trabajé en la app de banca móvil de RBC, desarrollando microservicios en Java para la función Virtual Visa Debit y contribuyendo a mejoras en páginas como Transacciones.",
+      "ncr": "Mejoré la aplicación NCR Teller para US Bank, integrando microservicios Java Spring Boot con un SDK basado en YAML y desplegando con Docker y Kubernetes. Lideré CI/CD con Jenkins, escribí pruebas E2E con Cucumber y gestioné lanzamientos con Bitbucket y Jira.",
+      "rogers": "Trabajé en el sitio de comercio electrónico The Shopping Channel, de Rogers, un proyecto monolítico con C# y un front end en Angular. Contribuí a componentes clave como Búsqueda de productos, Detalles de producto y Listados de productos."
+    }
+  },
+  "projects": {
+    "eyebrow": "Trabajo destacado",
+    "title": "Cosas que he estado creando",
+    "subtitle": "Productos en vivo que he lanzado, además de proyectos de código abierto de mi GitHub: side projects, herramientas y cosas que construyo para seguir aprendiendo.",
+    "viewRepo": "Ver repo",
+    "liveDemo": "En vivo",
+    "viewAll": "Ver todo en GitHub"
+  },
+  "testimonials": {
+    "eyebrow": "Testimonios",
+    "title": "Lo que dicen mis colegas",
+    "subtitle": "Recomendaciones y comentarios de compañeros de las distintas empresas y puestos a lo largo de mi carrera."
+  },
+  "contact": {
+    "eyebrow": "Hablemos",
+    "title": "Construyamos algo grande",
+    "subtitle": "Abierto a roles senior y staff de full-stack, consultoría y colaboraciones interesantes. La forma más rápida de contactarme es por correo o LinkedIn.",
+    "emailButton": "Envíame un correo",
+    "linkedinButton": "Conecta en LinkedIn",
+    "resumeButton": "Ver currículum",
+    "form": {
+      "name": "Nombre",
+      "email": "Correo",
+      "message": "Mensaje",
+      "namePlaceholder": "Tu nombre",
+      "emailPlaceholder": "tu@ejemplo.com",
+      "messagePlaceholder": "Cuéntame sobre tu proyecto o vacante…",
+      "send": "Enviar mensaje",
+      "sending": "Enviando…",
+      "successTitle": "¡Mensaje enviado!",
+      "success": "Gracias por escribir — te responderé pronto."
+    }
+  },
+  "footer": {
+    "tagline": "Ingeniero full-stack que crea software confiable, de principio a fin.",
+    "rights": "Todos los derechos reservados.",
+    "builtWith": "Hecho con Next.js, Tailwind y Three.js"
+  },
+  "language": {
+    "label": "Idioma"
+  }
+}

@@ -65,10 +65,10 @@ function ParticleField({ count }: { count: number }) {
         <PointMaterial
           transparent
           color="#2b9bf4"
-          size={0.028}
+          size={0.034}
           sizeAttenuation
           depthWrite={false}
-          opacity={0.9}
+          opacity={0.95}
           blending={THREE.AdditiveBlending}
         />
       </Points>
@@ -82,13 +82,19 @@ export default function HeroCanvas() {
 
   if (reduced) return null;
 
-  const count = isMobile ? 1400 : 3200;
+  const count = isMobile ? 650 : 1500;
 
   return (
     <Canvas
       camera={{ position: [0, 0, 6], fov: 60 }}
-      dpr={[1, 1.8]}
-      gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
+      dpr={[1, 1.5]}
+      frameloop="always"
+      performance={{ min: 0.5 }}
+      gl={{
+        antialias: false,
+        alpha: true,
+        powerPreference: 'high-performance',
+      }}
       style={{ pointerEvents: 'none' }}
     >
       <ParticleField count={count} />

@@ -30,7 +30,7 @@ export default function Footer() {
       <div className="container py-14 md:py-16">
         <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
           <div className="max-w-sm">
-            <Wordmark className="dark:[&_span:last-child]:text-foreground [&_span:last-child]:text-white" />
+            <Wordmark tone="light" />
             <p className="mt-4 text-sm/relaxed opacity-70">
               {t('footer.tagline')}
             </p>

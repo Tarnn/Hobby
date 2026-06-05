@@ -30,9 +30,12 @@
     "p2": "Growing up I was a computer nerd. I got my first IBM PC at age 8, and later started building my own machines for gaming and experimenting with code long before any formal education.",
     "p3": "My professional journey spans Java, Spring Boot, React, and a wide range of front-end and back-end technologies — working for notable fintech companies like Intuit and Royal Bank of Canada.",
     "p4": "I'm committed to continuous learning and growth in an ever-evolving tech landscape.",
+    "currentlyAt": "Currently at",
+    "location": "Born in Canada · Based in the USA",
     "stats": {
       "years": "Years experience",
       "companies": "Companies shipped for",
+      "industries": "Industries",
       "users": "Users reached"
     }
   },

@@ -30,9 +30,12 @@
     "p2": "De niño era un fanático de las computadoras. Tuve mi primera IBM PC a los 8 años y más tarde empecé a armar mis propias máquinas para jugar y experimentar con código mucho antes de cualquier formación formal.",
     "p3": "Mi trayectoria profesional abarca Java, Spring Boot, React y una amplia gama de tecnologías de front-end y back-end, trabajando para empresas fintech reconocidas como Intuit y Royal Bank of Canada.",
     "p4": "Me comprometo con el aprendizaje y el crecimiento continuos en un panorama tecnológico en constante evolución.",
+    "currentlyAt": "Actualmente en",
+    "location": "Nacido en Canadá · Radicado en EE. UU.",
     "stats": {
       "years": "Años de experiencia",
       "companies": "Empresas atendidas",
+      "industries": "Industrias",
       "users": "Usuarios alcanzados"
     }
   },

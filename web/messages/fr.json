@@ -30,9 +30,12 @@
     "p2": "Enfant, j'étais un passionné d'informatique. J'ai eu mon premier PC IBM à 8 ans, puis j'ai commencé à assembler mes propres machines pour jouer et expérimenter le code bien avant toute formation formelle.",
     "p3": "Mon parcours professionnel couvre Java, Spring Boot, React et un large éventail de technologies front-end et back-end, au service d'entreprises fintech reconnues comme Intuit et la Banque Royale du Canada.",
     "p4": "Je suis attaché à l'apprentissage et à la progression continus dans un paysage technologique en constante évolution.",
+    "currentlyAt": "Actuellement chez",
+    "location": "Né au Canada · Basé aux États-Unis",
     "stats": {
       "years": "Années d'expérience",
       "companies": "Entreprises servies",
+      "industries": "Secteurs",
       "users": "Utilisateurs atteints"
     }
   },

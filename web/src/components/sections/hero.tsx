@@ -100,19 +100,6 @@ export default function Hero() {
 
       <div className="container flex h-full flex-col pt-28 md:pt-36 lg:pt-40">
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center md:mx-0 md:items-start md:text-left">
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: EASE }}
-            className={`${chip} inline-flex items-center gap-2 text-xs font-medium`}
-          >
-            <span className="relative flex size-2">
-              <span className="absolute inline-flex size-full animate-ping rounded-full bg-green-500 opacity-75" />
-              <span className="relative inline-flex size-2 rounded-full bg-green-500" />
-            </span>
-            {t('available')}
-          </motion.div>
-
           <h1 className="font-display mt-6 text-[clamp(4.1rem,13vw,9.25rem)] leading-[0.9] font-light tracking-[-0.035em] text-balance">
             <motion.span
               className="inline-block"

@@ -6,7 +6,9 @@
     "studio": "Studio",
     "projects": "Projects",
     "testimonials": "Testimonials",
-    "contact": "Contact"
+    "contact": "Contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
   },
   "hero": {
     "greeting": "Hi, I'm",
@@ -21,7 +23,6 @@
     "ctaContact": "Get in touch",
     "ctaWork": "See my work",
     "scroll": "Scroll to explore",
-    "available": "Open to new roles",
     "tod": {
       "label": "Time of day",
       "morning": "Morning",
@@ -35,7 +36,7 @@
   "about": {
     "eyebrow": "About me",
     "title": "Hi, I'm <em>Tarn</em>",
-    "p1": "Most people call me Tarn, and a few old teammates still call me TJ. I was born in Ontario, Canada, and now live in the US. I'm a Canadian citizen and a US green card holder, so I can work in either country without sponsorship.",
+    "p1": "Most people call me Tarn, and a few old teammates still call me TJ. I was born in Ontario, Canada, and now live in the US. I'm a Canadian citizen and a US green card holder.",
     "p2": "I was the kid who took computers apart. I got my first IBM PC at eight, and before long I was building my own machines, first for games and then for writing code.",
     "p3": "I've spent my whole career as a full stack developer. Mostly Java and Spring Boot on the backend and React on the front, at places like Intuit, RBC, Handshake and now Adobe.",
     "p4": "I still get a kick out of learning new things. Lately that's meant 3D on the web and building small apps at Nexus Development.",
@@ -140,7 +141,7 @@
   "contact": {
     "eyebrow": "Say hi",
     "title": "Let's <em>talk</em>",
-    "subtitle": "I'm open to senior and staff full stack roles, consulting, or just an interesting idea. Email or LinkedIn is the quickest way to reach me.",
+    "subtitle": "Have a project, a collaboration or just an interesting idea? Email or LinkedIn is the quickest way to reach me.",
     "emailButton": "Email me",
     "linkedinButton": "Connect on LinkedIn",
     "form": {

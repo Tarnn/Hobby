@@ -6,7 +6,9 @@
     "studio": "Studio",
     "projects": "Projets",
     "testimonials": "Témoignages",
-    "contact": "Contact"
+    "contact": "Contact",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu"
   },
   "hero": {
     "greeting": "Bonjour, je suis",
@@ -21,7 +23,6 @@
     "ctaContact": "Me contacter",
     "ctaWork": "Voir mon travail",
     "scroll": "Faites défiler pour explorer",
-    "available": "Ouvert à de nouveaux postes",
     "tod": {
       "label": "Moment de la journée",
       "morning": "Matin",
@@ -35,7 +36,7 @@
   "about": {
     "eyebrow": "À propos de moi",
     "title": "Salut, moi c'est <em>Tarn</em>",
-    "p1": "La plupart des gens m'appellent Tarn, et quelques anciens collègues m'appellent encore TJ. Je suis né en Ontario, au Canada, et je vis maintenant aux États-Unis. Je suis citoyen canadien et titulaire d'une carte verte américaine, donc je peux travailler dans les deux pays sans parrainage.",
+    "p1": "La plupart des gens m'appellent Tarn, et quelques anciens collègues m'appellent encore TJ. Je suis né en Ontario, au Canada, et je vis maintenant aux États-Unis. Je suis citoyen canadien et titulaire d'une carte verte américaine.",
     "p2": "J'étais le gamin qui démontait les ordinateurs. J'ai eu mon premier IBM PC à huit ans, et très vite j'ai monté mes propres machines, d'abord pour jouer, puis pour coder.",
     "p3": "J'ai été développeur full stack toute ma carrière. Surtout Java et Spring Boot côté backend et React côté front, chez Intuit, RBC, Handshake et maintenant Adobe.",
     "p4": "J'adore toujours apprendre de nouvelles choses. Ces derniers temps, c'est la 3D sur le web et de petites apps chez Nexus Development.",
@@ -140,7 +141,7 @@
   "contact": {
     "eyebrow": "Dites bonjour",
     "title": "<em>Parlons-en</em>",
-    "subtitle": "Je suis ouvert aux postes full stack senior et staff, au conseil, ou simplement à une idée intéressante. L'email ou LinkedIn reste le moyen le plus rapide de me joindre.",
+    "subtitle": "Un projet, une collaboration ou simplement une idée intéressante ? L'email ou LinkedIn reste le moyen le plus rapide de me joindre.",
     "emailButton": "Écrivez-moi",
     "linkedinButton": "Me suivre sur LinkedIn",
     "form": {

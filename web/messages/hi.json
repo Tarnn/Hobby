@@ -6,7 +6,9 @@
     "studio": "स्टूडियो",
     "projects": "प्रोजेक्ट्स",
     "testimonials": "प्रशंसापत्र",
-    "contact": "संपर्क"
+    "contact": "संपर्क",
+    "openMenu": "मेनू खोलें",
+    "closeMenu": "मेनू बंद करें"
   },
   "hero": {
     "greeting": "नमस्ते, मैं हूँ",

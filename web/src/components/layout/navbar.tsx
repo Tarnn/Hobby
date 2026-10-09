@@ -43,8 +43,14 @@ export default function Navbar() {
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
+    if (!menuOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMenuOpen(false);
+    };
+    window.addEventListener('keydown', onKey);
     return () => {
       document.body.style.overflow = '';
+      window.removeEventListener('keydown', onKey);
     };
   }, [menuOpen]);
 
@@ -56,7 +62,8 @@ export default function Navbar() {
           width: scrolled ? '100%' : '100%',
         }}
         className={cn(
-          'flex w-full max-w-6xl items-center justify-between gap-4 rounded-full border px-4 py-2.5 transition-colors duration-300 md:px-6',
+          // z-50 keeps the bar (and its close button) above the menu overlay.
+          'relative z-50 flex w-full max-w-6xl items-center justify-between gap-4 rounded-full border px-4 py-2.5 transition-colors duration-300 md:px-6',
           scrolled
             ? 'border-border bg-background/70 shadow-lg backdrop-blur-xl'
             : 'border-foreground/10 bg-background/30 backdrop-blur-md',
@@ -90,12 +97,12 @@ export default function Navbar() {
           <LanguageSwitcher />
           <button
             type="button"
-            aria-label="Toggle menu"
+            aria-label={menuOpen ? t('closeMenu') : t('openMenu')}
             aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
             onClick={() => setMenuOpen((v) => !v)}
-            className="relative flex size-10 items-center justify-center"
+            className="focus-visible:ring-ring relative flex size-10 items-center justify-center rounded-full outline-none focus-visible:ring-2"
           >
-            <span className="sr-only">Toggle menu</span>
             <div className="relative h-4 w-6">
               <span
                 className={cn(
@@ -122,6 +129,7 @@ export default function Navbar() {
 
       {/* Mobile menu overlay */}
       <div
+        id="mobile-menu"
         className={cn(
           'fixed inset-0 top-0 z-40 lg:hidden',
           menuOpen ? 'visible' : 'invisible',
@@ -136,7 +144,7 @@ export default function Navbar() {
         />
         <nav
           className={cn(
-            'relative flex h-full flex-col items-center justify-center gap-2 transition-all duration-300',
+            'pointer-events-none relative flex h-full flex-col items-center justify-center gap-2 transition-all duration-300',
             menuOpen ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0',
           )}
         >
@@ -146,7 +154,7 @@ export default function Navbar() {
               href={link.href}
               onClick={() => setMenuOpen(false)}
               className={cn(
-                'text-2xl font-semibold transition-colors',
+                'pointer-events-auto text-2xl font-semibold transition-colors',
                 active === link.id ? 'text-brand' : 'text-foreground',
               )}
             >

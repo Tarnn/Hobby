@@ -6,7 +6,9 @@
     "studio": "ਸਟੂਡੀਓ",
     "projects": "ਪ੍ਰੋਜੈਕਟ",
     "testimonials": "ਪ੍ਰਸ਼ੰਸਾ-ਪੱਤਰ",
-    "contact": "ਸੰਪਰਕ"
+    "contact": "ਸੰਪਰਕ",
+    "openMenu": "ਮੀਨੂ ਖੋਲ੍ਹੋ",
+    "closeMenu": "ਮੀਨੂ ਬੰਦ ਕਰੋ"
   },
   "hero": {
     "greeting": "ਸਤ ਸ੍ਰੀ ਅਕਾਲ, ਮੈਂ ਹਾਂ",

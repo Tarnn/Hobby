@@ -6,7 +6,9 @@
     "studio": "Studio",
     "projects": "Projects",
     "testimonials": "Testimonials",
-    "contact": "Contact"
+    "contact": "Contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
   },
   "hero": {
     "greeting": "Hi, I'm",

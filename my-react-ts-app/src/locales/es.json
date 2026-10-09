@@ -32,7 +32,7 @@
     },
     "item4": {
       "company": "NCR",
-      "description": "En National Cash Register, mejoré la aplicación NCR Teller para US Bank, integrando microservicios Java Spring Boot con un SDK basado en YAML y implementando a través de Docker/Kubernetes. Dirigí CI/CD con Jenkins, escribí pruebas E2E Cucumber y gestioné lanzamientos usando BitBucket y Jira."
+      "description": "En National Cash Register, mejoré la aplicación NCR Teller, integrando microservicios Java Spring Boot con un SDK basado en YAML y implementando a través de Docker/Kubernetes. Dirigí CI/CD con Jenkins, escribí pruebas E2E Cucumber y gestioné lanzamientos usando BitBucket y Jira."
     }
   },
   "companies": {

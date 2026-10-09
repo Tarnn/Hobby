@@ -1,11 +1,11 @@
 'use client';
 
 /* eslint-disable @next/next/no-img-element */
-import { Linkedin, Quote } from 'lucide-react';
+import { Linkedin } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useTranslations } from 'next-intl';
 
-import { SectionHeading } from '../section-heading';
+import { em, SectionHeading } from '../section-heading';
 
 import { TESTIMONIALS } from '@/content/portfolio';
 
@@ -16,8 +16,9 @@ export default function Testimonials() {
     <section id="testimonials" className="section-padding scroll-mt-24">
       <div className="container">
         <SectionHeading
+          index="06"
           eyebrow={t('eyebrow')}
-          title={t('title')}
+          title={t.rich('title', { em })}
           subtitle={t('subtitle')}
         />
 
@@ -29,10 +30,15 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: (i % 3) * 0.08 }}
-              className="border-border bg-card hover:border-brand/40 mb-5 break-inside-avoid rounded-2xl border p-6 shadow-sm transition-colors"
+              className="border-border bg-card/70 hover:border-brand/40 mb-5 break-inside-avoid rounded-3xl border p-6 shadow-sm backdrop-blur-sm transition-colors md:p-7"
             >
-              <Quote className="text-brand/30 size-8" />
-              <blockquote className="text-muted-foreground mt-3 text-sm/relaxed">
+              <span
+                aria-hidden
+                className="font-display text-brand block h-10 text-7xl leading-none italic"
+              >
+                &ldquo;
+              </span>
+              <blockquote className="text-foreground/80 mt-3 text-[0.95rem]/relaxed">
                 {item.quote}
               </blockquote>
               <figcaption className="border-border mt-5 flex items-center gap-3 border-t pt-4">

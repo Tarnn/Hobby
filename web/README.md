@@ -8,19 +8,53 @@ Complete redesign built on Next.js 15 App Router.
 - **Next.js 15** (App Router) + **React 19** + **TypeScript**
 - **Tailwind CSS v4** + **shadcn/ui** (seeded from the paid "Sonic" shadcnblocks template)
 - **Motion** (`motion/react`) for scroll/reveal animations; **Lenis** smooth scroll
-- **Three.js** via `@react-three/fiber` + `drei` — cursor-reactive WebGL particle field in the hero
+- **Three.js** via `@react-three/fiber` + `drei` — the interactive "touch grass" meadow hero (custom GLSL)
+- **Type**: IvyPresto Display (editorial serif) via Adobe Fonts kit `cml5ijv`; Geist Sans for body text and Geist Mono for HUD labels, both self-hosted by `next/font`
 - **next-intl** — 5 languages (EN / ES / FR / Hindi / Punjabi), cookie-based, no URL prefix
 - **Resend** — server-action contact form
 - **@vercel/analytics**
 
+## The meadow + time of day
+
+The hero is a real-time WebGL meadow (`src/components/meadow/`): ~72k instanced grass
+blades with wind gusts, a cursor trail that parts the grass, click-to-plant flowers, a
+lone tree, sky dome with sun / moon / stars / clouds, and fireflies at night.
+
+**Time of day is the site theme.** `morning` (light), `golden` and `night` (dark) drive
+both the CSS tokens (`data-tod` on `<html>`, see `globals.css`) and the scene palette
+(`meadow/palette.ts`). It defaults to the visitor's local clock, then persists their
+pick (`localStorage.tod`). An inline script resolves it before first paint. The
+Morning / Golden / Night switch lives in the hero.
+
+- Terrain height is analytic and mirrored in TS + GLSL (`meadow/terrain.ts` ↔
+  `meadow/glsl.ts`) — change both together.
+- Performance: mobile/low-core devices get fewer blades; DPR adapts via
+  `PerformanceMonitor`; rendering stops when the hero is off-screen.
+- `prefers-reduced-motion`: wind freezes, no camera drift, render-on-demand (the grass
+  still reacts to touch). No WebGL → CSS sky fallback.
+- Poster stills (`public/meadow/*.webp`) paint instantly under the canvas, which
+  fades in on its first frame; they're all that no-WebGL and Save-Data visitors
+  get. Re-render them after changing the scene: `node scripts/posters.mjs`
+  (with a production server on :3001).
+- The About portrait is a background-removed cutout (Adobe Photoshop API) at
+  `public/portrait-cutout.webp`, with golden and night grades made with Photoshop
+  adjustments (`portrait-cutout-{golden,night}.webp`). Only the grade for the
+  current time of day downloads.
+- Adobe Fonts kit `cml5ijv` is allow-listed for `tarnnn.com`, `www.tarnnn.com`,
+  `*.vercel.app` and `localhost` — add new domains at fonts.adobe.com → Web Projects.
+
 ## Sections
 
-Hero · About (animated stat counters) · Skills · Experience (resume-driven timeline,
-incl. Adobe & Handshake) · Projects (live from the GitHub API, cached daily) ·
-Testimonials · Contact (working form + quick links).
+Hero · About (animated stat counters) · Skills · Experience (impact highlights +
+resume-driven timeline, incl. Adobe & Handshake) · Studio (Nexus Development LLC and
+its apps — Baybee Studio, Lullow, Pyaar; artwork mirrored in `public/nexus/`) ·
+Projects (live from the GitHub API, cached daily) · Testimonials · Contact (working
+form + quick links).
 
-SEO: JSON-LD `Person` schema, `app/sitemap.ts`, `app/robots.ts`, generated OG image
-(`app/opengraph-image.tsx`), branded favicons (regenerate via `node scripts/gen-icons.mjs`).
+SEO: JSON-LD `Person` schema, `app/sitemap.ts`, `app/robots.ts`, a share card rendered
+from the golden-hour poster (`app/opengraph-image.jpg`, re-render with
+`node scripts/og-image.mjs`), and favicons built from the path-drawn TK mark in
+`public/favicon/favicon.svg` (regenerate via `node scripts/gen-icons.mjs`).
 
 ## Develop
 

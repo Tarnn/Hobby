@@ -5,6 +5,8 @@ import { Reveal } from './reveal';
 import { cn } from '@/lib/utils';
 
 type SectionHeadingProps = {
+  /** Two-digit chapter marker, e.g. "01". */
+  index?: string;
   eyebrow: string;
   title: ReactNode;
   subtitle?: string;
@@ -12,7 +14,11 @@ type SectionHeadingProps = {
   className?: string;
 };
 
+/** Italic accent for `t.rich('title', { em })` section titles. */
+export const em = (chunks: ReactNode) => <em>{chunks}</em>;
+
 export function SectionHeading({
+  index,
   eyebrow,
   title,
   subtitle,
@@ -22,20 +28,21 @@ export function SectionHeading({
   return (
     <div
       className={cn(
-        'flex flex-col gap-4',
+        'flex flex-col gap-5',
         align === 'center' && 'items-center text-center',
         align === 'left' && 'items-start text-left',
         className,
       )}
     >
       <Reveal>
-        <span className="bg-brand/10 text-brand ring-brand/20 inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold tracking-wide uppercase ring-1">
-          <span className="bg-brand size-1.5 rounded-full" />
+        <span className="text-muted-foreground inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.2em] uppercase">
+          {index && <span className="text-brand">{index}</span>}
+          <span aria-hidden className="bg-border h-px w-8" />
           {eyebrow}
         </span>
       </Reveal>
       <Reveal delay={1}>
-        <h2 className="max-w-3xl text-3xl font-bold tracking-tight text-balance md:text-4xl lg:text-5xl">
+        <h2 className="font-display max-w-3xl text-[2.6rem] leading-[1.02] font-light tracking-[-0.025em] text-balance md:text-6xl lg:text-[4.25rem]">
           {title}
         </h2>
       </Reveal>

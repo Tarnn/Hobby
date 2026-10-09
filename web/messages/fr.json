@@ -3,6 +3,7 @@
     "about": "À propos",
     "skills": "Compétences",
     "experience": "Expérience",
+    "studio": "Studio",
     "projects": "Projets",
     "testimonials": "Témoignages",
     "contact": "Contact",
@@ -12,69 +13,135 @@
     "greeting": "Bonjour, je suis",
     "name": "Taranjit Kang",
     "roles": [
-      "Ingénieur Full Stack",
-      "Développeur logiciel senior",
-      "Spécialiste Java et React",
-      "Architecte Cloud et Microservices"
+      "Ingénieur senior chez Adobe",
+      "Full stack, de Java à React",
+      "Systèmes backend à grande échelle",
+      "Des apps en parallèle"
     ],
-    "tagline": "De l'assemblage de mes propres ordinateurs à la conception de systèmes d'entreprise — un ingénieur full-stack passionné par l'innovation. Je mène la transformation numérique avec Java, Spring Boot, React et le cloud dans des entreprises comme Intuit et la Banque Royale du Canada.",
-    "downloadResume": "Télécharger le CV",
+    "tagline": "J'ai eu mon premier ordinateur à huit ans et je n'ai jamais vraiment arrêté de bricoler. Aujourd'hui, je construis des systèmes backend chez Adobe. Avant ça, j'ai livré des produits chez Handshake, Intuit et RBC, et en parallèle je crée quelques petites apps chez Nexus Development.",
+    "downloadResume": "Télécharger mon CV",
     "downloadCoverLetter": "Lettre de motivation",
     "scroll": "Faites défiler pour explorer",
-    "available": "Ouvert à de nouvelles opportunités"
+    "available": "Ouvert à de nouveaux postes",
+    "tod": {
+      "label": "Moment de la journée",
+      "morning": "Matin",
+      "golden": "Doré",
+      "night": "Nuit"
+    },
+    "hint": "Effleurez l'herbe · Cliquez pour planter une fleur",
+    "hintTouch": "Touchez l'herbe pour planter une fleur",
+    "basedIn": "San José"
   },
   "about": {
     "eyebrow": "À propos de moi",
-    "title": "Développeur par passion et par métier",
-    "p1": "Taranjit Kang (Tarn) — citoyen canadien né en Ontario, désormais résident aux États-Unis avec une carte verte. J'ai été développeur full-stack toute ma carrière, animé par une passion profonde pour la technologie née dès l'enfance.",
-    "p2": "Enfant, j'étais un passionné d'informatique. J'ai eu mon premier PC IBM à 8 ans, puis j'ai commencé à assembler mes propres machines pour jouer et expérimenter le code bien avant toute formation formelle.",
-    "p3": "Mon parcours professionnel couvre Java, Spring Boot, React et un large éventail de technologies front-end et back-end, au service d'entreprises fintech reconnues comme Intuit et la Banque Royale du Canada.",
-    "p4": "Je suis attaché à l'apprentissage et à la progression continus dans un paysage technologique en constante évolution.",
+    "title": "Salut, moi c'est <em>Tarn</em>",
+    "p1": "La plupart des gens m'appellent Tarn, et quelques anciens collègues m'appellent encore TJ. Je suis né en Ontario, au Canada, et je vis maintenant aux États-Unis. Je suis citoyen canadien et titulaire d'une carte verte américaine, donc je peux travailler dans les deux pays sans parrainage.",
+    "p2": "J'étais le gamin qui démontait les ordinateurs. J'ai eu mon premier IBM PC à huit ans, et très vite j'ai monté mes propres machines, d'abord pour jouer, puis pour coder.",
+    "p3": "J'ai été développeur full stack toute ma carrière. Surtout Java et Spring Boot côté backend et React côté front, chez Intuit, RBC, Handshake et maintenant Adobe.",
+    "p4": "J'adore toujours apprendre de nouvelles choses. Ces derniers temps, c'est la 3D sur le web et de petites apps chez Nexus Development.",
     "currentlyAt": "Actuellement chez",
     "location": "Né au Canada · Basé aux États-Unis",
     "stats": {
       "years": "Années d'expérience",
-      "companies": "Entreprises servies",
+      "companies": "Entreprises",
       "industries": "Secteurs",
-      "users": "Utilisateurs atteints"
+      "users": "Utilisateurs touchés"
+    },
+    "statValues": {
+      "users": "Des millions"
     }
   },
   "skills": {
-    "eyebrow": "Stack technique",
-    "title": "Les technologies que j'utilise",
-    "subtitle": "Une décennie de travail concret sur toute la stack : des microservices back-end aux expériences front-end soignées, en passant par l'infrastructure cloud sous-jacente."
+    "eyebrow": "Boîte à outils",
+    "title": "Mes outils du <em>quotidien</em>",
+    "subtitle": "Dix ans à livrer du logiciel sur toute la pile, des services backend à l'interface et au cloud en dessous. Voici ceux que j'utilise le plus."
   },
   "experience": {
     "eyebrow": "Expérience",
-    "title": "Là où j'ai eu de l'impact",
-    "subtitle": "Un bref historique des équipes et produits que j'ai aidé à livrer, du plus récent au plus ancien. Les technologies vont du back-end au front-end : Java, Spring Boot, React, TypeScript, Python, AWS, Docker, Kubernetes, Jenkins, et plus encore.",
+    "title": "Où j'ai <em>travaillé</em>",
+    "subtitle": "Du plus récent au plus ancien. Choisissez une entreprise pour voir ce que j'y ai fait.",
     "present": "Présent",
     "items": {
-      "adobe": "En tant qu'ingénieur backend senior au sein de l'équipe Catalog Engineering, je conçois des services fiables et évolutifs sur l'Adobe Unified Platform qui permettent aux équipes métier de lancer et de gérer des produits de commerce. Je livre des systèmes prêts pour la production en Java, Spring Boot et AWS selon les bonnes pratiques microservices, avec Ruby et React/Next.js sur toute la stack, et de l'observabilité via Splunk, New Relic, Grafana et Kibana.",
-      "handshake": "En tant qu'ingénieur senior, j'ai livré des fonctionnalités grand public testées en A/B derrière des toggles LaunchDarkly ayant généré plus de 20 M$ de revenus récurrents annuels — environ 10 % de l'ARR de l'entreprise. Réalisé avec Ruby on Rails, React et TypeScript, en intégrant Stripe pour les paiements et Google Cloud / BigQuery pour les décisions basées sur les données.",
-      "intuit": "J'ai développé et amélioré des fonctionnalités pour TurboTax et QuickBooks, des logiciels de préparation fiscale populaires. Développement full-stack en Java et React pour la page d'accueil et les expériences pré et post-authentification. J'ai contribué à la page d'accueil de TurboTax, aujourd'hui utilisée par des millions d'utilisateurs.",
-      "rbc": "J'ai travaillé sur l'application bancaire mobile RBC, en développant des microservices Java pour la fonction Virtual Visa Debit et en contribuant aux améliorations de pages telles que Transactions.",
-      "ncr": "J'ai amélioré l'application NCR Teller pour US Bank, en intégrant des microservices Java Spring Boot avec un SDK basé sur YAML et en déployant via Docker et Kubernetes. J'ai piloté le CI/CD avec Jenkins, rédigé des tests E2E Cucumber et géré les livraisons avec Bitbucket et Jira.",
-      "rogers": "J'ai travaillé sur le site e-commerce The Shopping Channel, propriété de Rogers — un projet monolithique en C# avec un front-end Angular. J'ai contribué à des composants clés comme la Recherche de produits, les Détails produit et les Listes de produits."
+      "adobe": "Je suis ingénieur backend senior dans l'équipe Catalog Engineering. On construit les services de l'Unified Platform d'Adobe que les équipes métier utilisent pour lancer et gérer des produits commerciaux. Au quotidien, c'est surtout Java, Spring Boot et AWS, avec un peu de Ruby et de React/Next.js, et Splunk, New Relic, Grafana et Kibana pour garder un œil sur tout ça.",
+      "handshake": "J'ai livré des fonctionnalités grand public testées en A/B derrière des flags LaunchDarkly. Ensemble, elles ont généré plus de 20 M$ de revenus récurrents annuels, environ 10 % de l'ARR de l'entreprise. La stack : Ruby on Rails, React et TypeScript, avec Stripe pour les paiements et Google Cloud et BigQuery pour les données.",
+      "intuit": "J'ai travaillé sur TurboTax et QuickBooks, en full stack avec Java et React, sur la page d'accueil et les parcours avant et après connexion. Des millions de personnes voient la page d'accueil de TurboTax que j'ai aidé à construire.",
+      "rbc": "J'ai travaillé sur l'app RBC Mobile, en créant des microservices Java pour la carte Visa Débit virtuelle et en améliorant des écrans comme Transactions.",
+      "ncr": "J'ai travaillé sur l'application de guichet de NCR pour US Bank, en connectant des microservices Java Spring Boot à un SDK basé sur YAML et en déployant avec Docker et Kubernetes. Je gérais aussi le CI/CD dans Jenkins, j'écrivais des tests de bout en bout avec Cucumber et je gérais les livraisons dans Bitbucket et Jira.",
+      "rogers": "J'ai travaillé sur le site e-commerce de The Shopping Channel pour Rogers, un gros monolithe en C# avec un front Angular. J'ai construit des parties de la recherche, des fiches et des listes de produits."
+    },
+    "impact": [
+      {
+        "value": "20 M$+",
+        "label": "de revenus récurrents annuels grâce aux fonctionnalités que j'ai livrées chez Handshake, environ 10 % du total de l'entreprise"
+      },
+      {
+        "value": "Des millions",
+        "label": "de personnes voient la page d'accueil de TurboTax que j'ai aidé à construire chez Intuit"
+      },
+      {
+        "value": "2 banques",
+        "label": "RBC et US Bank, où j'ai créé des microservices Java pour la banque mobile et les systèmes de guichet"
+      }
+    ]
+  },
+  "studio": {
+    "eyebrow": "Le studio",
+    "title": "Ce que je crée <em>après le travail</em>",
+    "subtitle": "Nexus Development est un petit studio d'apps indépendant en Californie. Trois apps sont en cours, chacune pensée pour un vrai moment du quotidien.",
+    "studioLine": "Studio logiciel indépendant · Californie",
+    "visit": "Visiter le studio",
+    "status": "En développement",
+    "apps": {
+      "baybee": {
+        "tagline": "Les petits moments, joliment imaginés.",
+        "description": "Un studio de portraits par IA pour les photos de bébé. Choisissez une scène et transformez une photo du quotidien en souvenir.",
+        "features": [
+          "Collections de portraits",
+          "Flux créatif",
+          "Galerie personnelle"
+        ],
+        "platforms": "Aperçu web · iOS et Android prévus"
+      },
+      "lullow": {
+        "tagline": "Petits rythmes. Jours plus calmes.",
+        "description": "Aide les jeunes parents à suivre le sommeil, les repas et tout le reste, et à le partager avec ceux qui donnent un coup de main.",
+        "features": [
+          "Sommeil et repas",
+          "Fil de la journée",
+          "Soins partagés"
+        ],
+        "platforms": "iOS et Android en développement"
+      },
+      "pyaar": {
+        "tagline": "Votre façon d'aimer.",
+        "description": "Une app de rencontre pour les célibataires sud-asiatiques qui cherchent quelque chose de vrai, avec de la place pour chaque part de qui ils sont.",
+        "features": [
+          "Profils soignés",
+          "Pistes de conversation",
+          "Intentions partagées"
+        ],
+        "platforms": "iOS et Android prévus"
+      }
     }
   },
   "projects": {
     "eyebrow": "Travaux sélectionnés",
-    "title": "Ce que je construis",
-    "subtitle": "Des produits en ligne que j'ai livrés ainsi que des projets open source de mon GitHub : projets perso, outils et choses que je crée pour continuer à apprendre.",
+    "title": "Ce que je <em>construis</em>",
+    "subtitle": "Quelques sites en ligne, et ce sur quoi je bricole sur GitHub ces temps-ci.",
     "viewRepo": "Voir le repo",
     "liveDemo": "Démo",
     "viewAll": "Tout voir sur GitHub"
   },
   "testimonials": {
-    "eyebrow": "Témoignages",
-    "title": "Ce que disent mes collègues",
-    "subtitle": "Recommandations et retours de collègues issus des différentes entreprises et fonctions tout au long de ma carrière."
+    "eyebrow": "Quelques mots",
+    "title": "Ce qu'en disent mes <em>collègues</em>",
+    "subtitle": "Quelques mots de personnes avec qui j'ai travaillé au fil des ans."
   },
   "contact": {
-    "eyebrow": "Contactez-moi",
-    "title": "Construisons quelque chose de formidable",
-    "subtitle": "Ouvert aux postes senior et staff en full-stack, au conseil et aux collaborations intéressantes. Le plus rapide est de me joindre par e-mail ou LinkedIn.",
+    "eyebrow": "Dites bonjour",
+    "title": "<em>Parlons-en</em>",
+    "subtitle": "Je suis ouvert aux postes full stack senior et staff, au conseil, ou simplement à une idée intéressante. L'email ou LinkedIn reste le moyen le plus rapide de me joindre.",
     "emailButton": "Écrivez-moi",
     "linkedinButton": "Me suivre sur LinkedIn",
     "resumeButton": "Voir le CV",
@@ -88,15 +155,21 @@
       "send": "Envoyer le message",
       "sending": "Envoi…",
       "successTitle": "Message envoyé !",
-      "success": "Merci de votre message — je vous répondrai bientôt."
+      "success": "Merci pour votre message. Je vous réponds bientôt."
     }
   },
   "footer": {
-    "tagline": "Ingénieur full-stack qui crée des logiciels fiables, de bout en bout.",
+    "tagline": "Ingénieur full stack. Amateur de logiciels fiables et d'herbes hautes.",
     "rights": "Tous droits réservés.",
     "builtWith": "Réalisé avec Next.js, Tailwind et Three.js"
   },
   "language": {
     "label": "Langue"
+  },
+  "notFound": {
+    "eyebrow": "Erreur 404",
+    "title": "Vous avez quitté le <em>sentier</em>",
+    "body": "Cette page n'existe pas ou a été déplacée. La prairie, c'est par ici.",
+    "cta": "Retour à la prairie"
   }
 }

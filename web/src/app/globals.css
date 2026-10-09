@@ -5,73 +5,148 @@
 
 @custom-variant dark (&:is(.dark *));
 
-:root {
+/* ---------------------------------------------------------------------------
+   Time-of-day palettes. `data-tod` is set on <html> before first paint
+   (see TOD_INIT_SCRIPT). Morning is the light theme and the no-JS default;
+   golden and night are dark (they also get the `.dark` class).
+   ------------------------------------------------------------------------- */
+:root,
+[data-tod='morning'] {
   --base-dark: hsl(0, 0%, 0%);
-  --footer-background: hsl(215, 28%, 9%);
+  --footer-background: hsl(212, 38%, 9%);
 
-  /* Brand accent — Taranjit blue */
-  --brand: hsl(210, 98%, 48%);
+  /* Accent follows the light: sky blue in the morning. */
+  --brand: hsl(208, 92%, 44%);
+  --brand-2: hsl(168, 72%, 34%);
   --brand-foreground: hsl(0, 0%, 100%);
-  --brand-soft: hsl(210, 100%, 95%);
+  --brand-soft: hsl(208, 100%, 95%);
 
-  --background: hsl(0, 0%, 100%);
-  --foreground: hsl(222, 30%, 11%);
-  --card: hsl(0, 0%, 98%);
-  --card-foreground: hsl(222, 30%, 11%);
+  --background: hsl(205, 40%, 98%);
+  --foreground: hsl(210, 38%, 10%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(210, 38%, 10%);
   --popover: hsl(0, 0%, 100%);
-  --popover-foreground: hsl(222, 30%, 11%);
-  --primary: hsl(210, 98%, 46%);
+  --popover-foreground: hsl(210, 38%, 10%);
+  --primary: hsl(208, 92%, 44%);
   --primary-foreground: hsl(0, 0%, 100%);
-  --secondary: hsl(210, 40%, 96%);
-  --secondary-foreground: hsl(222, 30%, 11%);
-  --muted: hsl(210, 40%, 96%);
-  --muted-foreground: hsl(215, 16%, 42%);
-  --accent: hsl(210, 100%, 95%);
-  --accent-foreground: hsl(210, 98%, 38%);
-  --destructive: hsl(0, 75%, 55%);
+  --secondary: hsl(205, 35%, 94%);
+  --secondary-foreground: hsl(210, 38%, 10%);
+  --muted: hsl(205, 32%, 94%);
+  --muted-foreground: hsl(210, 14%, 36%);
+  --accent: hsl(208, 100%, 95%);
+  --accent-foreground: hsl(208, 90%, 34%);
+  --destructive: hsl(0, 75%, 52%);
   --destructive-foreground: hsl(0, 0%, 100%);
-  --border: hsl(214, 20%, 90%);
-  --input: hsl(214, 20%, 85%);
-  --ring: hsl(210, 98%, 48%);
+  --border: hsl(205, 26%, 88%);
+  --input: hsl(205, 22%, 82%);
+  --ring: hsl(208, 92%, 44%);
+
+  --sky-top: #6fa6de;
+  --sky-bottom: #dce9f2;
+  --sun-disc: #fff8e8;
+  --sun-glow: rgb(255 236 190 / 0.75);
+  --grass-silhouette: #3d7322;
+  --grain-opacity: 0.035;
+  --rim-color: rgb(255 244 214);
+  --rim-opacity: 0.35;
 }
 
-.dark {
+[data-tod='golden'] {
   --base-dark: hsl(0, 0%, 100%);
-  --footer-background: hsl(215, 30%, 6%);
+  --footer-background: hsl(340, 26%, 4.5%);
 
-  --brand: hsl(210, 100%, 62%);
-  --brand-foreground: hsl(215, 35%, 7%);
-  --brand-soft: hsl(210, 100%, 16%);
+  /* Amber sun + coral dusk. */
+  --brand: hsl(32, 96%, 62%);
+  --brand-2: hsl(350, 86%, 70%);
+  --brand-foreground: hsl(340, 32%, 8%);
+  --brand-soft: hsl(32, 60%, 16%);
 
-  --background: hsl(215, 32%, 7%);
-  --foreground: hsl(210, 30%, 96%);
-  --card: hsl(215, 28%, 10%);
-  --card-foreground: hsl(210, 30%, 96%);
-  --popover: hsl(215, 28%, 10%);
-  --popover-foreground: hsl(210, 30%, 96%);
-  --primary: hsl(210, 100%, 62%);
-  --primary-foreground: hsl(215, 35%, 7%);
-  --secondary: hsl(215, 25%, 15%);
-  --secondary-foreground: hsl(210, 30%, 96%);
-  --muted: hsl(215, 25%, 14%);
-  --muted-foreground: hsl(214, 18%, 65%);
-  --accent: hsl(215, 28%, 16%);
-  --accent-foreground: hsl(210, 100%, 75%);
-  --destructive: hsl(0, 75%, 58%);
+  --background: hsl(340, 22%, 6.5%);
+  --foreground: hsl(30, 45%, 95%);
+  --card: hsl(340, 18%, 9.5%);
+  --card-foreground: hsl(30, 45%, 95%);
+  --popover: hsl(340, 18%, 9.5%);
+  --popover-foreground: hsl(30, 45%, 95%);
+  --primary: hsl(32, 96%, 62%);
+  --primary-foreground: hsl(340, 32%, 8%);
+  --secondary: hsl(340, 14%, 14%);
+  --secondary-foreground: hsl(30, 45%, 95%);
+  --muted: hsl(340, 14%, 13%);
+  --muted-foreground: hsl(25, 16%, 70%);
+  --accent: hsl(340, 16%, 15%);
+  --accent-foreground: hsl(32, 96%, 74%);
+  --destructive: hsl(0, 75%, 60%);
   --destructive-foreground: hsl(0, 0%, 100%);
-  --border: hsl(215, 25%, 18%);
-  --input: hsl(215, 25%, 20%);
-  --ring: hsl(210, 100%, 62%);
+  --border: hsl(340, 14%, 17%);
+  --input: hsl(340, 14%, 21%);
+  --ring: hsl(32, 96%, 62%);
+
+  --sky-top: #6e3f61;
+  --sky-bottom: #f2b27a;
+  --sun-disc: #fff0cf;
+  --sun-glow: rgb(255 157 79 / 0.7);
+  --grass-silhouette: #1f210c;
+  --grain-opacity: 0.05;
+  --rim-color: rgb(255 158 74);
+  --rim-opacity: 0.85;
+}
+
+[data-tod='night'] {
+  --base-dark: hsl(0, 0%, 100%);
+  --footer-background: hsl(226, 52%, 3.5%);
+
+  /* Firefly lime + moonlit teal. */
+  --brand: hsl(74, 82%, 64%);
+  --brand-2: hsl(172, 70%, 60%);
+  --brand-foreground: hsl(226, 45%, 7%);
+  --brand-soft: hsl(74, 40%, 14%);
+
+  --background: hsl(226, 45%, 5.5%);
+  --foreground: hsl(215, 40%, 95%);
+  --card: hsl(226, 38%, 8.5%);
+  --card-foreground: hsl(215, 40%, 95%);
+  --popover: hsl(226, 38%, 8.5%);
+  --popover-foreground: hsl(215, 40%, 95%);
+  --primary: hsl(74, 82%, 64%);
+  --primary-foreground: hsl(226, 45%, 7%);
+  --secondary: hsl(226, 30%, 13%);
+  --secondary-foreground: hsl(215, 40%, 95%);
+  --muted: hsl(226, 30%, 12%);
+  --muted-foreground: hsl(220, 18%, 70%);
+  --accent: hsl(226, 30%, 14%);
+  --accent-foreground: hsl(74, 82%, 74%);
+  --destructive: hsl(0, 75%, 60%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --border: hsl(226, 28%, 16%);
+  --input: hsl(226, 28%, 20%);
+  --ring: hsl(74, 82%, 64%);
+
+  --sky-top: #0a1430;
+  --sky-bottom: #22335e;
+  --sun-disc: #e3e9f8;
+  --sun-glow: rgb(150 175 255 / 0.35);
+  --grass-silhouette: #051318;
+  --grain-opacity: 0.05;
+  --rim-color: rgb(150 180 255);
+  --rim-opacity: 0.55;
 }
 
 @theme inline {
   --radius: 0.625rem;
 
-  --font-sans: var(--font-sf-pro-display);
+  --font-sans:
+    var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
+    sans-serif;
+  /* IvyPresto Display via the Adobe Fonts kit (cml5ijv) loaded in layout. */
+  --font-display:
+    'ivypresto-display', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  --font-mono:
+    var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
   --color-footer-background: var(--footer-background);
 
   --color-base-dark: var(--base-dark);
   --color-brand: var(--brand);
+  --color-brand-2: var(--brand-2);
   --color-brand-foreground: var(--brand-foreground);
   --color-brand-soft: var(--brand-soft);
   --color-background: var(--background);
@@ -147,7 +222,7 @@
     background-image: linear-gradient(
       120deg,
       var(--brand) 0%,
-      hsl(265, 90%, 62%) 100%
+      var(--brand-2) 100%
     );
     -webkit-background-clip: text;
     background-clip: text;
@@ -301,4 +376,144 @@ html.page-transition:after {
   .motion-safe-only {
     display: none !important;
   }
+}
+
+/* ---------------------------------------------------------------------------
+   Meadow + editorial helpers
+   ------------------------------------------------------------------------- */
+
+@layer components {
+  /* Hand cursor over the interactive meadow (open / grabbing). */
+  .cursor-hand {
+    cursor:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cg fill='%2316161a' stroke='%2316161a' stroke-width='2.6' stroke-linejoin='round'%3E%3Crect x='8' y='14' width='16.6' height='13' rx='5.5'/%3E%3Crect x='8.4' y='6' width='3.8' height='13' rx='1.9'/%3E%3Crect x='12.6' y='3.6' width='3.8' height='15' rx='1.9'/%3E%3Crect x='16.8' y='4.6' width='3.8' height='14' rx='1.9'/%3E%3Crect x='21' y='8' width='3.6' height='11' rx='1.8'/%3E%3Crect x='4.6' y='13.5' width='3.8' height='11' rx='1.9' transform='rotate%28-35 6.5 19%29'/%3E%3C/g%3E%3Cg fill='%23ffffff'%3E%3Crect x='8' y='14' width='16.6' height='13' rx='5.5'/%3E%3Crect x='8.4' y='6' width='3.8' height='13' rx='1.9'/%3E%3Crect x='12.6' y='3.6' width='3.8' height='15' rx='1.9'/%3E%3Crect x='16.8' y='4.6' width='3.8' height='14' rx='1.9'/%3E%3Crect x='21' y='8' width='3.6' height='11' rx='1.8'/%3E%3Crect x='4.6' y='13.5' width='3.8' height='11' rx='1.9' transform='rotate%28-35 6.5 19%29'/%3E%3C/g%3E%3C/svg%3E")
+        15 8,
+      grab;
+  }
+  .cursor-hand:active,
+  .cursor-hand[data-pressing='true'] {
+    cursor:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cg fill='%2316161a' stroke='%2316161a' stroke-width='2.6' stroke-linejoin='round'%3E%3Crect x='8' y='14' width='16.6' height='13' rx='5.5'/%3E%3Crect x='8.4' y='11' width='3.8' height='8' rx='1.9'/%3E%3Crect x='12.6' y='10' width='3.8' height='9' rx='1.9'/%3E%3Crect x='16.8' y='10.5' width='3.8' height='8.5' rx='1.9'/%3E%3Crect x='21' y='12' width='3.6' height='7' rx='1.8'/%3E%3Crect x='6.4' y='15' width='3.8' height='9' rx='1.9' transform='rotate%28-60 8.3 19.5%29'/%3E%3C/g%3E%3Cg fill='%23ffffff'%3E%3Crect x='8' y='14' width='16.6' height='13' rx='5.5'/%3E%3Crect x='8.4' y='11' width='3.8' height='8' rx='1.9'/%3E%3Crect x='12.6' y='10' width='3.8' height='9' rx='1.9'/%3E%3Crect x='16.8' y='10.5' width='3.8' height='8.5' rx='1.9'/%3E%3Crect x='21' y='12' width='3.6' height='7' rx='1.8'/%3E%3Crect x='6.4' y='15' width='3.8' height='9' rx='1.9' transform='rotate%28-60 8.3 19.5%29'/%3E%3C/g%3E%3C/svg%3E")
+        15 12,
+      grabbing;
+  }
+
+  /* CSS sky: sits under the WebGL meadow and doubles as its no-WebGL fallback. */
+  .hero-sky {
+    background:
+      radial-gradient(
+        ellipse 60% 40% at 72% 58%,
+        color-mix(in srgb, var(--sky-bottom) 70%, white) 0%,
+        transparent 70%
+      ),
+      linear-gradient(
+        to bottom,
+        var(--sky-top) 0%,
+        var(--sky-bottom) 62%,
+        color-mix(in srgb, var(--sky-bottom) 40%, var(--background)) 100%
+      );
+  }
+
+  /* Pre-rendered still of the meadow: paints instantly, sits under the live
+     canvas (which fades in over it), and is all that data-saver or
+     no-WebGL visitors see. Rendered wider than typical screens so a centered
+     "cover" crop matches the live camera framing. Only the matching rule's
+     image is downloaded. */
+  .hero-poster {
+    background-position: center;
+    background-size: cover;
+    background-image: url('/meadow/morning-desktop.webp');
+  }
+  [data-tod='golden'] .hero-poster {
+    background-image: url('/meadow/golden-desktop.webp');
+  }
+  [data-tod='night'] .hero-poster {
+    background-image: url('/meadow/night-desktop.webp');
+  }
+  @media (max-width: 767px), (pointer: coarse) {
+    .hero-poster {
+      background-image: url('/meadow/morning-mobile.webp');
+    }
+    [data-tod='golden'] .hero-poster {
+      background-image: url('/meadow/golden-mobile.webp');
+    }
+    [data-tod='night'] .hero-poster {
+      background-image: url('/meadow/night-mobile.webp');
+    }
+  }
+
+  /* Show only the asset graded for the current time of day. */
+  .tod-golden,
+  .tod-night,
+  [data-tod='golden'] .tod-morning,
+  [data-tod='night'] .tod-morning {
+    display: none;
+  }
+  [data-tod='golden'] .tod-golden,
+  [data-tod='night'] .tod-night {
+    display: block;
+  }
+
+  /* Sunlight (or moonlight) catching the portrait from the sun's side. */
+  .portrait-rim {
+    background: radial-gradient(
+      90% 75% at 8% 0%,
+      var(--rim-color) 0%,
+      transparent 62%
+    );
+    mix-blend-mode: soft-light;
+    opacity: var(--rim-opacity);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+  }
+
+  /* Soft wash behind the hero copy so it stays legible over any sky. */
+  .hero-scrim {
+    background: radial-gradient(
+      ellipse 62% 52% at 24% 40%,
+      color-mix(in srgb, var(--background) 52%, transparent) 0%,
+      transparent 72%
+    );
+  }
+  @media (max-width: 767px) {
+    .hero-scrim {
+      background: radial-gradient(
+        ellipse 110% 48% at 50% 36%,
+        color-mix(in srgb, var(--background) 50%, transparent) 0%,
+        transparent 75%
+      );
+    }
+  }
+
+  /* Film grain — a whisper of texture over everything. */
+  .grain {
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    z-index: 70;
+    opacity: var(--grain-opacity);
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Editorial display headings: IvyPresto, light weight, italic accents. */
+  .font-display {
+    font-feature-settings:
+      'kern' 1,
+      'liga' 1;
+    letter-spacing: -0.015em;
+  }
+  .font-display em {
+    font-style: italic;
+    letter-spacing: -0.01em;
+  }
+}
+
+/* Letter-spacing breaks Devanagari / Gurmukhi conjuncts; keep the HUD-style
+   mono labels tight in Hindi and Punjabi. Unlayered so it beats tracking-*. */
+:lang(hi) .font-mono,
+:lang(pa) .font-mono {
+  letter-spacing: normal;
 }

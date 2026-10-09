@@ -10,13 +10,14 @@ import { AnimatePresence, motion } from 'motion/react';
 import { useTranslations } from 'next-intl';
 
 import { Reveal } from '../reveal';
-import { SectionHeading } from '../section-heading';
+import { em, SectionHeading } from '../section-heading';
 
 import { EXPERIENCE } from '@/content/portfolio';
 import { cn } from '@/lib/utils';
 
 export default function Experience() {
   const t = useTranslations('experience');
+  const impact = t.raw('impact') as { value: string; label: string }[];
   const [selected, setSelected] = useState(0);
   const active = EXPERIENCE[selected];
 
@@ -27,16 +28,33 @@ export default function Experience() {
     >
       <div className="container">
         <SectionHeading
+          index="03"
           eyebrow={t('eyebrow')}
-          title={t('title')}
+          title={t.rich('title', { em })}
           subtitle={t('subtitle')}
         />
 
-        <div className="mt-14 grid gap-8 md:mt-16 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:gap-12">
+        {/* Impact highlights — the headline outcomes, before the timeline */}
+        <ul className="mt-12 grid gap-4 md:mt-14 md:grid-cols-3">
+          {impact.map((item, i) => (
+            <Reveal key={item.value} as="li" delay={i}>
+              <div className="border-border bg-card/70 h-full rounded-3xl border p-6 backdrop-blur-sm md:p-7">
+                <p className="font-display text-gradient-brand text-5xl leading-none font-light tracking-tight">
+                  {item.value}
+                </p>
+                <p className="text-muted-foreground mt-3 text-sm/relaxed md:text-[0.95rem]/relaxed">
+                  {item.label}
+                </p>
+              </div>
+            </Reveal>
+          ))}
+        </ul>
+
+        <div className="mt-10 grid gap-8 md:mt-12 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:gap-12">
           {/* Timeline list */}
           <Reveal>
-            <ol className="relative">
-              <span className="bg-border absolute top-2 bottom-2 left-[19px] w-px md:left-[23px]" />
+            {/* Timeline rail drawn with ::before (lists may only hold <li>) */}
+            <ol className="before:bg-border relative before:absolute before:top-2 before:bottom-2 before:left-[19px] before:w-px md:before:left-[23px]">
               {EXPERIENCE.map((exp, i) => {
                 const isActive = i === selected;
                 return (
@@ -146,10 +164,10 @@ export default function Experience() {
 
               <div className="border-border border-t p-6 md:p-8">
                 <div className="mb-3 flex items-center justify-between gap-3">
-                  <h3 className="text-xl font-semibold md:text-2xl">
+                  <h3 className="font-display text-3xl font-light tracking-tight md:text-4xl">
                     {active.company}
                   </h3>
-                  <span className="text-muted-foreground text-sm">
+                  <span className="text-muted-foreground font-mono text-[11px] tracking-[0.14em] uppercase">
                     {active.location}
                   </span>
                 </div>

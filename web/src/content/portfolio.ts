@@ -10,6 +10,14 @@ export const PROFILE = {
   title: 'Senior Full Stack Software Developer',
   email: 'taranjitk18@gmail.com',
   photo: `${S3}/me.jpeg`,
+  // Background removed with Adobe Photoshop from `photo`, then graded per
+  // time of day with Photoshop adjustments (warmer at golden hour, cooler
+  // and darker at night).
+  portrait: {
+    morning: '/portrait-cutout.webp',
+    golden: '/portrait-cutout-golden.webp',
+    night: '/portrait-cutout-night.webp',
+  },
   resumeUrl: `${S3}/Taranjit-Kang-FSD-2025.pdf`,
   coverLetterUrl: encodeURI(
     `${S3}/Taranjit-Kang-Full Stack Software Developer CL.pdf`,
@@ -71,7 +79,7 @@ export const EXPERIENCE: Experience[] = [
     id: 'adobe',
     company: 'Adobe',
     role: 'Senior Backend Engineer',
-    period: '2025 — Present',
+    period: '2025–Present',
     start: '2025',
     end: 'Present',
     location: 'San Jose, US',
@@ -115,7 +123,7 @@ export const EXPERIENCE: Experience[] = [
     id: 'intuit',
     company: 'Intuit',
     role: 'Senior Software Developer',
-    period: '2021 — 2024',
+    period: '2021–2024',
     start: '2021',
     end: '2024',
     location: 'Toronto, CA',
@@ -137,7 +145,7 @@ export const EXPERIENCE: Experience[] = [
     id: 'rbc',
     company: 'Royal Bank of Canada',
     role: 'Senior Application Developer',
-    period: '2020 — 2021',
+    period: '2020–2021',
     start: '2020',
     end: '2021',
     location: 'Toronto, CA',
@@ -151,7 +159,7 @@ export const EXPERIENCE: Experience[] = [
     id: 'ncr',
     company: 'NCR',
     role: 'Senior Software Engineer',
-    period: '2019 — 2020',
+    period: '2019–2020',
     start: '2019',
     end: '2020',
     location: 'Waterloo, CA',
@@ -170,9 +178,9 @@ export const EXPERIENCE: Experience[] = [
   },
   {
     id: 'rogers',
-    company: 'Rogers — TSC',
+    company: 'Rogers (TSC)',
     role: 'Client / Server Developer',
-    period: '2018 — 2019',
+    period: '2018–2019',
     start: '2018',
     end: '2019',
     location: 'Mississauga, CA',
@@ -254,25 +262,67 @@ export type FeaturedProject = {
 // Live, deployed projects — featured above the GitHub repos.
 export const FEATURED_PROJECTS: FeaturedProject[] = [
   {
-    name: 'Nexus Studio',
+    name: 'Nexus Development',
     description:
-      'Premium web development studio — high-performance web apps, mobile experiences, and AI integrations for ambitious brands.',
-    url: 'https://nex-dev.app/',
-    tags: ['Web', 'Mobile', 'AI'],
+      'A small California app studio working on Baybee Studio, Lullow and Pyaar.',
+    url: 'https://www.nexusdevstudio.biz/',
+    tags: ['Studio', 'AI', 'iOS', 'Android'],
   },
   {
-    name: 'Nexus — AI Agent Orchestration',
+    name: 'Nexus: AI Agent Orchestration',
     description:
-      'Real-time kanban board for managing and visualizing AI agent workflows.',
+      'A real-time kanban board for watching and steering AI agent workflows.',
     url: 'https://agent-trello.vercel.app/',
     tags: ['React', 'Tailwind', 'Vite'],
   },
   {
     name: 'Presidential Chauffeurs',
     description:
-      'Luxury chauffeur & limousine service — an elegant brand experience with fleet showcase and booking.',
+      'A site for a luxury chauffeur and limo service, with a fleet showcase and online booking.',
     url: 'https://www.presidentialchauffeurs.com/',
     tags: ['Web', 'Booking', 'Brand'],
+  },
+];
+
+// Nexus Development LLC — Tarn's independent app studio. App copy lives in
+// messages/*.json under `studio.apps.<id>`; artwork is mirrored from the
+// studio site into /public/nexus.
+export const STUDIO = {
+  name: 'Nexus Development',
+  legalName: 'Nexus Development LLC',
+  url: 'https://www.nexusdevstudio.biz/',
+  logo: '/nexus/nexus-logo.svg',
+};
+
+export type StudioApp = {
+  id: 'baybee' | 'lullow' | 'pyaar';
+  name: string;
+  icon: string;
+  image: string;
+  url: string;
+};
+
+export const STUDIO_APPS: StudioApp[] = [
+  {
+    id: 'baybee',
+    name: 'Baybee Studio',
+    icon: '/nexus/baybee-icon.webp',
+    image: '/nexus/baybee.webp',
+    url: 'https://www.nexusdevstudio.biz/#baybee',
+  },
+  {
+    id: 'lullow',
+    name: 'Lullow',
+    icon: '/nexus/lullow-icon.webp',
+    image: '/nexus/lullow.webp',
+    url: 'https://www.nexusdevstudio.biz/#lullow',
+  },
+  {
+    id: 'pyaar',
+    name: 'Pyaar',
+    icon: '/nexus/pyaar-icon.svg',
+    image: '/nexus/pyaar.webp',
+    url: 'https://www.nexusdevstudio.biz/#pyaar',
   },
 ];
 
@@ -280,6 +330,7 @@ export const NAV_LINKS = [
   { id: 'about', href: '#about' },
   { id: 'skills', href: '#skills' },
   { id: 'experience', href: '#experience' },
+  { id: 'studio', href: '#studio' },
   { id: 'projects', href: '#projects' },
   { id: 'testimonials', href: '#testimonials' },
   { id: 'contact', href: '#contact' },

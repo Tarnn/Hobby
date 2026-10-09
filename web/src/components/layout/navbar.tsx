@@ -7,7 +7,6 @@ import { motion } from 'motion/react';
 import { useTranslations } from 'next-intl';
 
 import { LanguageSwitcher } from '../language-switcher';
-import { ThemeToggle } from '../theme-toggle';
 import { Button } from '../ui/button';
 import { Wordmark } from '../ui/wordmark';
 
@@ -62,12 +61,12 @@ export default function Navbar() {
           'flex w-full max-w-6xl items-center justify-between gap-4 rounded-full border px-4 py-2.5 transition-colors duration-300 md:px-6',
           scrolled
             ? 'border-border bg-background/70 shadow-lg backdrop-blur-xl'
-            : 'border-transparent bg-transparent',
+            : 'border-foreground/10 bg-background/30 backdrop-blur-md',
         )}
       >
         <Wordmark />
 
-        <nav className="hidden items-center gap-1 md:flex">
+        <nav className="hidden items-center gap-1 lg:flex">
           {NAV_LINKS.map((link) => (
             <a
               key={link.id}
@@ -76,7 +75,7 @@ export default function Navbar() {
                 'rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors',
                 active === link.id
                   ? 'text-brand bg-brand/10'
-                  : 'text-muted-foreground hover:text-foreground',
+                  : 'text-foreground/70 hover:text-foreground',
               )}
             >
               {t(link.id)}
@@ -84,9 +83,8 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-2 md:flex">
+        <div className="hidden items-center gap-2 lg:flex">
           <LanguageSwitcher />
-          <ThemeToggle />
           <Button asChild size="sm" className="rounded-full">
             <a
               href={PROFILE.resumeUrl}
@@ -100,9 +98,8 @@ export default function Navbar() {
         </div>
 
         {/* Mobile controls */}
-        <div className="flex items-center gap-1.5 md:hidden">
+        <div className="flex items-center gap-1.5 lg:hidden">
           <LanguageSwitcher />
-          <ThemeToggle />
           <button
             type="button"
             aria-label="Toggle menu"
@@ -138,7 +135,7 @@ export default function Navbar() {
       {/* Mobile menu overlay */}
       <div
         className={cn(
-          'fixed inset-0 top-0 z-40 md:hidden',
+          'fixed inset-0 top-0 z-40 lg:hidden',
           menuOpen ? 'visible' : 'invisible',
         )}
       >

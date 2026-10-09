@@ -1,4 +1,4 @@
-import { EXPERIENCE, PROFILE, SOCIALS } from '@/content/portfolio';
+import { EXPERIENCE, PROFILE, SOCIALS, STUDIO } from '@/content/portfolio';
 
 const SITE_URL = 'https://www.tarnnn.com';
 
@@ -28,6 +28,12 @@ export function JsonLd() {
       'Full Stack Development',
     ],
     sameAs: [SOCIALS.github, SOCIALS.linkedin, SOCIALS.x],
+    // Independent app studio (see the Studio section).
+    affiliation: {
+      '@type': 'Organization',
+      name: STUDIO.legalName,
+      url: STUDIO.url,
+    },
   };
 
   return (

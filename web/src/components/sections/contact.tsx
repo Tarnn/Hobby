@@ -4,6 +4,7 @@ import { ArrowUpRight, FileText, Linkedin, Mail } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useTranslations } from 'next-intl';
 
+import { em } from '../section-heading';
 import { ContactForm } from './contact-form';
 
 import { PROFILE, SOCIALS } from '@/content/portfolio';
@@ -40,16 +41,23 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6 }}
-          className="border-border relative overflow-hidden rounded-[2rem] border p-6 md:p-12 lg:p-16"
+          className="border-border relative isolate overflow-hidden rounded-[2rem] border p-6 pb-20 md:p-12 md:pb-24 lg:p-16 lg:pb-28"
         >
-          {/* Decorative backdrop */}
-          <div className="absolute inset-0 -z-10">
-            <div className="bg-grid absolute inset-0 opacity-40" />
+          {/* Glowing horizon — the meadow's sun, setting behind the card */}
+          <div aria-hidden className="absolute inset-0 -z-10 overflow-hidden">
+            <div className="bg-card/40 absolute inset-0" />
             <div
               className="absolute inset-0"
               style={{
                 backgroundImage:
-                  'radial-gradient(ellipse 60% 80% at 50% 120%, color-mix(in srgb, var(--brand) 25%, transparent), transparent 70%)',
+                  'radial-gradient(ellipse 70% 55% at 50% 115%, color-mix(in srgb, var(--brand) 26%, transparent), transparent 70%)',
+              }}
+            />
+            <div
+              className="absolute top-[86%] left-1/2 aspect-square w-[160%] -translate-x-1/2 rounded-full md:top-[80%] md:w-[120%]"
+              style={{
+                boxShadow:
+                  '0 0 0 1.5px color-mix(in srgb, var(--brand) 75%, white), 0 -4px 50px 4px color-mix(in srgb, var(--brand) 45%, transparent), inset 0 10px 90px 8px color-mix(in srgb, var(--brand) 20%, transparent)',
               }}
             />
           </div>
@@ -57,12 +65,13 @@ export default function Contact() {
           <div className="grid gap-10 md:grid-cols-2 md:gap-14">
             {/* Left: pitch + quick methods */}
             <div className="flex flex-col">
-              <span className="bg-brand/10 text-brand ring-brand/20 inline-flex w-fit items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold tracking-wide uppercase ring-1">
-                <span className="bg-brand size-1.5 rounded-full" />
+              <span className="text-muted-foreground inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.2em] uppercase">
+                <span className="text-brand">07</span>
+                <span aria-hidden className="bg-border h-px w-8" />
                 {t('eyebrow')}
               </span>
-              <h2 className="mt-6 max-w-md text-3xl font-bold tracking-tight text-balance md:text-4xl lg:text-5xl">
-                {t('title')}
+              <h2 className="font-display mt-6 max-w-md text-[2.6rem] leading-[1.02] font-light tracking-[-0.025em] text-balance md:text-6xl">
+                {t.rich('title', { em })}
               </h2>
               <p className="text-muted-foreground mt-5 max-w-md text-base text-pretty md:text-lg">
                 {t('subtitle')}
@@ -75,7 +84,7 @@ export default function Contact() {
                     href={href}
                     target={href.startsWith('mailto') ? undefined : '_blank'}
                     rel="noopener noreferrer"
-                    className="group border-border bg-card/50 hover:border-brand/50 flex items-center gap-4 rounded-xl border p-4 transition-colors"
+                    className="group border-border bg-background/50 hover:border-brand/50 flex items-center gap-4 rounded-2xl border p-4 backdrop-blur-sm transition-colors"
                   >
                     <span className="bg-brand/10 text-brand grid size-10 shrink-0 place-items-center rounded-lg">
                       <Icon className="size-5" />

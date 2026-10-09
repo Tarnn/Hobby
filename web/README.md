@@ -39,8 +39,9 @@ Morning / Golden / Night switch lives in the hero.
 - The About portrait is the LinkedIn profile photo, edited with the Adobe Photoshop
   API: Generative Expand rebuilt the shoulders LinkedIn's circle crop cut off (the
   face and hair stay original pixels), then background removal and a light tone
-  pass gave `public/portrait/morning.webp`. Golden and night grades are Photoshop
-  adjustments (`public/portrait/{golden,night}.webp`); only the grade for the
+  pass gave `public/portrait/morning-v2.webp` (the right-hand hair outline is
+  tidied: flyaways and a stray tuft trimmed). Golden and night grades are Photoshop
+  adjustments (`public/portrait/{golden,night}-v2.webp`); only the grade for the
   current time of day downloads. `public/profile-photo.jpg` is the uncut photo
   used in the JSON-LD `Person` schema.
 - Adobe Fonts kit `cml5ijv` is allow-listed for `tarnnn.com`, `www.tarnnn.com`,

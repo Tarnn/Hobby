@@ -4,13 +4,11 @@ import Link from 'next/link';
 
 import { motion, useMotionValue, useSpring } from 'motion/react';
 
+import { Monogram } from './monogram';
+
 import { cn } from '@/lib/utils';
 
-// "TK" drawn as geometry on a 36-unit grid, so the mark renders identically
-// everywhere (no font dependency). Shared with public/favicon/favicon.svg.
-const MONOGRAM =
-  'M4.85 10H16.45V13.7H4.85Z M8.8 10H12.5V26H8.8Z M18.85 10H22.55V26H18.85Z M19.14 20.2L25.66 10L30.04 10L22.26 22.2Z M25.1 15.94L31.14 26L26.56 26L21.74 17.95Z';
-
+/** Masthead lockup: TK ligature, hairline, "Taranjit *Kang*" in IvyPresto. */
 export function Wordmark({
   className,
   tone = 'auto',
@@ -26,8 +24,8 @@ export function Wordmark({
 
   function onMove(e: React.MouseEvent<HTMLElement>) {
     const r = e.currentTarget.getBoundingClientRect();
-    x.set((e.clientX - (r.left + r.width / 2)) * 0.35);
-    y.set((e.clientY - (r.top + r.height / 2)) * 0.35);
+    x.set((e.clientX - (r.left + r.width / 2)) * 0.12);
+    y.set((e.clientY - (r.top + r.height / 2)) * 0.2);
   }
   function reset() {
     x.set(0);
@@ -41,57 +39,23 @@ export function Wordmark({
       onMouseMove={onMove}
       onMouseLeave={reset}
       className={cn(
-        'group relative inline-flex items-center gap-2.5 font-semibold tracking-tight',
+        'group relative inline-flex items-center gap-3',
+        tone === 'light' ? 'text-white' : 'text-foreground',
         className,
       )}
     >
-      <motion.span
-        style={{ x: sx, y: sy }}
-        className="relative grid size-9 place-items-center"
-      >
-        {/* Rotating gradient glow (revealed on hover) */}
-        <motion.span
-          aria-hidden
-          className="absolute -inset-1.5 rounded-2xl opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-70"
-          style={{
-            background:
-              'conic-gradient(from 0deg, var(--brand), var(--brand-2), var(--brand))',
-          }}
-          animate={{ rotate: 360 }}
-          transition={{ duration: 5, repeat: Infinity, ease: 'linear' }}
-        />
-
-        {/* Monogram tile */}
-        <motion.span
-          whileHover={{ rotate: -6, scale: 1.06 }}
-          transition={{ type: 'spring', stiffness: 300, damping: 15 }}
-          className="from-brand to-brand-2 relative grid size-9 place-items-center overflow-hidden rounded-xl bg-gradient-to-br shadow-md ring-1 ring-white/25"
-        >
-          {/* Monogram */}
-          <svg
-            viewBox="0 0 36 36"
-            className="text-brand-foreground size-9"
-            fill="none"
-            aria-hidden="true"
-          >
-            <path d={MONOGRAM} fill="currentColor" />
-          </svg>
-
-          {/* Sheen sweep on hover */}
-          <span className="pointer-events-none absolute inset-0 -translate-x-[120%] -skew-x-12 bg-gradient-to-r from-transparent via-white/50 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-[120%]" />
-        </motion.span>
+      <motion.span style={{ x: sx, y: sy }} className="block">
+        <Monogram className="group-hover:text-brand h-[26px] w-auto transition-colors duration-300" />
       </motion.span>
-
       <span
+        aria-hidden
         className={cn(
-          'text-lg',
-          tone === 'light' ? 'text-white' : 'text-base-dark',
+          'h-5 w-px',
+          tone === 'light' ? 'bg-white/25' : 'bg-foreground/20',
         )}
-      >
-        Taranjit
-        <span className="text-brand inline-block transition-transform duration-300 group-hover:translate-y-0.5">
-          .
-        </span>
+      />
+      <span className="font-display text-[1.3rem] leading-none tracking-[-0.01em] whitespace-nowrap">
+        Taranjit <em>Kang</em>
       </span>
     </Link>
   );

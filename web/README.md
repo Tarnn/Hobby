@@ -53,8 +53,13 @@ form + quick links).
 
 SEO: JSON-LD `Person` schema, `app/sitemap.ts`, `app/robots.ts`, a share card rendered
 from the golden-hour poster (`app/opengraph-image.jpg`, re-render with
-`node scripts/og-image.mjs`), and favicons built from the path-drawn TK mark in
-`public/favicon/favicon.svg` (regenerate via `node scripts/gen-icons.mjs`).
+`node scripts/og-image.mjs`), and favicons built from `public/favicon/favicon.svg`
+(regenerate via `node scripts/gen-icons.mjs`).
+
+Logo: a TK ligature set in IvyPresto Display (upright T, italic K, like the hero's
+"Taranjit *Kang*"), outlined with Adobe Illustrator's vectorizer so it needs no font at
+runtime. The header lockup is `src/components/ui/wordmark.tsx` (mark, hairline, name);
+the favicon and app icons put the mark on a round "sun" tile.
 
 ## Develop
 

@@ -65,6 +65,8 @@ export const metadata: Metadata = {
   creator: 'Taranjit Kang',
   alternates: { canonical: '/' },
   robots: { index: true, follow: true },
+  // TDMRep: reserve text-and-data-mining rights (no AI training).
+  other: { 'tdm-reservation': '1' },
   icons: {
     icon: [
       { url: '/favicon/favicon.svg', type: 'image/svg+xml' },

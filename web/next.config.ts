@@ -12,6 +12,10 @@ const SECURITY_HEADERS = [
     key: 'Permissions-Policy',
     value: 'camera=(), microphone=(), geolocation=(), browsing-topics=()',
   },
+  // Opt out of AI training and text-and-data mining (W3C TDMRep; see also
+  // /.well-known/tdmrep.json, robots.txt and src/middleware.ts).
+  { key: 'tdm-reservation', value: '1' },
+  { key: 'X-Robots-Tag', value: 'noai, noimageai' },
 ];
 
 const nextConfig: NextConfig = {

@@ -55,6 +55,12 @@ its apps — Baybee Studio, Lullow, Pyaar; artwork mirrored in `public/nexus/`) 
 Projects (live from the GitHub API, cached daily) · Testimonials · Contact (working
 form + quick links).
 
+AI opt-out: `src/lib/ai-bots.ts` lists AI crawlers, AI search bots and AI assistants.
+`app/robots.ts` disallows them, `src/middleware.ts` answers them with a 403 (robots.txt
+and `/.well-known/` stay readable), and every response carries `tdm-reservation: 1`
+plus `X-Robots-Tag: noai, noimageai` (TDMRep policy in `public/.well-known/tdmrep.json`).
+Regular search engines and link-preview bots are unaffected. See `/LICENSE`.
+
 SEO: JSON-LD `Person` schema, `app/sitemap.ts`, `app/robots.ts`, a share card rendered
 from the golden-hour poster (`app/opengraph-image.jpg`, re-render with
 `node scripts/og-image.mjs`), and favicons built from `public/favicon/favicon.svg`

@@ -61,7 +61,7 @@ const FALLBACK: Project[] = [
   {
     name: 'whipseeker-openapi',
     description:
-      'OpenAPI 3.1 spec for the WhipSeeker APIs — deal recommendations, scheduling, ROI analytics and more.',
+      'OpenAPI 3.1 spec for the WhipSeeker APIs: deal recommendations, scheduling, ROI analytics and more.',
     language: 'OpenAPI',
     url: 'https://github.com/tarnn/whipseeker-openapi',
     homepage: null,

@@ -65,7 +65,7 @@ function LocalClock() {
     const id = setInterval(tick, 30_000);
     return () => clearInterval(id);
   }, []);
-  return <span suppressHydrationWarning>{now ?? '—'}</span>;
+  return now ? <span> · {now}</span> : null;
 }
 
 const chip =
@@ -202,7 +202,8 @@ export default function Hero() {
           <div className="hidden md:flex">
             <span className={`${chip} inline-flex items-center gap-2`}>
               <MapPin className="text-brand size-3.5" />
-              {t('basedIn')} · <LocalClock />
+              {t('basedIn')}
+              <LocalClock />
             </span>
           </div>
           <div className="flex flex-col items-center gap-2.5">

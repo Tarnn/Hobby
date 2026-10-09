@@ -63,9 +63,9 @@ const geistMono = Geist_Mono({
 const ADOBE_FONTS_KIT = 'https://use.typekit.net/cml5ijv.css';
 
 const SITE_URL = 'https://www.tarnnn.com';
-const TITLE = 'Taranjit Kang — Senior Full Stack Software Developer';
+const TITLE = 'Taranjit Kang | Senior Full Stack Software Developer';
 const DESCRIPTION =
-  'Senior software engineer at Adobe — Java, Spring Boot, React, and cloud. Previously Handshake, Intuit, RBC, NCR, and Rogers. Building apps at Nexus Development.';
+  'Senior software engineer at Adobe working in Java, Spring Boot, React and the cloud. Previously at Handshake, Intuit, RBC, NCR and Rogers.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

@@ -7,7 +7,6 @@ import { motion } from 'motion/react';
 import { useTranslations } from 'next-intl';
 
 import { LanguageSwitcher } from '../language-switcher';
-import { ThemeToggle } from '../theme-toggle';
 import { Button } from '../ui/button';
 import { Wordmark } from '../ui/wordmark';
 
@@ -86,7 +85,6 @@ export default function Navbar() {
 
         <div className="hidden items-center gap-2 lg:flex">
           <LanguageSwitcher />
-          <ThemeToggle />
           <Button asChild size="sm" className="rounded-full">
             <a
               href={PROFILE.resumeUrl}
@@ -102,7 +100,6 @@ export default function Navbar() {
         {/* Mobile controls */}
         <div className="flex items-center gap-1.5 lg:hidden">
           <LanguageSwitcher />
-          <ThemeToggle />
           <button
             type="button"
             aria-label="Toggle menu"

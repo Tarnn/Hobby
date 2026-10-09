@@ -23,7 +23,8 @@ lone tree, sky dome with sun / moon / stars / clouds, and fireflies at night.
 **Time of day is the site theme.** `morning` (light), `golden` and `night` (dark) drive
 both the CSS tokens (`data-tod` on `<html>`, see `globals.css`) and the scene palette
 (`meadow/palette.ts`). It defaults to the visitor's local clock, then persists their
-pick (`localStorage.tod`). An inline script resolves it before first paint.
+pick (`localStorage.tod`). An inline script resolves it before first paint. The
+Morning / Golden / Night switch lives in the hero.
 
 - Terrain height is analytic and mirrored in TS + GLSL (`meadow/terrain.ts` ↔
   `meadow/glsl.ts`) — change both together.

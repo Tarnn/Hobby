@@ -32,7 +32,7 @@ export function Wordmark({
   return (
     <Link
       href="#top"
-      aria-label="Taranjit Kang — home"
+      aria-label="Taranjit Kang, home"
       onMouseMove={onMove}
       onMouseLeave={reset}
       className={cn(

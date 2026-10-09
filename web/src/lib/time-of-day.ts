@@ -20,10 +20,6 @@ export function timeOfDayForHour(hour: number): TimeOfDay {
   return 'night';
 }
 
-export function nextTimeOfDay(tod: TimeOfDay): TimeOfDay {
-  return TIMES_OF_DAY[(TIMES_OF_DAY.indexOf(tod) + 1) % TIMES_OF_DAY.length];
-}
-
 /**
  * Inline <head> script: resolves the time of day before first paint so the
  * page never flashes the wrong palette. Must stay dependency-free.

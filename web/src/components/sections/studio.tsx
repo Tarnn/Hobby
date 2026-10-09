@@ -89,7 +89,7 @@ function AppCard({ app, index }: { app: StudioApp; index: number }) {
         href={app.url}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label={`${app.name} — ${t(`apps.${app.id}.tagline`)}`}
+        aria-label={`${app.name}: ${t(`apps.${app.id}.tagline`)}`}
         className="focus-visible:ring-ring absolute inset-0 rounded-[1.75rem] outline-none focus-visible:ring-2"
       />
     </motion.article>

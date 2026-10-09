@@ -150,7 +150,7 @@ export const EXPERIENCE: Experience[] = [
     location: 'Toronto, CA',
     logo: `${S3}/rbc.svg`,
     image: `${S3}/RBC_Mobile_home.png`,
-    highlight: 'RBC Mobile · Virtual Visa Debit',
+    highlight: 'RBC Mobile · contract, then full time',
     stack: ['Java', 'Spring Boot', 'Angular', 'Docker', 'Jenkins', 'PCF'],
     accent: '#0051A5',
   },
@@ -164,7 +164,7 @@ export const EXPERIENCE: Experience[] = [
     location: 'Waterloo, CA',
     logo: `${S3}/ncr.svg`,
     image: `${S3}/tellerApp.jpg`,
-    highlight: 'US Bank teller platform · global POS API',
+    highlight: 'Bank teller platform · global POS API',
     stack: [
       'Java',
       'Spring Boot',

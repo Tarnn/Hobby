@@ -38,7 +38,7 @@
     "title": "Hi, I'm <em>Tarn</em>",
     "p1": "Most people call me Tarn, and a few old teammates still call me TJ. I was born in Ontario, Canada, and now live in the US. I'm a Canadian citizen and a US green card holder.",
     "p2": "I was the kid who took computers apart. I got my first IBM PC at eight, and before long I was building my own machines, first for games and then for writing code.",
-    "p3": "I've spent my whole career as a full stack developer. Mostly Java and Spring Boot on the backend and React on the front, at places like Intuit, RBC, Handshake and now Adobe.",
+    "p3": "I've spent my whole career as a full stack developer, mostly in fintech. That's largely Java and Spring Boot on the backend and React on the front, at places like RBC, Intuit, Handshake and now Adobe.",
     "p4": "I still get a kick out of learning new things. Lately that's meant 3D on the web and building small apps at Nexus Development.",
     "currentlyAt": "Currently at",
     "location": "Born in Canada · Based in the USA",
@@ -66,8 +66,8 @@
       "adobe": "I'm a senior backend engineer on the Catalog Engineering team. We build the services on Adobe's Unified Platform that business teams use to launch and manage commerce products. Day to day that's mostly Java, Spring Boot and AWS, with some Ruby and React/Next.js, plus Splunk, New Relic, Grafana and Kibana for keeping an eye on things.",
       "handshake": "I shipped consumer features that we A/B tested behind LaunchDarkly flags. Together they brought in over $20M in annual recurring revenue, roughly 10% of the company's ARR. The stack was Ruby on Rails, React and TypeScript, with Stripe for payments and Google Cloud and BigQuery for the data.",
       "intuit": "I worked on TurboTax and QuickBooks, doing full stack work in Java and React on the homepage and the experiences before and after sign-in. Millions of people see the TurboTax homepage I helped build.",
-      "rbc": "I worked on the RBC Mobile banking app, building Java microservices for the Virtual Visa Debit feature and improving screens like Transactions.",
-      "ncr": "I worked on NCR's teller application for US Bank, connecting Java Spring Boot microservices to a YAML-based SDK and deploying with Docker and Kubernetes. I also ran CI/CD in Jenkins, wrote Cucumber end-to-end tests, and managed releases in Bitbucket and Jira.",
+      "rbc": "I worked on the RBC Mobile banking app, first as a contractor and then full time, building Java microservices for the Virtual Visa Debit feature and improving screens like Transactions.",
+      "ncr": "I worked on NCR's bank teller application, connecting Java Spring Boot microservices to a YAML-based SDK and deploying with Docker and Kubernetes. I also ran CI/CD in Jenkins, wrote Cucumber end-to-end tests, and managed releases in Bitbucket and Jira.",
       "rogers": "I worked on The Shopping Channel's e-commerce site for Rogers, a big C# monolith with an Angular front end. I built parts of product search, product details and the product listing pages."
     },
     "impact": [
@@ -80,8 +80,8 @@
         "label": "of people see the TurboTax homepage I helped build at Intuit"
       },
       {
-        "value": "2 banks",
-        "label": "RBC and US Bank, where I built Java microservices for mobile banking and teller systems"
+        "value": "Fintech",
+        "label": "is where I've spent most of my career: mobile banking at RBC (contract, then full time), teller software at NCR, and TurboTax and QuickBooks at Intuit"
       }
     ]
   },

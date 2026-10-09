@@ -86,8 +86,8 @@ Senior Software Developer with expertise across multiple domains:
 
 ### Recent Highlights
 - **Intuit (2021-2024)**: Led development of tax filing systems and QuickBooks features
-- **Royal Bank of Canada (2020-2021)**: Developed critical microservices architecture
-- **NCR (2019-2020)**: Enhanced customer/teller applications for US Bank
+- **Royal Bank of Canada (2020-2021)**: Built mobile banking microservices, first as a contractor, then full time
+- **NCR (2019-2020)**: Enhanced bank teller applications
 - **Rogers (2018-2019)**: Built eCommerce solutions with modern tech stack
 
 ### Industry Experience

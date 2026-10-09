@@ -6,8 +6,7 @@
     "studio": "Estudio",
     "projects": "Proyectos",
     "testimonials": "Testimonios",
-    "contact": "Contacto",
-    "resume": "Currículum"
+    "contact": "Contacto"
   },
   "hero": {
     "greeting": "Hola, soy",
@@ -19,8 +18,8 @@
       "Creando apps por mi cuenta"
     ],
     "tagline": "Tuve mi primera computadora a los ocho años y nunca dejé de trastear. Hoy construyo sistemas backend en Adobe. Antes lancé productos en Handshake, Intuit y RBC, y en mi tiempo libre estoy creando algunas apps pequeñas en Nexus Development.",
-    "downloadResume": "Descargar currículum",
-    "downloadCoverLetter": "Carta de presentación",
+    "ctaContact": "Contáctame",
+    "ctaWork": "Ver mi trabajo",
     "scroll": "Desplázate para explorar",
     "available": "Abierto a nuevos roles",
     "tod": {
@@ -144,7 +143,6 @@
     "subtitle": "Estoy abierto a roles full stack sénior y staff, consultoría o simplemente una idea interesante. Por email o LinkedIn es la forma más rápida de contactarme.",
     "emailButton": "Envíame un correo",
     "linkedinButton": "Conecta en LinkedIn",
-    "resumeButton": "Ver currículum",
     "form": {
       "name": "Nombre",
       "email": "Correo",

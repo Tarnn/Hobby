@@ -2,15 +2,13 @@
 
 import { useEffect, useState } from 'react';
 
-import { ArrowDownToLine } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useTranslations } from 'next-intl';
 
 import { LanguageSwitcher } from '../language-switcher';
-import { Button } from '../ui/button';
 import { Wordmark } from '../ui/wordmark';
 
-import { NAV_LINKS, PROFILE } from '@/content/portfolio';
+import { NAV_LINKS } from '@/content/portfolio';
 import { cn } from '@/lib/utils';
 
 export default function Navbar() {
@@ -85,16 +83,6 @@ export default function Navbar() {
 
         <div className="hidden items-center gap-2 lg:flex">
           <LanguageSwitcher />
-          <Button asChild size="sm" className="rounded-full">
-            <a
-              href={PROFILE.resumeUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <ArrowDownToLine className="size-4" />
-              {t('resume')}
-            </a>
-          </Button>
         </div>
 
         {/* Mobile controls */}
@@ -165,17 +153,6 @@ export default function Navbar() {
               {t(link.id)}
             </a>
           ))}
-          <Button asChild size="lg" className="mt-6 rounded-full">
-            <a
-              href={PROFILE.resumeUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setMenuOpen(false)}
-            >
-              <ArrowDownToLine className="size-4" />
-              {t('resume')}
-            </a>
-          </Button>
         </nav>
       </div>
     </header>

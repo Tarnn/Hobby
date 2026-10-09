@@ -6,8 +6,7 @@
     "studio": "Studio",
     "projects": "Projects",
     "testimonials": "Testimonials",
-    "contact": "Contact",
-    "resume": "Resume"
+    "contact": "Contact"
   },
   "hero": {
     "greeting": "Hi, I'm",
@@ -19,8 +18,8 @@
       "Building apps on the side"
     ],
     "tagline": "I got my first computer at eight and never really stopped tinkering. Today I build backend systems at Adobe. Before that I shipped products at Handshake, Intuit and RBC, and on the side I'm building a few small apps at Nexus Development.",
-    "downloadResume": "Download resume",
-    "downloadCoverLetter": "Cover letter",
+    "ctaContact": "Get in touch",
+    "ctaWork": "See my work",
     "scroll": "Scroll to explore",
     "available": "Open to new roles",
     "tod": {
@@ -144,7 +143,6 @@
     "subtitle": "I'm open to senior and staff full stack roles, consulting, or just an interesting idea. Email or LinkedIn is the quickest way to reach me.",
     "emailButton": "Email me",
     "linkedinButton": "Connect on LinkedIn",
-    "resumeButton": "View resume",
     "form": {
       "name": "Name",
       "email": "Email",

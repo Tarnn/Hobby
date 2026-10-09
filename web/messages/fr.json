@@ -6,8 +6,7 @@
     "studio": "Studio",
     "projects": "Projets",
     "testimonials": "Témoignages",
-    "contact": "Contact",
-    "resume": "CV"
+    "contact": "Contact"
   },
   "hero": {
     "greeting": "Bonjour, je suis",
@@ -19,8 +18,8 @@
       "Des apps en parallèle"
     ],
     "tagline": "J'ai eu mon premier ordinateur à huit ans et je n'ai jamais vraiment arrêté de bricoler. Aujourd'hui, je construis des systèmes backend chez Adobe. Avant ça, j'ai livré des produits chez Handshake, Intuit et RBC, et en parallèle je crée quelques petites apps chez Nexus Development.",
-    "downloadResume": "Télécharger mon CV",
-    "downloadCoverLetter": "Lettre de motivation",
+    "ctaContact": "Me contacter",
+    "ctaWork": "Voir mon travail",
     "scroll": "Faites défiler pour explorer",
     "available": "Ouvert à de nouveaux postes",
     "tod": {
@@ -144,7 +143,6 @@
     "subtitle": "Je suis ouvert aux postes full stack senior et staff, au conseil, ou simplement à une idée intéressante. L'email ou LinkedIn reste le moyen le plus rapide de me joindre.",
     "emailButton": "Écrivez-moi",
     "linkedinButton": "Me suivre sur LinkedIn",
-    "resumeButton": "Voir le CV",
     "form": {
       "name": "Nom",
       "email": "E-mail",

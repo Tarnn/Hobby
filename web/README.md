@@ -36,10 +36,13 @@ Morning / Golden / Night switch lives in the hero.
   fades in on its first frame; they're all that no-WebGL and Save-Data visitors
   get. Re-render them after changing the scene: `node scripts/posters.mjs`
   (with a production server on :3001).
-- The About portrait is a background-removed cutout (Adobe Photoshop API) at
-  `public/portrait-cutout.webp`, with golden and night grades made with Photoshop
-  adjustments (`portrait-cutout-{golden,night}.webp`). Only the grade for the
-  current time of day downloads.
+- The About portrait is the LinkedIn profile photo, edited with the Adobe Photoshop
+  API: Generative Expand rebuilt the shoulders LinkedIn's circle crop cut off (the
+  face and hair stay original pixels), then background removal and a light tone
+  pass gave `public/portrait/morning.webp`. Golden and night grades are Photoshop
+  adjustments (`public/portrait/{golden,night}.webp`); only the grade for the
+  current time of day downloads. `public/profile-photo.jpg` is the uncut photo
+  used in the JSON-LD `Person` schema.
 - Adobe Fonts kit `cml5ijv` is allow-listed for `tarnnn.com`, `www.tarnnn.com`,
   `*.vercel.app` and `localhost` — add new domains at fonts.adobe.com → Web Projects.
 

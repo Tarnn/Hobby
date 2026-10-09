@@ -9,7 +9,7 @@ export function JsonLd() {
     name: PROFILE.name,
     alternateName: PROFILE.shortName,
     url: SITE_URL,
-    image: PROFILE.photo,
+    image: new URL(PROFILE.photo, SITE_URL).toString(),
     email: `mailto:${PROFILE.email}`,
     jobTitle: PROFILE.title,
     worksFor: { '@type': 'Organization', name: EXPERIENCE[0].company },

@@ -9,14 +9,16 @@ export const PROFILE = {
   initials: 'TK',
   title: 'Senior Full Stack Software Developer',
   email: 'taranjitk18@gmail.com',
-  photo: `${S3}/me.jpeg`,
-  // Background removed with Adobe Photoshop from `photo`, then graded per
+  // LinkedIn profile photo. Photoshop Generative Expand rebuilt the shoulders
+  // LinkedIn's circle crop cut off (face and hair are untouched originals).
+  photo: '/profile-photo.jpg',
+  // Same photo with the background removed in Photoshop, then graded per
   // time of day with Photoshop adjustments (warmer at golden hour, cooler
   // and darker at night).
   portrait: {
-    morning: '/portrait-cutout.webp',
-    golden: '/portrait-cutout-golden.webp',
-    night: '/portrait-cutout-night.webp',
+    morning: '/portrait/morning.webp',
+    golden: '/portrait/golden.webp',
+    night: '/portrait/night.webp',
   },
 };
 

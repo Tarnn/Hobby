@@ -12,13 +12,14 @@ export const PROFILE = {
   // LinkedIn profile photo. Photoshop Generative Expand rebuilt the shoulders
   // LinkedIn's circle crop cut off (face and hair are untouched originals).
   photo: '/profile-photo.jpg',
-  // Same photo with the background removed in Photoshop, then graded per
-  // time of day with Photoshop adjustments (warmer at golden hour, cooler
-  // and darker at night).
+  // Same photo with the background removed in Photoshop (hair outline on
+  // the right tidied: flyaways and a stray tuft trimmed from the edge), then
+  // graded per time of day with Photoshop adjustments (warmer at golden
+  // hour, cooler and darker at night).
   portrait: {
-    morning: '/portrait/morning.webp',
-    golden: '/portrait/golden.webp',
-    night: '/portrait/night.webp',
+    morning: '/portrait/morning-v2.webp',
+    golden: '/portrait/golden-v2.webp',
+    night: '/portrait/night-v2.webp',
   },
 };
 

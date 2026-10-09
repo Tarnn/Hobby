@@ -10,6 +10,8 @@ export const PROFILE = {
   title: 'Senior Full Stack Software Developer',
   email: 'taranjitk18@gmail.com',
   photo: `${S3}/me.jpeg`,
+  // Background removed with Adobe Photoshop (Creative Cloud) from `photo`.
+  portraitCutout: '/portrait-cutout.webp',
   resumeUrl: `${S3}/Taranjit-Kang-FSD-2025.pdf`,
   coverLetterUrl: encodeURI(
     `${S3}/Taranjit-Kang-Full Stack Software Developer CL.pdf`,

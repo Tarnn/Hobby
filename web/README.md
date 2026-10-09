@@ -8,10 +8,33 @@ Complete redesign built on Next.js 15 App Router.
 - **Next.js 15** (App Router) + **React 19** + **TypeScript**
 - **Tailwind CSS v4** + **shadcn/ui** (seeded from the paid "Sonic" shadcnblocks template)
 - **Motion** (`motion/react`) for scroll/reveal animations; **Lenis** smooth scroll
-- **Three.js** via `@react-three/fiber` + `drei` — cursor-reactive WebGL particle field in the hero
+- **Three.js** via `@react-three/fiber` + `drei` — the interactive "touch grass" meadow hero (custom GLSL)
+- **Adobe Fonts** — IvyPresto Display (editorial serif) via web kit `cml5ijv`; Geist Mono for HUD labels
 - **next-intl** — 5 languages (EN / ES / FR / Hindi / Punjabi), cookie-based, no URL prefix
 - **Resend** — server-action contact form
 - **@vercel/analytics**
+
+## The meadow + time of day
+
+The hero is a real-time WebGL meadow (`src/components/meadow/`): ~72k instanced grass
+blades with wind gusts, a cursor trail that parts the grass, click-to-plant flowers, a
+lone tree, sky dome with sun / moon / stars / clouds, and fireflies at night.
+
+**Time of day is the site theme.** `morning` (light), `golden` and `night` (dark) drive
+both the CSS tokens (`data-tod` on `<html>`, see `globals.css`) and the scene palette
+(`meadow/palette.ts`). It defaults to the visitor's local clock, then persists their
+pick (`localStorage.tod`). An inline script resolves it before first paint.
+
+- Terrain height is analytic and mirrored in TS + GLSL (`meadow/terrain.ts` ↔
+  `meadow/glsl.ts`) — change both together.
+- Performance: mobile/low-core devices get fewer blades; DPR adapts via
+  `PerformanceMonitor`; rendering stops when the hero is off-screen.
+- `prefers-reduced-motion`: wind freezes, no camera drift, render-on-demand (the grass
+  still reacts to touch). No WebGL → CSS sky fallback.
+- The About portrait is a background-removed cutout (Adobe Photoshop API) at
+  `public/portrait-cutout.webp`.
+- Adobe Fonts kit `cml5ijv` is allow-listed for `tarnnn.com`, `www.tarnnn.com`,
+  `*.vercel.app` and `localhost` — add new domains at fonts.adobe.com → Web Projects.
 
 ## Sections
 

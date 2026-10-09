@@ -21,11 +21,20 @@
     "downloadResume": "Download Resume",
     "downloadCoverLetter": "Cover Letter",
     "scroll": "Scroll to explore",
-    "available": "Open to new opportunities"
+    "available": "Open to new opportunities",
+    "tod": {
+      "label": "Time of day",
+      "morning": "Morning",
+      "golden": "Golden",
+      "night": "Night"
+    },
+    "hint": "Move to part the grass · Click to plant",
+    "hintTouch": "Tap the grass to plant a flower",
+    "basedIn": "San Jose"
   },
   "about": {
     "eyebrow": "About me",
-    "title": "A developer, by passion and by trade",
+    "title": "A developer, by <em>passion</em> and by trade",
     "p1": "Taranjit Kang (Tarn) — a Canadian citizen born in Ontario, now residing in the USA on a green card. I've been a full-stack developer my entire career, fuelled by a deep passion for technology that began in childhood.",
     "p2": "Growing up I was a computer nerd. I got my first IBM PC at age 8, and later started building my own machines for gaming and experimenting with code long before any formal education.",
     "p3": "My professional journey spans Java, Spring Boot, React, and a wide range of front-end and back-end technologies — working for notable fintech companies like Intuit and Royal Bank of Canada.",
@@ -41,12 +50,12 @@
   },
   "skills": {
     "eyebrow": "Tech stack",
-    "title": "Technologies I build with",
+    "title": "Technologies I <em>build</em> with",
     "subtitle": "A decade of hands-on work across the full stack — from backend microservices to polished front-end experiences and the cloud infrastructure underneath."
   },
   "experience": {
     "eyebrow": "Experience",
-    "title": "Where I've made an impact",
+    "title": "Where I've made an <em>impact</em>",
     "subtitle": "A brief history of the teams and products I've helped ship, from the most recent to the earliest. The technologies span backend to frontend: Java, Spring Boot, React, TypeScript, Python, AWS, Docker, Kubernetes, Jenkins, and more.",
     "present": "Present",
     "items": {
@@ -60,7 +69,7 @@
   },
   "projects": {
     "eyebrow": "Selected work",
-    "title": "Things I've been building",
+    "title": "Things I've been <em>building</em>",
     "subtitle": "Live products I've shipped plus open-source projects from my GitHub — side projects, tools, and things I build to keep learning.",
     "viewRepo": "View repo",
     "liveDemo": "Live",
@@ -68,12 +77,12 @@
   },
   "testimonials": {
     "eyebrow": "Testimonials",
-    "title": "What colleagues say",
+    "title": "What colleagues <em>say</em>",
     "subtitle": "Recommendations and feedback from coworkers across the companies and roles throughout my career."
   },
   "contact": {
     "eyebrow": "Get in touch",
-    "title": "Let's build something great",
+    "title": "Let's build something <em>great</em>",
     "subtitle": "Open to senior and staff full-stack roles, consulting, and interesting collaborations. The fastest way to reach me is email or LinkedIn.",
     "emailButton": "Email me",
     "linkedinButton": "Connect on LinkedIn",

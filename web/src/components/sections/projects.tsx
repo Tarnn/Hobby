@@ -1,6 +1,6 @@
 import { getTranslations } from 'next-intl/server';
 
-import { SectionHeading } from '../section-heading';
+import { em, SectionHeading } from '../section-heading';
 import { ProjectsGrid } from './projects-grid';
 
 import { FEATURED_PROJECTS } from '@/content/portfolio';
@@ -14,8 +14,9 @@ export default async function Projects() {
     <section id="projects" className="section-padding scroll-mt-24">
       <div className="container">
         <SectionHeading
+          index="04"
           eyebrow={t('eyebrow')}
-          title={t('title')}
+          title={t.rich('title', { em })}
           subtitle={t('subtitle')}
         />
         <ProjectsGrid

@@ -21,11 +21,20 @@
     "downloadResume": "Descargar CV",
     "downloadCoverLetter": "Carta de presentación",
     "scroll": "Desplázate para explorar",
-    "available": "Abierto a nuevas oportunidades"
+    "available": "Abierto a nuevas oportunidades",
+    "tod": {
+      "label": "Hora del día",
+      "morning": "Mañana",
+      "golden": "Dorada",
+      "night": "Noche"
+    },
+    "hint": "Mueve para apartar la hierba · Haz clic para plantar",
+    "hintTouch": "Toca la hierba para plantar una flor",
+    "basedIn": "San José"
   },
   "about": {
     "eyebrow": "Sobre mí",
-    "title": "Desarrollador por pasión y por oficio",
+    "title": "Desarrollador por <em>pasión</em> y por oficio",
     "p1": "Taranjit Kang (Tarn): ciudadano canadiense nacido en Ontario, ahora residente en EE. UU. con green card. He sido desarrollador full-stack toda mi carrera, impulsado por una profunda pasión por la tecnología que comenzó en la infancia.",
     "p2": "De niño era un fanático de las computadoras. Tuve mi primera IBM PC a los 8 años y más tarde empecé a armar mis propias máquinas para jugar y experimentar con código mucho antes de cualquier formación formal.",
     "p3": "Mi trayectoria profesional abarca Java, Spring Boot, React y una amplia gama de tecnologías de front-end y back-end, trabajando para empresas fintech reconocidas como Intuit y Royal Bank of Canada.",
@@ -41,12 +50,12 @@
   },
   "skills": {
     "eyebrow": "Stack tecnológico",
-    "title": "Tecnologías con las que construyo",
+    "title": "Tecnologías con las que <em>construyo</em>",
     "subtitle": "Una década de trabajo práctico en todo el stack: desde microservicios de backend hasta experiencias front-end cuidadas y la infraestructura en la nube que las sostiene."
   },
   "experience": {
     "eyebrow": "Experiencia",
-    "title": "Donde he dejado huella",
+    "title": "Donde he dejado <em>huella</em>",
     "subtitle": "Una breve historia de los equipos y productos que he ayudado a lanzar, del más reciente al más antiguo. Las tecnologías abarcan del backend al frontend: Java, Spring Boot, React, TypeScript, Python, AWS, Docker, Kubernetes, Jenkins y más.",
     "present": "Actualidad",
     "items": {
@@ -60,7 +69,7 @@
   },
   "projects": {
     "eyebrow": "Trabajo destacado",
-    "title": "Cosas que he estado creando",
+    "title": "Cosas que he estado <em>creando</em>",
     "subtitle": "Productos en vivo que he lanzado, además de proyectos de código abierto de mi GitHub: side projects, herramientas y cosas que construyo para seguir aprendiendo.",
     "viewRepo": "Ver repo",
     "liveDemo": "En vivo",
@@ -68,12 +77,12 @@
   },
   "testimonials": {
     "eyebrow": "Testimonios",
-    "title": "Lo que dicen mis colegas",
+    "title": "Lo que dicen mis <em>colegas</em>",
     "subtitle": "Recomendaciones y comentarios de compañeros de las distintas empresas y puestos a lo largo de mi carrera."
   },
   "contact": {
     "eyebrow": "Hablemos",
-    "title": "Construyamos algo grande",
+    "title": "Construyamos algo <em>grande</em>",
     "subtitle": "Abierto a roles senior y staff de full-stack, consultoría y colaboraciones interesantes. La forma más rápida de contactarme es por correo o LinkedIn.",
     "emailButton": "Envíame un correo",
     "linkedinButton": "Conecta en LinkedIn",

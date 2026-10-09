@@ -50,7 +50,7 @@ export function Wordmark({
           className="absolute -inset-1.5 rounded-2xl opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-70"
           style={{
             background:
-              'conic-gradient(from 0deg, var(--brand), #8b5cf6, #22d3ee, var(--brand))',
+              'conic-gradient(from 0deg, var(--brand), var(--brand-2), var(--brand))',
           }}
           animate={{ rotate: 360 }}
           transition={{ duration: 5, repeat: Infinity, ease: 'linear' }}
@@ -60,7 +60,7 @@ export function Wordmark({
         <motion.span
           whileHover={{ rotate: -6, scale: 1.06 }}
           transition={{ type: 'spring', stiffness: 300, damping: 15 }}
-          className="from-brand relative grid size-9 place-items-center overflow-hidden rounded-xl bg-gradient-to-br to-purple-600 shadow-md ring-1 ring-white/25"
+          className="from-brand to-brand-2 relative grid size-9 place-items-center overflow-hidden rounded-xl bg-gradient-to-br shadow-md ring-1 ring-white/25"
         >
           {/* Monogram */}
           <svg

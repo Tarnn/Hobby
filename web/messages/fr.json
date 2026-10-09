@@ -21,11 +21,20 @@
     "downloadResume": "Télécharger le CV",
     "downloadCoverLetter": "Lettre de motivation",
     "scroll": "Faites défiler pour explorer",
-    "available": "Ouvert à de nouvelles opportunités"
+    "available": "Ouvert à de nouvelles opportunités",
+    "tod": {
+      "label": "Moment de la journée",
+      "morning": "Matin",
+      "golden": "Doré",
+      "night": "Nuit"
+    },
+    "hint": "Bougez pour écarter l'herbe · Cliquez pour planter",
+    "hintTouch": "Touchez l'herbe pour planter une fleur",
+    "basedIn": "San José"
   },
   "about": {
     "eyebrow": "À propos de moi",
-    "title": "Développeur par passion et par métier",
+    "title": "Développeur par <em>passion</em> et par métier",
     "p1": "Taranjit Kang (Tarn) — citoyen canadien né en Ontario, désormais résident aux États-Unis avec une carte verte. J'ai été développeur full-stack toute ma carrière, animé par une passion profonde pour la technologie née dès l'enfance.",
     "p2": "Enfant, j'étais un passionné d'informatique. J'ai eu mon premier PC IBM à 8 ans, puis j'ai commencé à assembler mes propres machines pour jouer et expérimenter le code bien avant toute formation formelle.",
     "p3": "Mon parcours professionnel couvre Java, Spring Boot, React et un large éventail de technologies front-end et back-end, au service d'entreprises fintech reconnues comme Intuit et la Banque Royale du Canada.",
@@ -41,12 +50,12 @@
   },
   "skills": {
     "eyebrow": "Stack technique",
-    "title": "Les technologies que j'utilise",
+    "title": "Les technologies que <em>j'utilise</em>",
     "subtitle": "Une décennie de travail concret sur toute la stack : des microservices back-end aux expériences front-end soignées, en passant par l'infrastructure cloud sous-jacente."
   },
   "experience": {
     "eyebrow": "Expérience",
-    "title": "Là où j'ai eu de l'impact",
+    "title": "Là où j'ai eu de <em>l'impact</em>",
     "subtitle": "Un bref historique des équipes et produits que j'ai aidé à livrer, du plus récent au plus ancien. Les technologies vont du back-end au front-end : Java, Spring Boot, React, TypeScript, Python, AWS, Docker, Kubernetes, Jenkins, et plus encore.",
     "present": "Présent",
     "items": {
@@ -60,7 +69,7 @@
   },
   "projects": {
     "eyebrow": "Travaux sélectionnés",
-    "title": "Ce que je construis",
+    "title": "Ce que je <em>construis</em>",
     "subtitle": "Des produits en ligne que j'ai livrés ainsi que des projets open source de mon GitHub : projets perso, outils et choses que je crée pour continuer à apprendre.",
     "viewRepo": "Voir le repo",
     "liveDemo": "Démo",
@@ -68,12 +77,12 @@
   },
   "testimonials": {
     "eyebrow": "Témoignages",
-    "title": "Ce que disent mes collègues",
+    "title": "Ce que disent mes <em>collègues</em>",
     "subtitle": "Recommandations et retours de collègues issus des différentes entreprises et fonctions tout au long de ma carrière."
   },
   "contact": {
     "eyebrow": "Contactez-moi",
-    "title": "Construisons quelque chose de formidable",
+    "title": "Construisons quelque chose de <em>formidable</em>",
     "subtitle": "Ouvert aux postes senior et staff en full-stack, au conseil et aux collaborations intéressantes. Le plus rapide est de me joindre par e-mail ou LinkedIn.",
     "emailButton": "Écrivez-moi",
     "linkedinButton": "Me suivre sur LinkedIn",

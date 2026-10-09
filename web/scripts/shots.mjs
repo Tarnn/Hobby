@@ -11,9 +11,16 @@ const viewports = [
   { name: 'desktop', width: 1440, height: 900 },
 ];
 
-const themes = process.env.THEME ? [process.env.THEME] : ['dark', 'light'];
+const themes = process.env.TOD
+  ? [process.env.TOD]
+  : ['morning', 'golden', 'night'];
 
-const browser = await chromium.launch();
+// WebGL needs a GPU or SwiftShader in headless Chromium. CHROMIUM_PATH lets
+// this run against a preinstalled browser (e.g. in CI containers).
+const browser = await chromium.launch({
+  executablePath: process.env.CHROMIUM_PATH || undefined,
+  args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader'],
+});
 let totalErrors = 0;
 
 for (const theme of themes) {
@@ -21,7 +28,10 @@ for (const theme of themes) {
     const ctx = await browser.newContext({
       viewport: { width: vp.width, height: vp.height },
       deviceScaleFactor: 2,
-      colorScheme: theme === 'dark' ? 'dark' : 'light',
+      colorScheme: theme === 'morning' ? 'light' : 'dark',
+      // The meadow saturates a software-rendered CPU; reduced motion switches
+      // it to render-on-demand so scripted scrolling stays responsive.
+      reducedMotion: 'reduce',
     });
     const page = await ctx.newPage();
 
@@ -31,9 +41,9 @@ for (const theme of themes) {
     });
     page.on('pageerror', (e) => errors.push(`PAGEERROR: ${e.message}`));
 
-    // Force theme via next-themes localStorage before load
+    // Force the time of day before load (see TOD_INIT_SCRIPT)
     await page.addInitScript((t) => {
-      localStorage.setItem('theme', t);
+      localStorage.setItem('tod', t);
     }, theme);
 
     await page.goto(BASE, { waitUntil: 'networkidle' });

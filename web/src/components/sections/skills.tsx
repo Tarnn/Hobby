@@ -4,18 +4,18 @@
 import { motion } from 'motion/react';
 import { useTranslations } from 'next-intl';
 
-import { SectionHeading } from '../section-heading';
+import { em, SectionHeading } from '../section-heading';
 
 import { SKILLS, type Skill } from '@/content/portfolio';
 
 function SkillPill({ skill }: { skill: Skill }) {
   return (
-    <div className="border-border bg-card hover:border-brand/50 group flex shrink-0 items-center gap-3 rounded-2xl border px-5 py-3 shadow-sm transition-colors">
+    <div className="border-border bg-card/70 hover:border-brand/50 group flex shrink-0 items-center gap-3 rounded-full border py-2.5 ps-3 pe-5 shadow-sm backdrop-blur-sm transition-colors">
       <img
         src={skill.logo}
         alt={skill.name}
         loading="lazy"
-        className="size-7 object-contain transition-transform duration-300 group-hover:scale-110"
+        className="size-8 rounded-full bg-white object-contain p-1 transition-transform duration-300 group-hover:scale-110"
       />
       <span className="text-sm font-medium whitespace-nowrap">
         {skill.name}
@@ -61,8 +61,9 @@ export default function Skills() {
     <section id="skills" className="section-padding scroll-mt-24">
       <div className="container">
         <SectionHeading
+          index="02"
           eyebrow={t('eyebrow')}
-          title={t('title')}
+          title={t.rich('title', { em })}
           subtitle={t('subtitle')}
         />
       </div>

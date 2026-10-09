@@ -42,7 +42,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
         className={cn(
-          'hover:border-brand/50 hover:text-brand border-border text-muted-foreground flex size-10 items-center justify-center rounded-full border transition-colors',
+          'hover:border-brand/50 hover:text-brand border-foreground/15 text-foreground/70 flex size-10 items-center justify-center rounded-full border transition-colors',
           isPending && 'opacity-60',
         )}
       >

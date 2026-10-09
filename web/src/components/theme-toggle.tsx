@@ -2,182 +2,66 @@
 
 import * as React from 'react';
 
-import { motion as m } from 'motion/react';
-import { useTheme } from 'next-themes';
+import { Moon, Sun, Sunset } from 'lucide-react';
+import { AnimatePresence, motion as m } from 'motion/react';
+import { useTranslations } from 'next-intl';
 
 import { Button } from '@/components/ui/button';
+import { useTimeOfDay } from '@/hooks/useTimeOfDay';
+import { nextTimeOfDay, setTimeOfDay, type TimeOfDay } from '@/lib/time-of-day';
 
+const ICONS: Record<TimeOfDay, typeof Sun> = {
+  morning: Sun,
+  golden: Sunset,
+  night: Moon,
+};
+
+const TINTS: Record<TimeOfDay, string> = {
+  morning: 'text-amber-500',
+  golden: 'text-orange-300',
+  night: 'text-sky-200',
+};
+
+/** Navbar control: cycles morning → golden → night. */
 export function ThemeToggle() {
-  const { theme, setTheme } = useTheme();
-  const buttonRef = React.useRef<HTMLButtonElement>(null);
+  const t = useTranslations('hero.tod');
+  const tod = useTimeOfDay();
+  const ref = React.useRef<HTMLButtonElement>(null);
 
-  const shineVariant = {
-    hidden: {
-      opacity: 0,
-      scale: 2,
-      strokeDasharray: '20, 1000',
-      strokeDashoffset: 0,
-      filter: 'blur(0px)',
-    },
-    visible: {
-      opacity: [0, 1, 0],
-      strokeDashoffset: [0, -50, -100],
-      filter: ['blur(2px)', 'blur(2px)', 'blur(0px)'],
-      transition: {
-        duration: 0.75,
-        ease: 'linear',
-      },
-    },
+  const onClick = () => {
+    if (!tod) return;
+    const rect = ref.current?.getBoundingClientRect();
+    setTimeOfDay(nextTimeOfDay(tod), {
+      origin: rect
+        ? { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 }
+        : undefined,
+    });
   };
 
-  const raysVariants = {
-    hidden: {
-      strokeOpacity: 0,
-      transition: {
-        staggerChildren: 0.05,
-        staggerDirection: -1,
-      },
-    },
-    visible: {
-      strokeOpacity: 1,
-      transition: {
-        staggerChildren: 0.05,
-      },
-    },
-  };
+  const Icon = tod ? ICONS[tod] : Sun;
 
-  const rayVariant = {
-    hidden: {
-      pathLength: 0,
-      opacity: 0,
-      // Start from center of the circle
-      scale: 0,
-    },
-    visible: {
-      pathLength: 1,
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.5,
-        ease: 'easeOut',
-        // Customize timing for each property
-        pathLength: { duration: 0.3 },
-        opacity: { duration: 0.2 },
-        scale: { duration: 0.3 },
-      },
-    },
-  };
-  const toggleTheme = () => {
-    if (document.startViewTransition) {
-      // Get the button's position using ref
-      const rect = buttonRef.current?.getBoundingClientRect();
-
-      if (rect) {
-        // Calculate position relative to viewport
-        const x = (rect.left + rect.right) / 2;
-        const y = (rect.top + rect.bottom) / 2;
-
-        // Set the CSS variables for the animation
-        document.documentElement.style.setProperty(
-          '--x',
-          `${(x / window.innerWidth) * 100}%`,
-        );
-        document.documentElement.style.setProperty(
-          '--y',
-          `${(y / window.innerHeight) * 100}%`,
-        );
-      }
-
-      // Remove page-transition class to avoid conflicts
-      document.documentElement.classList.remove('page-transition');
-      // Add theme-transition class
-      document.documentElement.classList.add('theme-transition');
-
-      document.startViewTransition(() => {
-        setTheme(theme === 'dark' ? 'light' : 'dark');
-
-        // Clean up theme-transition class after animation completes
-        setTimeout(() => {
-          document.documentElement.classList.remove('theme-transition');
-        }, 600);
-      });
-    } else {
-      setTheme(theme === 'dark' ? 'light' : 'dark');
-    }
-  };
-  const sunPath =
-    'M70 49.5C70 60.8218 60.8218 70 49.5 70C38.1782 70 29 60.8218 29 49.5C29 38.1782 38.1782 29 49.5 29C60 29 69.5 38 70 49.5Z';
-  const moonPath =
-    'M70 49.5C70 60.8218 60.8218 70 49.5 70C38.1782 70 29 60.8218 29 49.5C29 38.1782 38.1782 29 49.5 29C39 45 49.5 59.5 70 49.5Z';
   return (
     <Button
+      ref={ref}
       variant="ghost"
-      onClick={toggleTheme}
-      data-theme-toggle
-      ref={buttonRef}
+      size="icon"
+      onClick={onClick}
+      aria-label={tod ? `${t('label')}: ${t(tod)}` : t('label')}
+      title={tod ? `${t('label')}: ${t(tod)}` : undefined}
+      className="relative size-10 overflow-hidden rounded-full"
     >
-      <m.svg
-        strokeWidth="4"
-        strokeLinecap="round"
-        width={100}
-        height={100}
-        viewBox="0 0 100 100"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="relative"
-      >
-        <m.path
-          variants={shineVariant}
-          d={moonPath}
-          className={'absolute top-0 left-0 stroke-blue-100'}
-          initial="hidden"
-          animate={theme === 'dark' ? 'visible' : 'hidden'}
-        />
-
-        <m.g
-          variants={raysVariants}
-          initial="hidden"
-          animate={theme === 'light' ? 'visible' : 'hidden'}
-          className="stroke-yellow-600 stroke-6"
-          style={{ strokeLinecap: 'round' }}
+      <AnimatePresence mode="popLayout" initial={false}>
+        <m.span
+          key={tod ?? 'pending'}
+          initial={{ y: 18, rotate: -90, opacity: 0 }}
+          animate={{ y: 0, rotate: 0, opacity: 1 }}
+          exit={{ y: -18, rotate: 90, opacity: 0 }}
+          transition={{ type: 'spring', stiffness: 380, damping: 26 }}
+          className="grid place-items-center"
         >
-          <m.path
-            className="origin-center"
-            variants={rayVariant}
-            d="M50 2V11"
-          />
-          <m.path variants={rayVariant} d="M85 15L78 22" />
-          <m.path variants={rayVariant} d="M98 50H89" />
-          <m.path variants={rayVariant} d="M85 85L78 78" />
-          <m.path variants={rayVariant} d="M50 98V89" />
-          <m.path variants={rayVariant} d="M23 78L16 84" />
-          <m.path variants={rayVariant} d="M11 50H2" />
-          <m.path variants={rayVariant} d="M23 23L16 16" />
-        </m.g>
-
-        <m.path
-          d={sunPath}
-          fill="transparent"
-          transition={{ duration: 1, type: 'spring' }}
-          initial={{ fillOpacity: 0, strokeOpacity: 0, d: sunPath }}
-          animate={{
-            d: theme === 'dark' ? moonPath : sunPath,
-            rotate: theme === 'dark' ? -360 : 0,
-            scale: theme === 'dark' ? 2 : 1,
-            stroke:
-              theme === 'dark'
-                ? 'var(--color-blue-400)'
-                : 'var(--color-yellow-600)',
-            fill:
-              theme === 'dark'
-                ? 'var(--color-blue-400)'
-                : 'var(--color-yellow-600)',
-            fillOpacity: 0.35,
-            strokeOpacity: 1,
-            transition: { delay: 0.1 },
-          }}
-        />
-      </m.svg>
+          <Icon className={`size-[18px] ${tod ? TINTS[tod] : 'opacity-0'}`} />
+        </m.span>
+      </AnimatePresence>
     </Button>
   );
 }

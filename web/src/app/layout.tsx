@@ -1,3 +1,4 @@
+import { Geist_Mono } from 'next/font/google';
 import localFont from 'next/font/local';
 
 import { Analytics } from '@vercel/analytics/react';
@@ -9,11 +10,12 @@ import './globals.css';
 import { JsonLd } from '@/components/json-ld';
 import Footer from '@/components/layout/footer';
 import Navbar from '@/components/layout/navbar';
+import { MotionProvider } from '@/components/motion-provider';
 import { NavigationProvider } from '@/components/navigation-provider';
 import { ScrollProgress } from '@/components/scroll-progress';
 import { ScrollToTop } from '@/components/scroll-to-top';
 import { SmoothScroll } from '@/components/smooth-scroll';
-import { ThemeProvider } from '@/components/theme-provider';
+import { TOD_INIT_SCRIPT } from '@/lib/time-of-day';
 
 const sfProDisplay = localFont({
   src: [
@@ -48,6 +50,17 @@ const sfProDisplay = localFont({
   display: 'swap',
   preload: true,
 });
+
+const geistMono = Geist_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-geist-mono',
+  display: 'swap',
+});
+
+// Adobe Fonts web project (IvyPresto Display) — domains: tarnnn.com,
+// *.vercel.app, localhost. Manage at fonts.adobe.com/my_fonts#web_projects.
+const ADOBE_FONTS_KIT = 'https://use.typekit.net/cml5ijv.css';
 
 const SITE_URL = 'https://www.tarnnn.com';
 const TITLE = 'Taranjit Kang — Senior Full Stack Software Developer';
@@ -110,15 +123,20 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className={`${sfProDisplay.variable} antialiased`}>
+      <head>
+        {/* Resolve morning / golden / night before first paint (no flash). */}
+        <script dangerouslySetInnerHTML={{ __html: TOD_INIT_SCRIPT }} />
+        <link rel="preconnect" href="https://use.typekit.net" crossOrigin="" />
+        <link rel="preconnect" href="https://p.typekit.net" crossOrigin="" />
+        {}
+        <link rel="stylesheet" href={ADOBE_FONTS_KIT} />
+      </head>
+      <body
+        className={`${sfProDisplay.variable} ${geistMono.variable} antialiased`}
+      >
         <JsonLd />
         <NextIntlClientProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem
-            disableTransitionOnChange
-          >
+          <MotionProvider>
             <NavigationProvider>
               <SmoothScroll />
               <ScrollProgress />
@@ -127,8 +145,9 @@ export default async function RootLayout({
               <Footer />
               <ScrollToTop />
             </NavigationProvider>
-          </ThemeProvider>
+          </MotionProvider>
         </NextIntlClientProvider>
+        <div aria-hidden className="grain" />
         <Analytics />
       </body>
     </html>

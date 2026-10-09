@@ -31,6 +31,10 @@ pick (`localStorage.tod`). An inline script resolves it before first paint.
   `PerformanceMonitor`; rendering stops when the hero is off-screen.
 - `prefers-reduced-motion`: wind freezes, no camera drift, render-on-demand (the grass
   still reacts to touch). No WebGL → CSS sky fallback.
+- Poster stills (`public/meadow/*.webp`) paint instantly under the canvas, which
+  fades in on its first frame; they're all that no-WebGL and Save-Data visitors
+  get. Re-render them after changing the scene: `node scripts/posters.mjs`
+  (with a production server on :3001).
 - The About portrait is a background-removed cutout (Adobe Photoshop API) at
   `public/portrait-cutout.webp`.
 - Adobe Fonts kit `cml5ijv` is allow-listed for `tarnnn.com`, `www.tarnnn.com`,
@@ -38,9 +42,11 @@ pick (`localStorage.tod`). An inline script resolves it before first paint.
 
 ## Sections
 
-Hero · About (animated stat counters) · Skills · Experience (resume-driven timeline,
-incl. Adobe & Handshake) · Projects (live from the GitHub API, cached daily) ·
-Testimonials · Contact (working form + quick links).
+Hero · About (animated stat counters) · Skills · Experience (impact highlights +
+resume-driven timeline, incl. Adobe & Handshake) · Studio (Nexus Development LLC and
+its apps — Baybee Studio, Lullow, Pyaar; artwork mirrored in `public/nexus/`) ·
+Projects (live from the GitHub API, cached daily) · Testimonials · Contact (working
+form + quick links).
 
 SEO: JSON-LD `Person` schema, `app/sitemap.ts`, `app/robots.ts`, generated OG image
 (`app/opengraph-image.tsx`), branded favicons (regenerate via `node scripts/gen-icons.mjs`).

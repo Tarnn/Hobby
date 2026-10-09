@@ -66,7 +66,7 @@ export default function Contact() {
             {/* Left: pitch + quick methods */}
             <div className="flex flex-col">
               <span className="text-muted-foreground inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.2em] uppercase">
-                <span className="text-brand">06</span>
+                <span className="text-brand">07</span>
                 <span aria-hidden className="bg-border h-px w-8" />
                 {t('eyebrow')}
               </span>

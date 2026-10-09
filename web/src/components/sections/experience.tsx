@@ -17,6 +17,7 @@ import { cn } from '@/lib/utils';
 
 export default function Experience() {
   const t = useTranslations('experience');
+  const impact = t.raw('impact') as { value: string; label: string }[];
   const [selected, setSelected] = useState(0);
   const active = EXPERIENCE[selected];
 
@@ -33,7 +34,23 @@ export default function Experience() {
           subtitle={t('subtitle')}
         />
 
-        <div className="mt-14 grid gap-8 md:mt-16 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:gap-12">
+        {/* Impact highlights — the headline outcomes, before the timeline */}
+        <ul className="mt-12 grid gap-4 md:mt-14 md:grid-cols-3">
+          {impact.map((item, i) => (
+            <Reveal key={item.value} as="li" delay={i}>
+              <div className="border-border bg-card/70 h-full rounded-3xl border p-6 backdrop-blur-sm md:p-7">
+                <p className="font-display text-gradient-brand text-5xl leading-none font-light tracking-tight">
+                  {item.value}
+                </p>
+                <p className="text-muted-foreground mt-3 text-sm/relaxed md:text-[0.95rem]/relaxed">
+                  {item.label}
+                </p>
+              </div>
+            </Reveal>
+          ))}
+        </ul>
+
+        <div className="mt-10 grid gap-8 md:mt-12 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:gap-12">
           {/* Timeline list */}
           <Reveal>
             <ol className="relative">

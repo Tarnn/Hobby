@@ -3,6 +3,7 @@
     "about": "About",
     "skills": "Skills",
     "experience": "Experience",
+    "studio": "Studio",
     "projects": "Projects",
     "testimonials": "Testimonials",
     "contact": "Contact",
@@ -17,7 +18,7 @@
       "Java & React Specialist",
       "Cloud & Microservices Architect"
     ],
-    "tagline": "From building my own computers to architecting enterprise systems — a full-stack engineer with a passion for innovation. I drive digital transformation with Java, Spring Boot, React, and the cloud at companies like Intuit and Royal Bank of Canada.",
+    "tagline": "From building my own computers to architecting enterprise systems — a senior engineer at Adobe who has shipped for Intuit, Royal Bank of Canada and Handshake, and builds thoughtful apps on the side at Nexus Development.",
     "downloadResume": "Download Resume",
     "downloadCoverLetter": "Cover Letter",
     "scroll": "Scroll to explore",
@@ -65,6 +66,60 @@
       "rbc": "Worked on the RBC Mobile Banking app, developing Java microservices for the Virtual Visa Debit feature and contributing to enhancements across pages such as Transactions.",
       "ncr": "Enhanced the NCR Teller Application for US Bank, integrating Java Spring Boot microservices with a YAML-based SDK and deploying via Docker and Kubernetes. Led CI/CD with Jenkins, wrote Cucumber E2E tests, and managed releases with Bitbucket and Jira.",
       "rogers": "Worked on Rogers-owned The Shopping Channel e-commerce website — a monolithic project with C# and an Angular front end. Contributed to key components including Product Search, Product Details, and Product Listing pages."
+    },
+    "impact": [
+      {
+        "value": "$20M+",
+        "label": "in annual recurring revenue from consumer features I shipped at Handshake — about 10% of company ARR"
+      },
+      {
+        "value": "Millions",
+        "label": "of TurboTax users land on the homepage experience I helped build at Intuit"
+      },
+      {
+        "value": "2 banks",
+        "label": "Java microservices for RBC Mobile's Virtual Visa Debit and NCR's teller platform for US Bank"
+      }
+    ]
+  },
+  "studio": {
+    "eyebrow": "The studio",
+    "title": "Outside of work, I build <em>thoughtful</em> apps",
+    "subtitle": "Nexus Development LLC is an independent software studio in California, building everyday apps with care in the details. Three are taking shape right now.",
+    "studioLine": "Independent software studio · California",
+    "visit": "Visit the studio",
+    "status": "In development",
+    "apps": {
+      "baybee": {
+        "tagline": "Little moments, beautifully imagined.",
+        "description": "An AI portrait studio that turns everyday baby photos into artistic keepsakes.",
+        "features": [
+          "Portrait collections",
+          "Creative flow",
+          "Personal gallery"
+        ],
+        "platforms": "Web preview · iOS & Android planned"
+      },
+      "lullow": {
+        "tagline": "Little rhythms. Calmer days.",
+        "description": "Support for life with a little one — helping families find their rhythm around sleep, feeds and everything in between.",
+        "features": [
+          "Sleep & feeds",
+          "Daily timeline",
+          "Shared care"
+        ],
+        "platforms": "iOS & Android in development"
+      },
+      "pyaar": {
+        "tagline": "Your kind of connection.",
+        "description": "A considered dating experience for South Asian singles seeking meaningful connection, with room for every part of who they are.",
+        "features": [
+          "Thoughtful profiles",
+          "Conversation prompts",
+          "Shared intentions"
+        ],
+        "platforms": "iOS & Android planned"
+      }
     }
   },
   "projects": {

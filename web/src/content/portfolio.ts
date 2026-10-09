@@ -256,11 +256,11 @@ export type FeaturedProject = {
 // Live, deployed projects — featured above the GitHub repos.
 export const FEATURED_PROJECTS: FeaturedProject[] = [
   {
-    name: 'Nexus Studio',
+    name: 'Nexus Development',
     description:
-      'Premium web development studio — high-performance web apps, mobile experiences, and AI integrations for ambitious brands.',
-    url: 'https://nex-dev.app/',
-    tags: ['Web', 'Mobile', 'AI'],
+      'Independent California software studio building thoughtful everyday apps — Baybee Studio, Lullow, and Pyaar.',
+    url: 'https://www.nexusdevstudio.biz/',
+    tags: ['Studio', 'AI', 'iOS', 'Android'],
   },
   {
     name: 'Nexus — AI Agent Orchestration',
@@ -278,10 +278,53 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
   },
 ];
 
+// Nexus Development LLC — Tarn's independent app studio. App copy lives in
+// messages/*.json under `studio.apps.<id>`; artwork is mirrored from the
+// studio site into /public/nexus.
+export const STUDIO = {
+  name: 'Nexus Development',
+  legalName: 'Nexus Development LLC',
+  url: 'https://www.nexusdevstudio.biz/',
+  logo: '/nexus/nexus-logo.svg',
+};
+
+export type StudioApp = {
+  id: 'baybee' | 'lullow' | 'pyaar';
+  name: string;
+  icon: string;
+  image: string;
+  url: string;
+};
+
+export const STUDIO_APPS: StudioApp[] = [
+  {
+    id: 'baybee',
+    name: 'Baybee Studio',
+    icon: '/nexus/baybee-icon.webp',
+    image: '/nexus/baybee.webp',
+    url: 'https://www.nexusdevstudio.biz/#baybee',
+  },
+  {
+    id: 'lullow',
+    name: 'Lullow',
+    icon: '/nexus/lullow-icon.webp',
+    image: '/nexus/lullow.webp',
+    url: 'https://www.nexusdevstudio.biz/#lullow',
+  },
+  {
+    id: 'pyaar',
+    name: 'Pyaar',
+    icon: '/nexus/pyaar-icon.svg',
+    image: '/nexus/pyaar.webp',
+    url: 'https://www.nexusdevstudio.biz/#pyaar',
+  },
+];
+
 export const NAV_LINKS = [
   { id: 'about', href: '#about' },
   { id: 'skills', href: '#skills' },
   { id: 'experience', href: '#experience' },
+  { id: 'studio', href: '#studio' },
   { id: 'projects', href: '#projects' },
   { id: 'testimonials', href: '#testimonials' },
   { id: 'contact', href: '#contact' },

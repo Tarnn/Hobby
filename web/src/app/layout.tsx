@@ -65,7 +65,7 @@ const ADOBE_FONTS_KIT = 'https://use.typekit.net/cml5ijv.css';
 const SITE_URL = 'https://www.tarnnn.com';
 const TITLE = 'Taranjit Kang — Senior Full Stack Software Developer';
 const DESCRIPTION =
-  'Senior full-stack software developer specializing in Java, Spring Boot, React, and cloud. Shipped products for Intuit, Royal Bank of Canada, NCR, and Rogers.';
+  'Senior software engineer at Adobe — Java, Spring Boot, React, and cloud. Previously Handshake, Intuit, RBC, NCR, and Rogers. Building apps at Nexus Development.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -76,6 +76,8 @@ export const metadata: Metadata = {
   description: DESCRIPTION,
   keywords: [
     'Taranjit Kang',
+    'Adobe',
+    'Nexus Development',
     'Full Stack Developer',
     'Software Engineer',
     'Java',

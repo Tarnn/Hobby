@@ -99,6 +99,8 @@ type DirectorProps = {
   hill: THREE.Vector2;
   /** Lets DOM listeners request a frame in render-on-demand mode. */
   wake: React.RefObject<(() => void) | null>;
+  /** Called once the first frame has been drawn (fades the canvas in). */
+  onReady: () => void;
 };
 
 /** Per-frame brain: palette easing, camera rig, pointer trail, planting. */
@@ -111,6 +113,7 @@ function Director({
   reduced,
   hill,
   wake,
+  onReady,
 }: DirectorProps) {
   const { camera, invalidate, gl } = useThree();
   const first = useRef(true);
@@ -134,7 +137,14 @@ function Director({
     };
   }, [wake, invalidate]);
 
+  const announced = useRef(false);
+
   useFrame((state, rawDelta) => {
+    if (!announced.current) {
+      announced.current = true;
+      // Next browser frame: the first WebGL frame is on screen by then.
+      requestAnimationFrame(onReady);
+    }
     const dt = Math.min(rawDelta, 1 / 20);
     const u = uniforms;
     u.uClock.value += dt;
@@ -244,6 +254,15 @@ class WebGLBoundary extends Component<
   }
 }
 
+/** Visitors who asked to save data get the poster instead of three.js. */
+function prefersSavedData() {
+  const nav = navigator as Navigator & { connection?: { saveData?: boolean } };
+  return (
+    nav.connection?.saveData === true ||
+    window.matchMedia('(prefers-reduced-data: reduce)').matches
+  );
+}
+
 function hasWebGL() {
   try {
     const c = document.createElement('canvas');
@@ -276,12 +295,13 @@ export default function Meadow({ surface }: MeadowProps) {
   const [dpr, setDpr] = useState(1.25);
   const [aspect, setAspect] = useState(16 / 9);
   const [webgl, setWebgl] = useState(true);
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
     const q = detectQuality();
     setQuality(q);
     setDpr(Math.min(window.devicePixelRatio || 1, q.maxDpr));
-    setWebgl(hasWebGL());
+    setWebgl(!prefersSavedData() && hasWebGL());
     setAspect(window.innerWidth / Math.max(1, window.innerHeight));
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
     setReduced(mq.matches);
@@ -395,7 +415,12 @@ export default function Meadow({ surface }: MeadowProps) {
   const treeY = terrainHeight(hill.x, hill.y, hill) - 0.05;
 
   return (
-    <div ref={container} className="absolute inset-0">
+    <div
+      ref={container}
+      className="absolute inset-0 transition-opacity duration-700 ease-out motion-reduce:transition-none"
+      // Stays transparent over the poster until the first frame is drawn.
+      style={{ opacity: ready ? 1 : 0 }}
+    >
       <WebGLBoundary>
         <Canvas
           flat
@@ -430,6 +455,7 @@ export default function Meadow({ surface }: MeadowProps) {
             reduced={reduced}
             hill={hill}
             wake={wake}
+            onReady={() => setReady(true)}
           />
           <Sky uniforms={uniforms} />
           <Ground uniforms={uniforms} detail={quality.groundDetail} />

@@ -405,6 +405,34 @@ html.page-transition:after {
       );
   }
 
+  /* Pre-rendered still of the meadow: paints instantly, sits under the live
+     canvas (which fades in over it), and is all that data-saver or
+     no-WebGL visitors see. Rendered wider than typical screens so a centered
+     "cover" crop matches the live camera framing. Only the matching rule's
+     image is downloaded. */
+  .hero-poster {
+    background-position: center;
+    background-size: cover;
+    background-image: url('/meadow/morning-desktop.webp');
+  }
+  [data-tod='golden'] .hero-poster {
+    background-image: url('/meadow/golden-desktop.webp');
+  }
+  [data-tod='night'] .hero-poster {
+    background-image: url('/meadow/night-desktop.webp');
+  }
+  @media (max-width: 767px), (pointer: coarse) {
+    .hero-poster {
+      background-image: url('/meadow/morning-mobile.webp');
+    }
+    [data-tod='golden'] .hero-poster {
+      background-image: url('/meadow/golden-mobile.webp');
+    }
+    [data-tod='night'] .hero-poster {
+      background-image: url('/meadow/night-mobile.webp');
+    }
+  }
+
   /* Soft wash behind the hero copy so it stays legible over any sky. */
   .hero-scrim {
     background: radial-gradient(

@@ -14,7 +14,7 @@ export default async function Projects() {
     <section id="projects" className="section-padding scroll-mt-24">
       <div className="container">
         <SectionHeading
-          index="04"
+          index="05"
           eyebrow={t('eyebrow')}
           title={t.rich('title', { em })}
           subtitle={t('subtitle')}

@@ -3,6 +3,7 @@
     "about": "À propos",
     "skills": "Compétences",
     "experience": "Expérience",
+    "studio": "Studio",
     "projects": "Projets",
     "testimonials": "Témoignages",
     "contact": "Contact",
@@ -17,7 +18,7 @@
       "Spécialiste Java et React",
       "Architecte Cloud et Microservices"
     ],
-    "tagline": "De l'assemblage de mes propres ordinateurs à la conception de systèmes d'entreprise — un ingénieur full-stack passionné par l'innovation. Je mène la transformation numérique avec Java, Spring Boot, React et le cloud dans des entreprises comme Intuit et la Banque Royale du Canada.",
+    "tagline": "De l'assemblage de mes propres ordinateurs à la conception de systèmes d'entreprise — ingénieur senior chez Adobe, j'ai livré pour Intuit, la Banque Royale du Canada et Handshake, et je crée des apps réfléchies chez Nexus Development.",
     "downloadResume": "Télécharger le CV",
     "downloadCoverLetter": "Lettre de motivation",
     "scroll": "Faites défiler pour explorer",
@@ -65,6 +66,60 @@
       "rbc": "J'ai travaillé sur l'application bancaire mobile RBC, en développant des microservices Java pour la fonction Virtual Visa Debit et en contribuant aux améliorations de pages telles que Transactions.",
       "ncr": "J'ai amélioré l'application NCR Teller pour US Bank, en intégrant des microservices Java Spring Boot avec un SDK basé sur YAML et en déployant via Docker et Kubernetes. J'ai piloté le CI/CD avec Jenkins, rédigé des tests E2E Cucumber et géré les livraisons avec Bitbucket et Jira.",
       "rogers": "J'ai travaillé sur le site e-commerce The Shopping Channel, propriété de Rogers — un projet monolithique en C# avec un front-end Angular. J'ai contribué à des composants clés comme la Recherche de produits, les Détails produit et les Listes de produits."
+    },
+    "impact": [
+      {
+        "value": "20 M$+",
+        "label": "de revenus récurrents annuels grâce aux fonctionnalités grand public que j'ai livrées chez Handshake, environ 10 % de l'ARR de l'entreprise"
+      },
+      {
+        "value": "Des millions",
+        "label": "d'utilisateurs de TurboTax arrivent sur la page d'accueil que j'ai aidé à construire chez Intuit"
+      },
+      {
+        "value": "2 banques",
+        "label": "des microservices Java pour la carte Visa Débit virtuelle de RBC Mobile et la plateforme de guichet de NCR pour US Bank"
+      }
+    ]
+  },
+  "studio": {
+    "eyebrow": "Le studio",
+    "title": "En dehors du travail, je crée des apps <em>réfléchies</em>",
+    "subtitle": "Nexus Development LLC est un studio logiciel indépendant en Californie qui conçoit des apps du quotidien avec un soin du détail. Trois d'entre elles prennent forme en ce moment.",
+    "studioLine": "Studio logiciel indépendant · Californie",
+    "visit": "Visiter le studio",
+    "status": "En développement",
+    "apps": {
+      "baybee": {
+        "tagline": "Les petits moments, joliment imaginés.",
+        "description": "Un studio de portraits par IA qui transforme les photos de bébé du quotidien en souvenirs artistiques.",
+        "features": [
+          "Collections de portraits",
+          "Flux créatif",
+          "Galerie personnelle"
+        ],
+        "platforms": "Aperçu web · iOS et Android prévus"
+      },
+      "lullow": {
+        "tagline": "Petits rythmes. Jours plus calmes.",
+        "description": "Un soutien pour la vie avec un tout-petit : aider les familles à trouver leur rythme entre sommeil, repas et tout le reste.",
+        "features": [
+          "Sommeil et repas",
+          "Fil de la journée",
+          "Soins partagés"
+        ],
+        "platforms": "iOS et Android en développement"
+      },
+      "pyaar": {
+        "tagline": "Votre façon d'aimer.",
+        "description": "Une expérience de rencontre soignée pour les célibataires sud-asiatiques en quête de liens sincères, avec une place pour chaque part de leur identité.",
+        "features": [
+          "Profils soignés",
+          "Pistes de conversation",
+          "Intentions partagées"
+        ],
+        "platforms": "iOS et Android prévus"
+      }
     }
   },
   "projects": {

@@ -16,7 +16,7 @@ export default function Testimonials() {
     <section id="testimonials" className="section-padding scroll-mt-24">
       <div className="container">
         <SectionHeading
-          index="05"
+          index="06"
           eyebrow={t('eyebrow')}
           title={t.rich('title', { em })}
           subtitle={t('subtitle')}

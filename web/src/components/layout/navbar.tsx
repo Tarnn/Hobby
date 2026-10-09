@@ -67,7 +67,7 @@ export default function Navbar() {
       >
         <Wordmark />
 
-        <nav className="hidden items-center gap-1 md:flex">
+        <nav className="hidden items-center gap-1 lg:flex">
           {NAV_LINKS.map((link) => (
             <a
               key={link.id}
@@ -84,7 +84,7 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-2 md:flex">
+        <div className="hidden items-center gap-2 lg:flex">
           <LanguageSwitcher />
           <ThemeToggle />
           <Button asChild size="sm" className="rounded-full">
@@ -100,7 +100,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile controls */}
-        <div className="flex items-center gap-1.5 md:hidden">
+        <div className="flex items-center gap-1.5 lg:hidden">
           <LanguageSwitcher />
           <ThemeToggle />
           <button
@@ -138,7 +138,7 @@ export default function Navbar() {
       {/* Mobile menu overlay */}
       <div
         className={cn(
-          'fixed inset-0 top-0 z-40 md:hidden',
+          'fixed inset-0 top-0 z-40 lg:hidden',
           menuOpen ? 'visible' : 'invisible',
         )}
       >

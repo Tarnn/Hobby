@@ -87,6 +87,7 @@ export default function Hero() {
     >
       {/* CSS sky — under the meadow, and the fallback without WebGL */}
       <div aria-hidden className="hero-sky absolute inset-0 -z-30" />
+      <div aria-hidden className="hero-poster absolute inset-0 -z-30" />
       <div className="absolute inset-0 -z-20">
         <Meadow surface={surface} />
       </div>

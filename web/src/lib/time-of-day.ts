@@ -22,9 +22,11 @@ export function timeOfDayForHour(hour: number): TimeOfDay {
 
 /**
  * Inline <head> script: resolves the time of day before first paint so the
- * page never flashes the wrong palette. Must stay dependency-free.
+ * page never flashes the wrong palette, and preloads the matching hero poster
+ * (a CSS background the browser would otherwise find late). Must stay
+ * dependency-free; the poster paths mirror `.hero-poster` in globals.css.
  */
-export const TOD_INIT_SCRIPT = `(function(){try{var k='${TOD_STORAGE_KEY}',s=null;try{s=localStorage.getItem(k)}catch(e){}var t=(s==='morning'||s==='golden'||s==='night')?s:null;if(!t){var h=new Date().getHours();t=h>=5&&h<16?'morning':h>=16&&h<20?'golden':'night'}var d=document.documentElement;d.setAttribute('data-tod',t);d.classList.toggle('dark',t!=='morning');d.style.colorScheme=t==='morning'?'light':'dark'}catch(e){}})();`;
+export const TOD_INIT_SCRIPT = `(function(){try{var k='${TOD_STORAGE_KEY}',s=null;try{s=localStorage.getItem(k)}catch(e){}var t=(s==='morning'||s==='golden'||s==='night')?s:null;if(!t){var h=new Date().getHours();t=h>=5&&h<16?'morning':h>=16&&h<20?'golden':'night'}var d=document.documentElement;d.setAttribute('data-tod',t);d.classList.toggle('dark',t!=='morning');d.style.colorScheme=t==='morning'?'light':'dark';var m=matchMedia('(max-width:767px),(pointer:coarse)').matches,l=document.createElement('link');l.rel='preload';l.as='image';l.type='image/webp';l.setAttribute('fetchpriority','high');l.href='/meadow/'+t+(m?'-mobile':'-desktop')+'.webp';document.head.appendChild(l)}catch(e){}})();`;
 
 // ---------------------------------------------------------------------------
 // Tiny external store (useSyncExternalStore-compatible). The DOM attribute is

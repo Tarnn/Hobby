@@ -105,7 +105,17 @@ export default async function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: TOD_INIT_SCRIPT }} />
         <link rel="preconnect" href="https://use.typekit.net" crossOrigin="" />
         <link rel="preconnect" href="https://p.typekit.net" crossOrigin="" />
-        <link rel="stylesheet" href={ADOBE_FONTS_KIT} />
+        {/* Adobe Fonts without blocking first paint: fetch early, apply once
+            loaded (headings show the serif fallback for a moment). */}
+        <link rel="preload" as="style" href={ADOBE_FONTS_KIT} />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var l=document.createElement('link');l.rel='stylesheet';l.href='${ADOBE_FONTS_KIT}';document.head.appendChild(l)})();`,
+          }}
+        />
+        <noscript>
+          <link rel="stylesheet" href={ADOBE_FONTS_KIT} />
+        </noscript>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

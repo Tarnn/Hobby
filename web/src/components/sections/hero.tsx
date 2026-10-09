@@ -11,6 +11,8 @@ import { useTranslations } from 'next-intl';
 import { TimeOfDaySwitch } from '../time-of-day-switch';
 import { Button } from '../ui/button';
 
+import { canRunMeadow, whenIdle } from '@/lib/gpu';
+
 const Meadow = dynamic(() => import('../meadow/meadow'), { ssr: false });
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -74,6 +76,10 @@ export default function Hero() {
   const roles = t.raw('roles') as string[];
   const typed = useTypewriter(roles);
   const surface = useRef<HTMLElement>(null);
+  // three.js is fetched only after first paint, and only where it runs well;
+  // everyone else keeps the poster still underneath.
+  const [meadowOn, setMeadowOn] = useState(false);
+  useEffect(() => whenIdle(() => canRunMeadow() && setMeadowOn(true)), []);
 
   const [first, ...rest] = t('name').split(' ');
 
@@ -87,7 +93,7 @@ export default function Hero() {
       <div aria-hidden className="hero-sky absolute inset-0 -z-30" />
       <div aria-hidden className="hero-poster absolute inset-0 -z-30" />
       <div className="absolute inset-0 -z-20">
-        <Meadow surface={surface} />
+        {meadowOn && <Meadow surface={surface} />}
       </div>
       <div
         aria-hidden

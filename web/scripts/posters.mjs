@@ -45,7 +45,7 @@ for (const tod of ['morning', 'golden', 'night']) {
     });
     const page = await ctx.newPage();
     await page.addInitScript((t) => localStorage.setItem('tod', t), tod);
-    await page.goto(BASE, { waitUntil: 'load', timeout: 120_000 });
+    await page.goto(`${BASE}/?meadow=force`, { waitUntil: 'load', timeout: 120_000 });
     // Wait for the canvas to finish fading in over the old poster.
     await page.waitForFunction(
       () => {

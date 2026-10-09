@@ -111,8 +111,8 @@ export default function Studio() {
 
         {/* Studio plate */}
         <Reveal delay={2}>
-          <div className="border-border bg-card/50 mx-auto mt-12 flex max-w-4xl flex-col items-center justify-between gap-4 rounded-full border px-5 py-3 backdrop-blur-sm sm:flex-row sm:py-2.5 sm:ps-6 sm:pe-2.5 md:mt-14">
-            <div className="flex items-center gap-3">
+          <div className="border-border bg-card/50 mx-auto mt-12 flex max-w-4xl flex-col items-center justify-between gap-4 rounded-3xl border px-5 py-5 text-center backdrop-blur-sm sm:flex-row sm:rounded-full sm:py-2.5 sm:ps-6 sm:pe-2.5 sm:text-left md:mt-14">
+            <div className="flex flex-col items-center gap-2.5 sm:flex-row sm:gap-3">
               {/* Logo as a mask so it inherits the current text color */}
               <span
                 role="img"
@@ -125,8 +125,8 @@ export default function Studio() {
                   WebkitMaskRepeat: 'no-repeat',
                   maskSize: 'contain',
                   WebkitMaskSize: 'contain',
-                  maskPosition: 'left center',
-                  WebkitMaskPosition: 'left center',
+                  maskPosition: 'center',
+                  WebkitMaskPosition: 'center',
                 }}
               />
               <span

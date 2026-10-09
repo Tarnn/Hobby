@@ -4,14 +4,12 @@ import { useEffect, useRef, useState } from 'react';
 
 import dynamic from 'next/dynamic';
 
-import { ArrowDownToLine, FileText, Hand, MapPin } from 'lucide-react';
+import { ArrowDown, Hand, Mail, MapPin } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useTranslations } from 'next-intl';
 
 import { TimeOfDaySwitch } from '../time-of-day-switch';
 import { Button } from '../ui/button';
-
-import { PROFILE } from '@/content/portfolio';
 
 const Meadow = dynamic(() => import('../meadow/meadow'), { ssr: false });
 
@@ -165,13 +163,9 @@ export default function Hero() {
               size="lg"
               className="rounded-full px-5 text-[15px] shadow-lg shadow-black/10 sm:px-6 sm:text-base"
             >
-              <a
-                href={PROFILE.resumeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <ArrowDownToLine className="size-4" />
-                {t('downloadResume')}
+              <a href="#contact">
+                <Mail className="size-4" />
+                {t('ctaContact')}
               </a>
             </Button>
             <Button
@@ -180,13 +174,9 @@ export default function Hero() {
               variant="outline"
               className="bg-background/45 border-foreground/15 rounded-full px-5 text-[15px] backdrop-blur-md sm:px-6 sm:text-base"
             >
-              <a
-                href={PROFILE.coverLetterUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FileText className="size-4" />
-                {t('downloadCoverLetter')}
+              <a href="#experience">
+                <ArrowDown className="size-4" />
+                {t('ctaWork')}
               </a>
             </Button>
           </motion.div>

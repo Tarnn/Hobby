@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowUpRight, FileText, Linkedin, Mail } from 'lucide-react';
+import { ArrowUpRight, Linkedin, Mail } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useTranslations } from 'next-intl';
 
@@ -24,12 +24,6 @@ export default function Contact() {
       label: t('linkedinButton'),
       href: SOCIALS.linkedin,
       value: 'in/taranjit-kang',
-    },
-    {
-      icon: FileText,
-      label: t('resumeButton'),
-      href: PROFILE.resumeUrl,
-      value: 'PDF',
     },
   ];
 

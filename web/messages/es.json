@@ -21,7 +21,6 @@
     "ctaContact": "Contáctame",
     "ctaWork": "Ver mi trabajo",
     "scroll": "Desplázate para explorar",
-    "available": "Abierto a nuevos roles",
     "tod": {
       "label": "Hora del día",
       "morning": "Mañana",
@@ -35,7 +34,7 @@
   "about": {
     "eyebrow": "Sobre mí",
     "title": "Hola, soy <em>Tarn</em>",
-    "p1": "Casi todos me llaman Tarn, y algunos excompañeros todavía me dicen TJ. Nací en Ontario, Canadá, y ahora vivo en Estados Unidos. Soy ciudadano canadiense y residente permanente en EE. UU., así que puedo trabajar en cualquiera de los dos países sin patrocinio.",
+    "p1": "Casi todos me llaman Tarn, y algunos excompañeros todavía me dicen TJ. Nací en Ontario, Canadá, y ahora vivo en Estados Unidos. Soy ciudadano canadiense y residente permanente en EE. UU.",
     "p2": "Era el niño que desarmaba computadoras. Tuve mi primera IBM PC a los ocho años y al poco tiempo ya armaba mis propias máquinas, primero para jugar y luego para programar.",
     "p3": "He sido desarrollador full stack toda mi carrera. Sobre todo Java y Spring Boot en el backend y React en el frontend, en empresas como Intuit, RBC, Handshake y ahora Adobe.",
     "p4": "Todavía disfruto mucho aprendiendo cosas nuevas. Últimamente eso ha sido 3D en la web y crear apps pequeñas en Nexus Development.",
@@ -140,7 +139,7 @@
   "contact": {
     "eyebrow": "Saluda",
     "title": "<em>Hablemos</em>",
-    "subtitle": "Estoy abierto a roles full stack sénior y staff, consultoría o simplemente una idea interesante. Por email o LinkedIn es la forma más rápida de contactarme.",
+    "subtitle": "¿Tienes un proyecto, una colaboración o simplemente una idea interesante? Por email o LinkedIn es la forma más rápida de contactarme.",
     "emailButton": "Envíame un correo",
     "linkedinButton": "Conecta en LinkedIn",
     "form": {

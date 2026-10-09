@@ -53,8 +53,8 @@ export default function Experience() {
         <div className="mt-10 grid gap-8 md:mt-12 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:gap-12">
           {/* Timeline list */}
           <Reveal>
-            <ol className="relative">
-              <span className="bg-border absolute top-2 bottom-2 left-[19px] w-px md:left-[23px]" />
+            {/* Timeline rail drawn with ::before (lists may only hold <li>) */}
+            <ol className="before:bg-border relative before:absolute before:top-2 before:bottom-2 before:left-[19px] before:w-px md:before:left-[23px]">
               {EXPERIENCE.map((exp, i) => {
                 const isActive = i === selected;
                 return (

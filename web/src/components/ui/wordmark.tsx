@@ -6,6 +6,11 @@ import { motion, useMotionValue, useSpring } from 'motion/react';
 
 import { cn } from '@/lib/utils';
 
+// "TK" drawn as geometry on a 36-unit grid, so the mark renders identically
+// everywhere (no font dependency). Shared with public/favicon/favicon.svg.
+const MONOGRAM =
+  'M4.85 10H16.45V13.7H4.85Z M8.8 10H12.5V26H8.8Z M18.85 10H22.55V26H18.85Z M19.14 20.2L25.66 10L30.04 10L22.26 22.2Z M25.1 15.94L31.14 26L26.56 26L21.74 17.95Z';
+
 export function Wordmark({
   className,
   tone = 'auto',
@@ -65,33 +70,11 @@ export function Wordmark({
           {/* Monogram */}
           <svg
             viewBox="0 0 36 36"
-            className="size-9"
+            className="text-brand-foreground size-9"
             fill="none"
             aria-hidden="true"
           >
-            <text
-              x="9.5"
-              y="25"
-              fontFamily="var(--font-sf-pro-display), system-ui, sans-serif"
-              fontWeight="800"
-              fontSize="17"
-              fill="#fff"
-              letterSpacing="-1"
-            >
-              T
-            </text>
-            <text
-              x="17.5"
-              y="25"
-              fontFamily="var(--font-sf-pro-display), system-ui, sans-serif"
-              fontWeight="800"
-              fontSize="17"
-              fill="#fff"
-              fillOpacity="0.92"
-              letterSpacing="-1"
-            >
-              K
-            </text>
+            <path d={MONOGRAM} fill="currentColor" />
           </svg>
 
           {/* Sheen sweep on hover */}

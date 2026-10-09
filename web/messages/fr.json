@@ -47,6 +47,9 @@
       "companies": "Entreprises",
       "industries": "Secteurs",
       "users": "Utilisateurs touchés"
+    },
+    "statValues": {
+      "users": "Des millions"
     }
   },
   "skills": {
@@ -162,5 +165,11 @@
   },
   "language": {
     "label": "Langue"
+  },
+  "notFound": {
+    "eyebrow": "Erreur 404",
+    "title": "Vous avez quitté le <em>sentier</em>",
+    "body": "Cette page n'existe pas ou a été déplacée. La prairie, c'est par ici.",
+    "cta": "Retour à la prairie"
   }
 }

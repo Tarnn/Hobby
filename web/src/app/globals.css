@@ -47,6 +47,8 @@
   --sun-glow: rgb(255 236 190 / 0.75);
   --grass-silhouette: #3d7322;
   --grain-opacity: 0.035;
+  --rim-color: rgb(255 244 214);
+  --rim-opacity: 0.35;
 }
 
 [data-tod='golden'] {
@@ -85,6 +87,8 @@
   --sun-glow: rgb(255 157 79 / 0.7);
   --grass-silhouette: #1f210c;
   --grain-opacity: 0.05;
+  --rim-color: rgb(255 158 74);
+  --rim-opacity: 0.85;
 }
 
 [data-tod='night'] {
@@ -123,12 +127,16 @@
   --sun-glow: rgb(150 175 255 / 0.35);
   --grass-silhouette: #051318;
   --grain-opacity: 0.05;
+  --rim-color: rgb(150 180 255);
+  --rim-opacity: 0.55;
 }
 
 @theme inline {
   --radius: 0.625rem;
 
-  --font-sans: var(--font-sf-pro-display);
+  --font-sans:
+    var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
+    sans-serif;
   /* IvyPresto Display via the Adobe Fonts kit (cml5ijv) loaded in layout. */
   --font-display:
     'ivypresto-display', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
@@ -432,6 +440,33 @@ html.page-transition:after {
     [data-tod='night'] .hero-poster {
       background-image: url('/meadow/night-mobile.webp');
     }
+  }
+
+  /* Show only the asset graded for the current time of day. */
+  .tod-golden,
+  .tod-night,
+  [data-tod='golden'] .tod-morning,
+  [data-tod='night'] .tod-morning {
+    display: none;
+  }
+  [data-tod='golden'] .tod-golden,
+  [data-tod='night'] .tod-night {
+    display: block;
+  }
+
+  /* Sunlight (or moonlight) catching the portrait from the sun's side. */
+  .portrait-rim {
+    background: radial-gradient(
+      90% 75% at 8% 0%,
+      var(--rim-color) 0%,
+      transparent 62%
+    );
+    mix-blend-mode: soft-light;
+    opacity: var(--rim-opacity);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
   }
 
   /* Soft wash behind the hero copy so it stays legible over any sky. */

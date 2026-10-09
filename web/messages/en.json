@@ -47,6 +47,9 @@
       "companies": "Companies",
       "industries": "Industries",
       "users": "Users reached"
+    },
+    "statValues": {
+      "users": "Millions"
     }
   },
   "skills": {
@@ -162,5 +165,11 @@
   },
   "language": {
     "label": "Language"
+  },
+  "notFound": {
+    "eyebrow": "Error 404",
+    "title": "You've wandered off the <em>path</em>",
+    "body": "This page doesn't exist, or it has moved. The meadow is back this way.",
+    "cta": "Back to the meadow"
   }
 }

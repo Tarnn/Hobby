@@ -47,6 +47,9 @@
       "companies": "Empresas",
       "industries": "Industrias",
       "users": "Usuarios alcanzados"
+    },
+    "statValues": {
+      "users": "Millones"
     }
   },
   "skills": {
@@ -162,5 +165,11 @@
   },
   "language": {
     "label": "Idioma"
+  },
+  "notFound": {
+    "eyebrow": "Error 404",
+    "title": "Te has salido del <em>camino</em>",
+    "body": "Esta página no existe o se ha movido. El prado está por aquí.",
+    "cta": "Volver al prado"
   }
 }

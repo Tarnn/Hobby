@@ -8,39 +8,20 @@ import { motion } from 'motion/react';
 import { useTranslations } from 'next-intl';
 
 import { CountUp } from '../count-up';
+import { GrassSilhouette } from '../grass-silhouette';
 import { Reveal } from '../reveal';
 import { em, SectionHeading } from '../section-heading';
 
 import { EXPERIENCE, PROFILE } from '@/content/portfolio';
+import { TIMES_OF_DAY } from '@/lib/time-of-day';
 
+// Numeric values animate; `null` means a localized word (about.statValues).
 const STATS = [
   { key: 'years', value: '10+' },
   { key: 'companies', value: '6' },
   { key: 'industries', value: '4' },
-  { key: 'users', value: 'Millions' },
+  { key: 'users', value: null },
 ] as const;
-
-// Deterministic grass silhouette for the portrait window. Integer PRNG keeps
-// the path identical on server and client (no hydration drift).
-function prng(seed: number) {
-  let a = seed;
-  return () => {
-    a = (a + 0x6d2b79f5) | 0;
-    let t = Math.imul(a ^ (a >>> 15), 1 | a);
-    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-}
-const BLADES = (() => {
-  const rand = prng(42);
-  const n = (v: number) => v.toFixed(2);
-  return Array.from({ length: 46 }, (_, i) => {
-    const x = (i / 45) * 100 + (rand() - 0.5) * 2.4;
-    const h = 34 + rand() * 46;
-    const lean = (rand() - 0.5) * 10;
-    return `M${n(x - 1.6)} 100 Q${n(x + lean * 0.4)} ${n(100 - h * 0.6)} ${n(x + lean)} ${n(100 - h)} Q${n(x + lean * 0.3 + 0.6)} ${n(100 - h * 0.55)} ${n(x + 1.6)} 100Z`;
-  }).join(' ');
-})();
 
 /** Arched "window" onto the current sky, with Tarn standing in the meadow. */
 function PortraitWindow() {
@@ -69,26 +50,33 @@ function PortraitWindow() {
           animate={{ y: [0, -5, 0] }}
           transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
         />
-        <Image
-          src={PROFILE.portraitCutout}
-          alt={PROFILE.name}
-          width={800}
-          height={800}
-          sizes="(max-width: 768px) 280px, 336px"
-          className="absolute bottom-0 left-1/2 w-[94%] -translate-x-1/2 transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-          priority
-        />
+        {/* One graded portrait per time of day. Inactive ones are
+            display:none and lazy, so only the current grade downloads. */}
+        <div className="absolute bottom-0 left-1/2 aspect-square w-[94%] -translate-x-1/2 transition-transform duration-700 ease-out group-hover:scale-[1.03]">
+          {TIMES_OF_DAY.map((tod) => (
+            <Image
+              key={tod}
+              src={PROFILE.portrait[tod]}
+              alt={PROFILE.name}
+              fill
+              sizes="(max-width: 768px) 264px, 316px"
+              className={`tod-${tod} object-contain`}
+            />
+          ))}
+          {/* Rim light from the sun, clipped to the silhouette */}
+          <div
+            aria-hidden
+            className="portrait-rim absolute inset-0"
+            style={{
+              maskImage: `url(${PROFILE.portrait.morning})`,
+              WebkitMaskImage: `url(${PROFILE.portrait.morning})`,
+              maskSize: 'contain',
+              WebkitMaskSize: 'contain',
+            }}
+          />
+        </div>
         {/* Grass in front, so he's standing in the meadow */}
-        <svg
-          aria-hidden
-          viewBox="0 0 100 100"
-          preserveAspectRatio="none"
-          className="absolute inset-x-0 -bottom-px h-[22%] w-full"
-          style={{ color: 'var(--grass-silhouette)' }}
-        >
-          <path d={BLADES} fill="currentColor" />
-          <rect y="92" width="100" height="8" fill="currentColor" />
-        </svg>
+        <GrassSilhouette className="absolute inset-x-0 -bottom-px h-[22%] w-full" />
       </div>
 
       {/* Floating "currently at" badge */}
@@ -157,14 +145,21 @@ export default function About() {
             <Reveal delay={4}>
               <dl className="border-border mt-4 grid grid-cols-2 gap-x-4 gap-y-7 border-t pt-8 sm:grid-cols-4">
                 {STATS.map((stat) => (
-                  <div key={stat.key} className="flex flex-col">
-                    <dt className="sr-only">{t(`stats.${stat.key}`)}</dt>
-                    <dd className="font-display text-gradient-brand text-[2.6rem] leading-none font-light md:text-5xl">
-                      <CountUp value={stat.value} />
-                    </dd>
-                    <span className="text-muted-foreground mt-2 font-mono text-[10.5px] tracking-[0.14em] uppercase">
+                  // dt before dd for valid markup; column-reverse puts the
+                  // number on top visually.
+                  <div key={stat.key} className="flex flex-col-reverse">
+                    <dt className="text-muted-foreground mt-2 font-mono text-[10.5px] tracking-[0.14em] uppercase">
                       {t(`stats.${stat.key}`)}
-                    </span>
+                    </dt>
+                    <dd className="font-display text-gradient-brand text-[2.6rem] leading-none font-light md:text-5xl">
+                      <CountUp
+                        value={
+                          stat.value === null
+                            ? t(`statValues.${stat.key}`)
+                            : stat.value
+                        }
+                      />
+                    </dd>
                   </div>
                 ))}
               </dl>

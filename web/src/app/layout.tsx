@@ -1,5 +1,4 @@
-import { Geist_Mono } from 'next/font/google';
-import localFont from 'next/font/local';
+import { Geist, Geist_Mono } from 'next/font/google';
 
 import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from 'next';
@@ -17,38 +16,12 @@ import { ScrollToTop } from '@/components/scroll-to-top';
 import { SmoothScroll } from '@/components/smooth-scroll';
 import { TOD_INIT_SCRIPT } from '@/lib/time-of-day';
 
-const sfProDisplay = localFont({
-  src: [
-    {
-      path: './fonts/SF-Pro-Display-Light.otf',
-      weight: '300',
-      style: 'normal',
-    },
-    {
-      path: './fonts/SF-Pro-Display-Regular.otf',
-      weight: '400',
-      style: 'normal',
-    },
-    {
-      path: './fonts/SF-Pro-Display-Medium.otf',
-      weight: '500',
-      style: 'normal',
-    },
-    {
-      path: './fonts/SF-Pro-Display-Semibold.otf',
-      weight: '600',
-      style: 'normal',
-    },
-    { path: './fonts/SF-Pro-Display-Bold.otf', weight: '700', style: 'normal' },
-    {
-      path: './fonts/SF-Pro-Display-Heavy.otf',
-      weight: '800',
-      style: 'normal',
-    },
-  ],
-  variable: '--font-sf-pro-display',
+// Geist pairs with Geist Mono and ships as one self-hosted variable woff2,
+// so body text never waits on a third party.
+const geistSans = Geist({
+  subsets: ['latin'],
+  variable: '--font-geist-sans',
   display: 'swap',
-  preload: true,
 });
 
 const geistMono = Geist_Mono({
@@ -58,7 +31,7 @@ const geistMono = Geist_Mono({
   display: 'swap',
 });
 
-// Adobe Fonts web project (IvyPresto Display) — domains: tarnnn.com,
+// Adobe Fonts web project (IvyPresto Display). Domains: tarnnn.com,
 // *.vercel.app, localhost. Manage at fonts.adobe.com/my_fonts#web_projects.
 const ADOBE_FONTS_KIT = 'https://use.typekit.net/cml5ijv.css';
 
@@ -130,11 +103,10 @@ export default async function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: TOD_INIT_SCRIPT }} />
         <link rel="preconnect" href="https://use.typekit.net" crossOrigin="" />
         <link rel="preconnect" href="https://p.typekit.net" crossOrigin="" />
-        {}
         <link rel="stylesheet" href={ADOBE_FONTS_KIT} />
       </head>
       <body
-        className={`${sfProDisplay.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <JsonLd />
         <NextIntlClientProvider>

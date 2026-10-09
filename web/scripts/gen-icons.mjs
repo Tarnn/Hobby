@@ -1,40 +1,46 @@
-// One-off: rasterize the brand SVG into the favicon PNG/ICO set.
-import sharp from 'sharp';
+// Rasterize the brand mark into the favicon PNG/ICO set. Source of truth is
+// public/favicon/favicon.svg (the TK monogram drawn as paths, no font).
+//
+//   node scripts/gen-icons.mjs
+import { readFile, writeFile } from 'node:fs/promises';
 import pngToIco from 'png-to-ico';
-import { writeFile } from 'node:fs/promises';
+import sharp from 'sharp';
 
 const DIR = 'public/favicon';
+const source = await readFile(`${DIR}/favicon.svg`, 'utf8');
+const mark = source.match(/<path d="([^"]+)"/)[1];
+const gradient = source.match(/<defs>[\s\S]*<\/defs>/)[0];
 
-// Brand tile (matches favicon.svg). Render at high res, then downscale.
-const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
-  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-    <stop offset="0" stop-color="#2b9bf4"/><stop offset="1" stop-color="#8b5cf6"/>
-  </linearGradient></defs>
-  <rect width="512" height="512" rx="112" fill="url(#g)"/>
-  <text x="50%" y="53%" dominant-baseline="central" text-anchor="middle"
-    font-family="Arial, Helvetica, sans-serif" font-size="256" font-weight="700" fill="#fff">TK</text>
-</svg>`;
+// rounded: transparent corners for browser tabs. Otherwise full-bleed (the
+// OS applies its own mask); `scale` keeps the mark inside maskable safe zones.
+function tile({ rounded, scale = 1 }) {
+  return Buffer.from(
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">${gradient}` +
+      `<rect width="36" height="36"${rounded ? ' rx="8"' : ''} fill="url(#g)"/>` +
+      `<g transform="translate(18 18) scale(${scale}) translate(-18 -18)">` +
+      `<path d="${mark}" fill="#fff"/></g></svg>`,
+  );
+}
 
-const base = Buffer.from(svg);
-
-async function png(size, name) {
-  await sharp(base, { density: 384 })
+const png = (opts, size) =>
+  sharp(tile(opts), { density: (72 * size) / 36 + 1 })
     .resize(size, size)
-    .png()
-    .toFile(`${DIR}/${name}`);
+    .png({ compressionLevel: 9 })
+    .toBuffer();
+
+const files = {
+  'favicon-96x96.png': [{ rounded: true }, 96],
+  'apple-touch-icon.png': [{ rounded: false, scale: 0.9 }, 180],
+  'web-app-manifest-192x192.png': [{ rounded: false, scale: 0.82 }, 192],
+  'web-app-manifest-512x512.png': [{ rounded: false, scale: 0.82 }, 512],
+};
+for (const [name, [opts, size]] of Object.entries(files)) {
+  await writeFile(`${DIR}/${name}`, await png(opts, size));
   console.log('wrote', name);
 }
 
-await png(180, 'apple-touch-icon.png');
-await png(192, 'web-app-manifest-192x192.png');
-await png(512, 'web-app-manifest-512x512.png');
-await png(96, 'favicon-96x96.png');
-
-// favicon.ico (multi-size)
-const ico = await pngToIco([
-  await sharp(base, { density: 384 }).resize(16, 16).png().toBuffer(),
-  await sharp(base, { density: 384 }).resize(32, 32).png().toBuffer(),
-  await sharp(base, { density: 384 }).resize(48, 48).png().toBuffer(),
-]);
+const ico = await pngToIco(
+  await Promise.all([16, 32, 48].map((s) => png({ rounded: true }, s))),
+);
 await writeFile(`${DIR}/favicon.ico`, ico);
 console.log('wrote favicon.ico');

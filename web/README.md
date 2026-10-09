@@ -9,7 +9,7 @@ Complete redesign built on Next.js 15 App Router.
 - **Tailwind CSS v4** + **shadcn/ui** (seeded from the paid "Sonic" shadcnblocks template)
 - **Motion** (`motion/react`) for scroll/reveal animations; **Lenis** smooth scroll
 - **Three.js** via `@react-three/fiber` + `drei` — the interactive "touch grass" meadow hero (custom GLSL)
-- **Adobe Fonts** — IvyPresto Display (editorial serif) via web kit `cml5ijv`; Geist Mono for HUD labels
+- **Type**: IvyPresto Display (editorial serif) via Adobe Fonts kit `cml5ijv`; Geist Sans for body text and Geist Mono for HUD labels, both self-hosted by `next/font`
 - **next-intl** — 5 languages (EN / ES / FR / Hindi / Punjabi), cookie-based, no URL prefix
 - **Resend** — server-action contact form
 - **@vercel/analytics**
@@ -37,7 +37,9 @@ Morning / Golden / Night switch lives in the hero.
   get. Re-render them after changing the scene: `node scripts/posters.mjs`
   (with a production server on :3001).
 - The About portrait is a background-removed cutout (Adobe Photoshop API) at
-  `public/portrait-cutout.webp`.
+  `public/portrait-cutout.webp`, with golden and night grades made with Photoshop
+  adjustments (`portrait-cutout-{golden,night}.webp`). Only the grade for the
+  current time of day downloads.
 - Adobe Fonts kit `cml5ijv` is allow-listed for `tarnnn.com`, `www.tarnnn.com`,
   `*.vercel.app` and `localhost` — add new domains at fonts.adobe.com → Web Projects.
 
@@ -49,8 +51,10 @@ its apps — Baybee Studio, Lullow, Pyaar; artwork mirrored in `public/nexus/`) 
 Projects (live from the GitHub API, cached daily) · Testimonials · Contact (working
 form + quick links).
 
-SEO: JSON-LD `Person` schema, `app/sitemap.ts`, `app/robots.ts`, generated OG image
-(`app/opengraph-image.tsx`), branded favicons (regenerate via `node scripts/gen-icons.mjs`).
+SEO: JSON-LD `Person` schema, `app/sitemap.ts`, `app/robots.ts`, a share card rendered
+from the golden-hour poster (`app/opengraph-image.jpg`, re-render with
+`node scripts/og-image.mjs`), and favicons built from the path-drawn TK mark in
+`public/favicon/favicon.svg` (regenerate via `node scripts/gen-icons.mjs`).
 
 ## Develop
 

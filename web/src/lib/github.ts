@@ -89,7 +89,16 @@ type GitHubRepo = {
   pushed_at: string;
 };
 
-export async function getProjects(limit = 6): Promise<Project[]> {
+// `skip` names repos to leave out: the ones already shown as featured projects.
+export async function getProjects(
+  limit = 6,
+  skip: string[] = [],
+): Promise<Project[]> {
+  const skipped = new Set(skip.map((name) => name.toLowerCase()));
+  const fallback = FALLBACK.filter(
+    (p) => !skipped.has(p.name.toLowerCase()),
+  ).slice(0, limit);
+
   try {
     const res = await fetch(
       `https://api.github.com/users/${GH_USER}/repos?per_page=100&sort=pushed`,
@@ -107,7 +116,8 @@ export async function getProjects(limit = 6): Promise<Project[]> {
           !r.fork &&
           !r.archived &&
           r.description &&
-          !EXCLUDE.has(r.name.toLowerCase()),
+          !EXCLUDE.has(r.name.toLowerCase()) &&
+          !skipped.has(r.name.toLowerCase()),
       )
       .sort(
         (a, b) =>
@@ -126,9 +136,9 @@ export async function getProjects(limit = 6): Promise<Project[]> {
         }),
       );
 
-    return projects.length ? projects : FALLBACK.slice(0, limit);
+    return projects.length ? projects : fallback;
   } catch {
-    return FALLBACK.slice(0, limit);
+    return fallback;
   }
 }
 

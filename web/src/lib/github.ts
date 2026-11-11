@@ -1,14 +1,14 @@
-// Live GitHub projects with a curated static fallback. The live fetch is cached
-// (revalidated daily) so we don't hit the unauthenticated rate limit per request;
-// if GitHub is unreachable we fall back to the curated list below.
+// Public GitHub repos that have a live site: the ones whose "Website" field is
+// set on GitHub. The fetch is cached (revalidated daily) so we don't hit the
+// unauthenticated rate limit per request; if GitHub is unreachable we fall back
+// to the curated list below.
 
 export type Project = {
   name: string;
   description: string;
   language: string | null;
-  url: string;
-  homepage: string | null;
-  stars: number;
+  url: string; // the repo on GitHub
+  homepage: string; // the live site
 };
 
 const GH_USER = 'tarnn';
@@ -24,56 +24,14 @@ const EXCLUDE = new Set([
   'whatsapp_bot',
 ]);
 
-// Curated fallback (also defines a nice default ordering if the API is down).
+// Curated fallback, used when the API is down.
 const FALLBACK: Project[] = [
   {
     name: 'giftsplit',
     description: 'Splitting funds for group gifts, made effortless.',
     language: 'TypeScript',
     url: 'https://github.com/tarnn/giftsplit',
-    homepage: null,
-    stars: 0,
-  },
-  {
-    name: 'forcasty-java',
-    description: 'Weather forecast API built with Java & Spring Boot.',
-    language: 'Java',
-    url: 'https://github.com/tarnn/forcasty-java',
-    homepage: null,
-    stars: 0,
-  },
-  {
-    name: 'forcasty',
-    description: 'Ruby on Rails weather application.',
-    language: 'Ruby',
-    url: 'https://github.com/tarnn/forcasty',
-    homepage: null,
-    stars: 0,
-  },
-  {
-    name: 'tge-calendar',
-    description: 'Web app that surfaces token TGE events on a calendar.',
-    language: 'TypeScript',
-    url: 'https://github.com/tarnn/tge-calendar',
-    homepage: null,
-    stars: 0,
-  },
-  {
-    name: 'whipseeker-openapi',
-    description:
-      'OpenAPI 3.1 spec for the WhipSeeker APIs: deal recommendations, scheduling, ROI analytics and more.',
-    language: 'OpenAPI',
-    url: 'https://github.com/tarnn/whipseeker-openapi',
-    homepage: null,
-    stars: 0,
-  },
-  {
-    name: 'SwapJeet-BE',
-    description: 'Backend service for SwapJeet.',
-    language: 'TypeScript',
-    url: 'https://github.com/tarnn/SwapJeet-BE',
-    homepage: null,
-    stars: 0,
+    homepage: 'https://giftsplit.vercel.app',
   },
 ];
 
@@ -89,8 +47,14 @@ type GitHubRepo = {
   pushed_at: string;
 };
 
+// The "Website" field is free text; only a full web address can be linked to.
+function liveUrl(homepage: string | null): string | null {
+  const url = homepage?.trim();
+  return url && /^https?:\/\//i.test(url) ? url : null;
+}
+
 // `skip` names repos to leave out: the ones already shown as featured projects.
-export async function getProjects(
+export async function getLiveProjects(
   limit = 6,
   skip: string[] = [],
 ): Promise<Project[]> {
@@ -110,12 +74,13 @@ export async function getProjects(
     if (!res.ok) throw new Error(`GitHub ${res.status}`);
     const repos = (await res.json()) as GitHubRepo[];
 
-    const projects = repos
+    return repos
       .filter(
         (r) =>
           !r.fork &&
           !r.archived &&
           r.description &&
+          liveUrl(r.homepage) &&
           !EXCLUDE.has(r.name.toLowerCase()) &&
           !skipped.has(r.name.toLowerCase()),
       )
@@ -131,31 +96,12 @@ export async function getProjects(
           description: r.description as string,
           language: r.language,
           url: r.html_url,
-          homepage: r.homepage || null,
-          stars: r.stargazers_count,
+          homepage: liveUrl(r.homepage) as string,
         }),
       );
-
-    return projects.length ? projects : fallback;
   } catch {
     return fallback;
   }
 }
 
 export const profileUrl = `https://github.com/${GH_USER}`;
-
-// Brand-ish colors for language dots.
-export const LANG_COLOR: Record<string, string> = {
-  TypeScript: '#3178c6',
-  JavaScript: '#f1e05a',
-  Java: '#b07219',
-  Python: '#3572A5',
-  Ruby: '#701516',
-  'C#': '#178600',
-  HTML: '#e34c26',
-  CSS: '#563d7c',
-  Go: '#00ADD8',
-  Kotlin: '#A97BFF',
-  OpenAPI: '#6BA539',
-  Shell: '#89e051',
-};

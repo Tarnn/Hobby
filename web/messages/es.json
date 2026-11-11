@@ -128,7 +128,7 @@
   "projects": {
     "eyebrow": "Trabajo destacado",
     "title": "Cosas que he estado <em>creando</em>",
-    "subtitle": "Algunos sitios en producción y lo que he estado probando últimamente en GitHub.",
+    "subtitle": "Algunos sitios que he creado y que están en producción. Todo lo demás está en GitHub.",
     "viewRepo": "Ver repo",
     "liveDemo": "En vivo",
     "viewAll": "Ver todo en GitHub"

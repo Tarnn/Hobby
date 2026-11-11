@@ -256,13 +256,15 @@ export type FeaturedProject = {
   description: string;
   url: string;
   tags: string[];
-  // Name of the project's public GitHub repo, if it has one. The card links to
-  // it, and the repo is not picked up a second time from GitHub.
+  // Name of the project's public GitHub repo, if it has one. The card links
+  // to it.
   repo?: string;
 };
 
-// Live, deployed projects. Public repos with a website set on GitHub follow
-// them in the grid (see lib/github.ts).
+// The projects section: live, deployed projects only, in this order. The list
+// is kept by hand on purpose. A repo's "Website" field on GitHub is no proof
+// that the site still works, so nothing is picked up from GitHub automatically:
+// check that a site loads before adding it here.
 export const FEATURED_PROJECTS: FeaturedProject[] = [
   {
     name: 'Nexus Development',
@@ -292,6 +294,14 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
       'A site for a luxury chauffeur and limo service, with a fleet showcase and online booking.',
     url: 'https://www.presidentialchauffeurs.com/',
     tags: ['Web', 'Booking', 'Brand'],
+  },
+  {
+    name: 'Gift Split',
+    description:
+      'Create a gift link, share it with friends and collect the money together through Stripe.',
+    url: 'https://giftsplit.vercel.app/',
+    tags: ['Next.js', 'TypeScript', 'Stripe'],
+    repo: 'giftsplit',
   },
 ];
 

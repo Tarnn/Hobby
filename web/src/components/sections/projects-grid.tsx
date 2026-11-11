@@ -21,13 +21,11 @@ export function ProjectsGrid({
   return (
     <>
       <div className="mt-14 grid gap-5 md:mt-16 md:grid-cols-2 lg:grid-cols-3">
-        {/* Featured live deployments */}
+        {/* Featured live deployments. The project name is the card's link and
+            covers the whole card; the link to the source sits above it. */}
         {featured.map((p, i) => (
-          <motion.a
+          <motion.article
             key={p.name}
-            href={p.url}
-            target="_blank"
-            rel="noopener noreferrer"
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
@@ -48,7 +46,14 @@ export function ProjectsGrid({
             </div>
 
             <h3 className="group-hover:text-brand mt-4 font-semibold transition-colors">
-              {p.name}
+              <a
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="focus-visible:after:ring-ring outline-none after:absolute after:inset-0 after:rounded-2xl focus-visible:after:ring-2"
+              >
+                {p.name}
+              </a>
             </h3>
             <p className="text-muted-foreground mt-2 line-clamp-3 flex-1 text-sm/relaxed">
               {p.description}
@@ -63,9 +68,23 @@ export function ProjectsGrid({
                   {tag}
                 </span>
               ))}
-              <ArrowUpRight className="text-brand ms-auto size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <span className="ms-auto flex items-center gap-2">
+                {p.repo && (
+                  <a
+                    href={`${profileUrl}/${p.repo}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${p.name}: ${t('viewRepo')}`}
+                    title={t('viewRepo')}
+                    className="text-muted-foreground hover:bg-brand/10 hover:text-brand focus-visible:ring-ring relative -my-1 grid size-8 place-items-center rounded-full transition-colors outline-none focus-visible:ring-2"
+                  >
+                    <Github className="size-4" />
+                  </a>
+                )}
+                <ArrowUpRight className="text-brand size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </span>
             </div>
-          </motion.a>
+          </motion.article>
         ))}
 
         {/* GitHub repositories */}

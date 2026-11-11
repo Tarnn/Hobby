@@ -256,6 +256,10 @@ export type FeaturedProject = {
   description: string;
   url: string;
   tags: string[];
+  // Name of the project's public GitHub repo, if it has one. The card links to
+  // it, and the repo is left out of the GitHub list below the featured cards
+  // so the project is not shown twice.
+  repo?: string;
 };
 
 // Live, deployed projects — featured above the GitHub repos.
@@ -273,6 +277,14 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
       'A real-time kanban board for watching and steering AI agent workflows.',
     url: 'https://agent-trello.vercel.app/',
     tags: ['React', 'Tailwind', 'Vite'],
+  },
+  {
+    name: 'TGE Calendar',
+    description:
+      'A calendar of upcoming crypto token launches, updated from live exchange listings, with a 3D timeline in WebGL.',
+    url: 'https://tge-calendar.vercel.app/',
+    tags: ['React', 'TypeScript', 'Three.js'],
+    repo: 'tge-calendar',
   },
   {
     name: 'Presidential Chauffeurs',

@@ -257,12 +257,12 @@ export type FeaturedProject = {
   url: string;
   tags: string[];
   // Name of the project's public GitHub repo, if it has one. The card links to
-  // it, and the repo is left out of the GitHub list below the featured cards
-  // so the project is not shown twice.
+  // it, and the repo is not picked up a second time from GitHub.
   repo?: string;
 };
 
-// Live, deployed projects — featured above the GitHub repos.
+// Live, deployed projects. Public repos with a website set on GitHub follow
+// them in the grid (see lib/github.ts).
 export const FEATURED_PROJECTS: FeaturedProject[] = [
   {
     name: 'Nexus Development',

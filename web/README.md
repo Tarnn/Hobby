@@ -52,8 +52,9 @@ Morning / Golden / Night switch lives in the hero.
 Hero · About (animated stat counters) · Skills · Experience (impact highlights +
 resume-driven timeline, incl. Adobe & Handshake) · Studio (Nexus Development LLC and
 its apps — Baybee Studio, Lullow, Pyaar; artwork mirrored in `public/nexus/`) ·
-Projects (featured live sites from `FEATURED_PROJECTS` in `src/content/portfolio.ts`,
-then repos live from the GitHub API, cached daily) · Testimonials · Contact (working
+Projects (live sites only: `FEATURED_PROJECTS` in `src/content/portfolio.ts`, then any
+other public repo with a website set on GitHub, fetched from the GitHub API and cached
+daily) · Testimonials · Contact (working
 form + quick links).
 
 AI opt-out: `src/lib/ai-bots.ts` lists AI crawlers, AI search bots and AI assistants.

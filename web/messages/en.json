@@ -128,7 +128,7 @@
   "projects": {
     "eyebrow": "Selected work",
     "title": "Things I've been <em>building</em>",
-    "subtitle": "A few live sites, plus whatever I've been tinkering with on GitHub lately.",
+    "subtitle": "A few live sites I've built. Everything else is on GitHub.",
     "viewRepo": "View repo",
     "liveDemo": "Live",
     "viewAll": "View all on GitHub"

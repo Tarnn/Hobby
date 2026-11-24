@@ -91,9 +91,9 @@
     "subtitle": "Nexus Development es un pequeño estudio independiente de apps en California. Ahora mismo hay tres apps en marcha, cada una pensada para una parte real de la vida diaria.",
     "studioLine": "Estudio de software independiente · California",
     "visit": "Visitar el estudio",
-    "status": "En desarrollo",
     "apps": {
       "baybee": {
+        "status": "En TestFlight",
         "tagline": "Pequeños momentos, bellamente imaginados.",
         "description": "Un estudio de retratos con IA para fotos de bebés. Elige una escena y convierte una foto cotidiana en un recuerdo.",
         "features": [
@@ -101,9 +101,10 @@
           "Flujo creativo",
           "Galería personal"
         ],
-        "platforms": "Vista previa web · iOS y Android previstos"
+        "platforms": "Vista previa web · iOS en TestFlight · Android previsto"
       },
       "lullow": {
+        "status": "En TestFlight",
         "tagline": "Pequeños ritmos. Días más tranquilos.",
         "description": "Ayuda a los padres primerizos a llevar el control del sueño, las tomas y todo lo demás, y a compartirlo con quien esté ayudando.",
         "features": [
@@ -111,9 +112,10 @@
           "Línea de tiempo diaria",
           "Cuidado compartido"
         ],
-        "platforms": "iOS y Android en desarrollo"
+        "platforms": "iOS en TestFlight · Android en desarrollo"
       },
       "pyaar": {
+        "status": "En desarrollo",
         "tagline": "Tu forma de conectar.",
         "description": "Una app de citas para solteros del sur de Asia que buscan algo real, con espacio para cada parte de quienes son.",
         "features": [

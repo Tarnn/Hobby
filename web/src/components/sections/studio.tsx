@@ -41,7 +41,7 @@ function AppCard({ app, index }: { app: StudioApp; index: number }) {
             <span className="absolute inline-flex size-full animate-ping rounded-full bg-amber-300 opacity-70" />
             <span className="relative inline-flex size-1.5 rounded-full bg-amber-300" />
           </span>
-          {t('status')}
+          {t(`apps.${app.id}.status`)}
         </span>
 
         <div className="absolute inset-x-5 bottom-5 flex items-end gap-3.5">

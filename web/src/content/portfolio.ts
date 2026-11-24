@@ -296,12 +296,11 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
     tags: ['Web', 'Booking', 'Brand'],
   },
   {
-    name: 'Gift Split',
+    name: 'ANIME TD',
     description:
-      'Create a gift link, share it with friends and collect the money together through Stripe.',
-    url: 'https://giftsplit.vercel.app/',
-    tags: ['Next.js', 'TypeScript', 'Stripe'],
-    repo: 'giftsplit',
+      'A hobby project: a 3D tower defense game for the browser and phones, built with Three.js. Password-protected while friends test it.',
+    url: 'https://anime-td.vercel.app/',
+    tags: ['Three.js', 'WebGL', 'Game', 'Hobby'],
   },
 ];
 
